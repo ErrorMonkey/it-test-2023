@@ -4,6 +4,17 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "mysql": "^2.18.1",
-    "mysql2": "^3.6.3"
-  }
+    "mysql2": "^3.6.3",
+    "sequelize": "^6.34.0",
+    "sequelize-cli": "^6.6.2"
+  },
+  "name": "ittest",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
