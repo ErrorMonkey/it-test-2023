@@ -1,0 +1,61 @@
+:root {
+  --main-gray-light: #EBEDE9;
+  --main-gray-deep: #9E9999;
+  --main-blue-main: #2487B9;
+  --main-blue-deep: #086BA2;
+  --main-blue-dark: #06598B;
+  --main-black-basic: #333;
+  --main-white-basic: #ffffff;
+}
+
+@font-face {
+  font-family: 'NEXON Lv1 Gothic OTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  font-family: 'NEXON Lv1 Gothic OTF', 'Noto Sans KR','Roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+header{
+  background-color: var(--main-blue-deep);
+  height: 72px;
+}
+
+header div{
+  position: absolute;
+  left: 18px;
+  top: 18px;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* background-color: #333; */
+  align-items: center;
+  background-color: var(--main-blue-deep);
+
+}
+
+.main-title{
+  margin: 0;
+  font-size: 45px;
+  /* display: inline-block; */
+  text-align: center;
+}
+
+.main-btn{
+  background-color: var(--main-white-basic);
+  color: var(--main-blue-deep);
+  font-size: 24px;
+  height: 66px;
+  padding: 10px;
+  width: 75%;
+  border-radius: 8px;
+  border: 0;
+  font-weight: 700;
+}
