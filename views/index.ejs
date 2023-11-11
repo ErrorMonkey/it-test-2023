@@ -1,60 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/main.css" />
-    <link rel="stylesheet" href="../public/index.css" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
-    <!-- axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </head>
-  <body>
-    <!-- mobil 576 -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
-    <header>
-      <div>logo</div>
-      <img src="" alt="" />
-    </header>
-    <section class="wrapper">
-      <div class="main-title">2023</div>
-      <p>
-        벌써 트능이 3회차를 맞이했다고? 그런데 아직 1등급 못 받아본 사람이
-        있다는 소문... 올해 나의 트렌드 감각은 과연?
-      </p>
-      <button onclick="startTest()" class="main-btn">테스트 시작하기</button>
 
-      <div>
-        <img src="" alt="말풍선" />
-        <img src="" alt="캐릭터들" />
-      </div>
-    </section>
-    <section>
-      <div>
-        <span>응시자</span>
-        <span><%= %>55명</span>
-      </div>
-      <div>
-        <span>응시자 평균 점수</span>
-        <span><%= %>55명</span>
-      </div>
-      <div>
-        <span>만점자</span>
-        <span><%= %>55명</span>
-      </div>
-      <div>
-        <p>가장 많은 트렌드 유형은?</p>
-        <p>Lv.5 새우깡마냥 트렌드 낚아채는 갈매기 (19%)</p>
-        <img src="" alt="유형 이미지" />
-      </div>
-      <p>※ 트렌드 지수는 1시간마다 갱신됩니다.</p>
-      <button>전체 트렌드 유형 보기</button>
-    </section>
-    <footer>
-      <span>COPYRIGHT(C) UNIVTOMORROWA.ALL RIGHTS RESERVED.</span>
-    </footer>
-    <script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../public/main.css">
+  <link rel="stylesheet" href="../public/index.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+  <!-- axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <!-- mobil 576 -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
+  
+  <header>
+    <div>logo</div>
+    <img src="" alt="" />
+  </header>
+
+  <section class="wrapper">
+    <div class="main-title">2023</div>
+    <p>벌써 트능이 3회차를 맞이했다고? 
+      그런데 아직 1등급 못 받아본 <br/>
+      사람이 있다는 소문... <br/>
+      올해 나의 트렌드 감각은 과연?
+    </p>
+    <button onclick="startTest()" class="main-btn">테스트 시작하기</button>
+    <div>
+      <img src="/public/image/main-section1 말풍선.png" alt="말풍선" class="balloon"/>
+      <img src="/public/image/ main-sesction1 캐릭터들.png" alt="캐릭터들" class="characters" />
+    </div>
+  </section>
+
+  <section class="cont-area">
+    <div>
+      <ul>
+        <li>
+          <div class="box data">
+            <span class="label">응시자</span>
+            <span class="value"><%= %>55명</span>
+          </div>
+          <div class="box data">
+            <span class="label">응시자 평균 점수</span>
+            <span class="value"><%= %>55명</span>
+          </div>
+          <div class="box data">
+            <span class="label">만점자</span>
+            <span class="value"><%= %>55명</span>
+          </div>
+          <div class="box trend">
+            <span class="trend-label">가장 많은 트렌드 유형은?</span>
+            <p>Lv.5 새우깡마냥 트렌드
+              낚아채는 갈매기 (19%)</p>
+              <img src="/public/image/level5.png" alt="lv5" class="lv5"/>
+          </div>
+          <p>※ 트렌드 지수는 1시간마다 갱신됩니다.</p>
+          <button class="lv-button">전체 트렌드 유형 보기</button>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <span>COPYRIGHT(C) UNIVTOMORROWA.ALL RIGHTS RESERVED.</span>
+  </footer>
+
+  <script>
       function startTest() {
         console.log("click");
         location.href = "/test2023";
