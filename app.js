@@ -14,7 +14,13 @@ app.get("/", (req, res) =>{
   res.render("index")
 });
 
+app.get("/test2023", (req, res) =>{
+  res.render("test2023")
+});
 
+app.get("/result", (req, res) =>{
+  res.render("result")
+});
 
 // app.get("/", async (req, res) => {
 //   try {
