@@ -12,8 +12,6 @@ header div{
 .wrapper{
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* background-color: #333; */
   align-items: center;
   background-color: var(--main-blue-deep);
 
@@ -26,12 +24,13 @@ header div{
   text-align: center;
 }
 
-p{
+.wrapper p{
   color: var(--main-gray-light);
   font-size: 14px;
   width: 207px;
   line-height: 140%;
   margin-top: 20px;
+  text-align: center;
 
 }
 
@@ -44,4 +43,118 @@ border-radius: 8px;
 border: 0;
 font-weight: 700;
 margin-top: 20px;
+}
+
+.balloon{
+  width: 30%;
+  height: 98px;
+  margin-top: 28px;
+  margin-left: 34px;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: translate(2px, 2px); 
+  }
+}
+
+.characters{
+  width: 90%;
+  height: 273px;
+  margin-left: 19px;
+  margin-bottom: 12px;
+}
+
+.cont-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--main-blue-main);
+  padding: 36px 18px;
+  text-align: center;
+}
+
+.box{
+  width: 100%;
+  padding: 11px 18px 10px;
+  background: var(--main-blue-deep);
+  border-radius: 6px;
+}
+
+.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 58px;
+  color: var(--main-white-basic);
+}
+
+.box:not(:last-child) {
+  margin-bottom: 12px; 
+}
+
+.data .label {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.data .value {
+  font-weight: 900;
+  font-size: 32px;
+}
+
+/* .box .span {
+  position: absolute;
+  font-size: 14px;
+} */
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trend{
+  width: 100%;
+  height: 254px;
+  border-radius: 7px;
+  text-align: center;
+}
+
+p {
+  color: var(--main-gray-light);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.lv-button {
+  background-color: var(--main-blue-main);
+  color: var(--main-white-basic);
+  border-radius: 555px; 
+  width: 179px; 
+  height: 31px; 
+  margin-top: 6px;
+  border: 1px solid var(--main-white-basic);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.trend p {
+  width: 100%;
+  height: 56px;
+  font-size: 24px;
+  font-weight: 700;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 12px;
+}
+
+.trend-label {
+  margin-top: 12px;
+  display: block;
+  font-size: 14px;
+}
+
+.lv5 {
+  width:108px;
+  height:108px;
+  margin-top:14px;
 }
