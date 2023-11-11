@@ -1,5 +1,6 @@
 const db = require("../model");
 const quizModel = require("../utils/answersolution");
+const getResultInfo = require("../utils/resultValue");
 
 // 총 응시자
 const getTotalApplicants = async () => {
@@ -32,7 +33,7 @@ const getAverageScore = async () => {
   try {
     const result = await db.applicants.findOne({
       attributes: [
-        [db.sequelize.fn("AVG", db.sequelize.col("score")), "averageScore"],
+        [db.sequelize.fn("TRUNCATE", db.sequelize.fn("AVG", db.sequelize.col("score")), 0), "averageScore"],
       ],
     });
     const averageScore = result.getDataValue("averageScore");
@@ -59,7 +60,7 @@ exports.home = async (req, res) => {
       averageScore,
       perfectScoreApplicants,
     });
-    res.send();
+ 
   } catch (error) {
     res.status(500).send("에러 발생");
   }
@@ -101,19 +102,28 @@ function checkAnswers(req, res) {
       score += 10;
     }
   }
-  let pageToRender;
-  if (score >= 0 && score <= 20) {
-    pageToRender = "lowScorePage"; // 0~20점 범위
-  } else if (score > 20 && score <= 40) {
-    pageToRender = "mediumScorePage"; // 21~40점 범위
-  } else if (score > 40 && score <= 60) {
-    pageToRender = "mediumHighScorePage"; // 41~60점 범위
-  } else if (score > 60 && score <= 80) {
-    pageToRender = "highScorePage"; // 61~80점 범위
-  } else {
-    pageToRender = "perfectScorePage"; // 81~100점 범위
-  }
-  res.render(pageToRender);
+
+  // const resultName = resultValue.resultname();
+  // const resulttext = resultValue.resulttext();
+
+
+
+  let resultRender=getResultInfo(score);
+
+  
+  // let pageToRender;
+  // if (score >= 0 && score <= 20) {
+  //   pageToRender = "lowScorePage"; // 0~20점 범위
+  // } else if (score > 20 && score <= 40) {
+  //   pageToRender = "mediumScorePage"; // 21~40점 범위
+  // } else if (score > 40 && score <= 60) {
+  //   pageToRender = "mediumHighScorePage"; // 41~60점 범위
+  // } else if (score > 60 && score <= 80) {
+  //   pageToRender = "highScorePage"; // 61~80점 범위
+  // } else {
+  //   pageToRender = "perfectScorePage"; // 81~100점 범위
+  // }
+  res.render('result',{resultRender});
   return score;
 }
 
