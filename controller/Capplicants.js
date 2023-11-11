@@ -1,10 +1,10 @@
-const { applicants } = require("../model");
+const db = require("../model");
 const quizModel = require("../utils/answersolution");
 
 // 총 응시자
 const getTotalApplicants = async () => {
   try {
-    const totalApplicants = await db.Applicant.count();
+    const totalApplicants = await db.applicants.count();
     return totalApplicants;
   } catch (error) {
     console.error("에러 발생: ", error);
@@ -15,7 +15,7 @@ const getTotalApplicants = async () => {
 // 응시사 중 100점을 획득자
 const getPerfectScoreApplicants = async () => {
   try {
-    const perfectScoreApplicants = await db.Applicant.count({
+    const perfectScoreApplicants = await db.applicants.count({
       where: {
         score: 100,
       },
@@ -30,7 +30,7 @@ const getPerfectScoreApplicants = async () => {
 // 응시자 평균 점수
 const getAverageScore = async () => {
   try {
-    const result = await db.Applicant.findOne({
+    const result = await db.applicants.findOne({
       attributes: [
         [db.sequelize.fn("AVG", db.sequelize.col("score")), "averageScore"],
       ],
