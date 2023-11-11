@@ -33,7 +33,14 @@ const getAverageScore = async () => {
   try {
     const result = await db.applicants.findOne({
       attributes: [
-        [db.sequelize.fn("TRUNCATE", db.sequelize.fn("AVG", db.sequelize.col("score")), 0), "averageScore"],
+        [
+          db.sequelize.fn(
+            "TRUNCATE",
+            db.sequelize.fn("AVG", db.sequelize.col("score")),
+            0
+          ),
+          "averageScore",
+        ],
       ],
     });
     const averageScore = result.getDataValue("averageScore");
@@ -60,7 +67,6 @@ exports.home = async (req, res) => {
       averageScore,
       perfectScoreApplicants,
     });
- 
   } catch (error) {
     res.status(500).send("에러 발생");
   }
@@ -86,7 +92,7 @@ exports.getResult = async (req, res) => {
   if (createScore) {
     res.send({ return: true });
   } else {
-    res.status(500).send({ return: false });
+    // res.status(500).send({ return: false });
   }
 };
 
@@ -106,11 +112,8 @@ function checkAnswers(req, res) {
   // const resultName = resultValue.resultname();
   // const resulttext = resultValue.resulttext();
 
+  let resultRender = getResultInfo(score);
 
-
-  let resultRender=getResultInfo(score);
-
-  
   // let pageToRender;
   // if (score >= 0 && score <= 20) {
   //   pageToRender = "lowScorePage"; // 0~20점 범위
@@ -123,7 +126,7 @@ function checkAnswers(req, res) {
   // } else {
   //   pageToRender = "perfectScorePage"; // 81~100점 범위
   // }
-  res.render('result',{resultRender});
+  res.render("result", { resultRender });
   return score;
 }
 
