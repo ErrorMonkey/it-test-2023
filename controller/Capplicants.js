@@ -17,7 +17,7 @@ const getPerfectScoreApplicants = async () => {
   try {
     const perfectScoreApplicants = await db.Applicant.count({
       where: {
-        score: 100, // 여기에 만점에 해당하는 점수를 넣으세요.
+        score: 100,
       },
     });
     return perfectScoreApplicants;
@@ -44,8 +44,25 @@ const getAverageScore = async () => {
 };
 
 // 메인 화면
-exports.home = (req, res) => {
-  res.render("index");
+exports.home = async (req, res) => {
+  try {
+    const totalApplicants = await getTotalApplicants();
+    const averageScore = await getAverageScore();
+    const perfectScoreApplicants = await getPerfectScoreApplicants();
+
+    // const totalApplicants_test = 75;
+    // const averageScore_test = 75;
+    // const perfectScoreApplicants_test = 75;
+
+    res.render("index", {
+      totalApplicants,
+      averageScore,
+      perfectScoreApplicants,
+    });
+    res.send();
+  } catch (error) {
+    res.status(500).send("에러 발생");
+  }
 };
 
 // 메인 화면 정보 가져오기
@@ -100,7 +117,7 @@ function checkAnswers(req, res) {
   return score;
 }
 
-module.exports = { checkAnswers };
-module.exports = { getTotalApplicants };
-module.exports = { getPerfectScoreApplicants };
-module.exports = { getAverageScore };
+// module.exports = { checkAnswers };
+// module.exports = { getTotalApplicants };
+// module.exports = { getPerfectScoreApplicants };
+// module.exports = { getAverageScore };
