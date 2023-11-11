@@ -4,4 +4,4 @@ function getCorrectAnswers() {
   return correctAnswers;
 }
 
-module.exports = { getCorrectAnswers };
+module.exports = getCorrectAnswers;
