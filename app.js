@@ -8,24 +8,29 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-const router = require("./routes");
-app.use("/", router);
+// const router = require("./routes");
 
-app.get("/", async (req, res) => {
-  try {
-    const totalApplicants = await controller.getTotalApplicants();
-    const averageScore = await controller.getAverageScore();
-    const perfectScoreApplicants = await controller.getPerfectScoreApplicants();
-
-    res.render("index", {
-      totalApplicants,
-      averageScore,
-      perfectScoreApplicants,
-    });
-  } catch (error) {
-    res.status(500).send("에러 발생");
-  }
+app.get("/", (req, res) =>{
+  res.render("index")
 });
+
+
+
+// app.get("/", async (req, res) => {
+//   try {
+//     const totalApplicants = await controller.getTotalApplicants();
+//     const averageScore = await controller.getAverageScore();
+//     const perfectScoreApplicants = await controller.getPerfectScoreApplicants();
+
+//     res.render("index", {
+//       totalApplicants,
+//       averageScore,
+//       perfectScoreApplicants,
+//     });
+//   } catch (error) {
+//     res.status(500).send("에러 발생");
+//   }
+// });
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
