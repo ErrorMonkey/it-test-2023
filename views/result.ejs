@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/main.css" />
+    <link rel="stylesheet" href="../public/result.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <div class="logo">logo</div>
+        <!-- <img src="" alt="" /> -->
+      </div>
+      <h1>2023 IT TEST</h1>
+    </header>
+    <div class="share-alert">주소 복사 완료!</div>
+    <section class="wrapper">
+      <div class="score">
+        <h1>당신의 IT 능력 등급은?</h1>
+        <p><%= %>3등급</p>
+      </div>
+      <div class="result-desc">
+        <h3><%= %>"너 개발자야? 견적 좀 짜주라"</h3>
+        <p>
+          <%= %> 개발자라고 하면 컴퓨터를 잘 고칠 거라고 생각하고, it라고 하면
+          유튜브 전자기기 리뷰를 먼저 떠올리는 당신.
+        </p>
+        <img src="" alt="" />
+        <div class="icon-group">
+          <div>
+            <i></i>
+            <p>어울리는 인물</p>
+            <p><%= %></p>
+          </div>
+          <div>
+            <i></i>
+            <p>어울리는 궁합</p>
+            <p><%= %></p>
+          </div>
+        </div>
+      </div>
+      <div onclick="copyUrl()" class="share-btn">공유하기</div>
+    </section>
+    <footer></footer>
+    <script>
+      // const url = window.location.href; // 현재 링크를 가져오는 코드
+      const url = `http://www.localhost:8000`;
+      const copyUrl = async () => {
+        await navigator.clipboard.writeText(url);
+      };
+    </script>
+  </body>
 </html>
