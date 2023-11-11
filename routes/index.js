@@ -10,5 +10,8 @@ router.get("/test2023", controller.testStart);
 
 // // 결과 보기
 // router.post("/test2023", controller.getResult);
+router.get("/result", (req, res) => {
+  res.render("result");
+});
 
 module.exports = router;
