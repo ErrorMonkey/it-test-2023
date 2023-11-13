@@ -39,12 +39,69 @@
 	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
 </div>
 
-## 개발 환경 설정
+## 시작 가이드
+### Requirements
+For building and running the application you need:
 
-```sh
-make install
-npm test
+- [Node.js 14.19.3](https://nodejs.org/ca/blog/release/v14.19.3/)
+- [Npm 9.2.0](https://www.npmjs.com/package/npm/v/9.2.0)
+- [Strapi 3.6.6](https://www.npmjs.com/package/strapi/v/3.6.6)
+
+### Installation
+``` bash
+$ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
+$ cd Voluntain-2nd
 ```
+#### Backend
+```
+$ cd strapi-backend
+$ nvm use v.18.18.0
+$ npm install
+$ npm run develop
+```
+
+#### Frontend
+```
+$ cd voluntain-app
+$ nvm use v.18.18.0
+$ npm install 
+$ npm run dev
+```
+---
+## 화면 구성 📺
+| 메인 페이지  |  문제 페이지   |  결과 페이지   |  
+| :-------------------------------------------: | :------------: | :------------: |
+|  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036155-a57900f7-c68a-470d-923c-ff3c296ea635.png"/> |  <img width="329" src=""/>|  <img width="329" src=""/>|  
+
+---
+
+## 아키텍쳐
+
+### 디렉토리 구조
+```bash
+├── README.md
+├── app.js
+├── package-lock.json
+├── package.json
+├── controller : 
+│   ├── Capplicants.js : 응시자ID, 점수 계산
+│   ├── Ccomments.js : 만점자 댓글 달기 기능
+├── model : 
+│   ├── index.js
+│   ├── applicants.js :응시자ID, 점수 테이블
+│   └── comments.js :만점자 댓글 테이블
+├── public : 
+│   ├── CSS
+│   ├── img
+│   └── JS
+├── routes :
+│   └── index.js
+├── utils :
+│   └── answersolution.js : 문항별 정답 배열 저장
+└── views : 
+    ├── index.ejs
+    ├── result.ejs
+    └── test2023.ejs
 
 ## 업데이트 내역
 
