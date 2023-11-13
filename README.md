@@ -1,7 +1,7 @@
 # IT 능력고사
 
 
-> it 얼마나 알고있니? <>
+> it 얼마나 알고있니? 
 
 
 ## 프로젝트 소개
@@ -43,18 +43,16 @@
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 14.19.3](https://nodejs.org/ca/blog/release/v14.19.3/)
-- [Npm 9.2.0](https://www.npmjs.com/package/npm/v/9.2.0)
-- [Strapi 3.6.6](https://www.npmjs.com/package/strapi/v/3.6.6)
+- [Node.js 18.18.2]([https://nodejs.org/ca/blog/release/v14.19.3/])
+- [Npm 8.5.1](https://www.npmjs.com/package/npm/v/8.5.1)
 
 ### Installation
 ``` bash
-$ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
-$ cd Voluntain-2nd
+$ git clone https://github.com/ErrorMonkey/it-test-2023.git
+$ cd it-test-2023
 ```
 #### Backend
 ```
-$ cd strapi-backend
 $ nvm use v.18.18.0
 $ npm install
 $ npm run develop
@@ -62,7 +60,6 @@ $ npm run develop
 
 #### Frontend
 ```
-$ cd voluntain-app
 $ nvm use v.18.18.0
 $ npm install 
 $ npm run dev
@@ -127,9 +124,9 @@ $ npm run dev
 ## 기여 방법
 
 1. (<https://github.com/ErrorMonkey/it-test-2023>)을 포크합니다.
-2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
-3. (`git commit -am 'Add some fooBar'`) 명령어로 커밋하세요.
-4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요. 
+2. (`git checkout -b feature/itTest`) 명령어로 새 브랜치를 만드세요.
+3. (`git commit -am 'Add some itTest'`) 명령어로 커밋하세요.
+4. (`git push origin feature/itTest`) 명령어로 브랜치에 푸시하세요. 
 5. 풀리퀘스트를 보내주세요.
 
 <!-- Markdown link & img dfn's -->
