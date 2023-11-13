@@ -10,65 +10,36 @@
 ## 개발기간
 > 23.11.09 ~ 23.11.23
 
-## 👨‍👨‍👦‍👦 멤버 구성
+## 멤버 구성
 * 이세윤(FE) :
 * 이산하(FE) :
 * 한기선(FE) :
 * 권구호(BE) :
 * 이다현(BE) : 
 
----
-
-<div align=center>
-	<h3>📚 Tech Stack 📚</h3>
-	<p>✨ Platforms & Languages ✨</p>
-</div>
-<div align="center">
+## 기술 스택
+<h2>Stack</h2>
+<div align="left">
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
 	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
 	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
-	<br>
-	<br>
 	<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white" />
 	<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white" />
+	<br>
+	<img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
 	<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
 	<img src="https://img.shields.io/badge/Linux-FCC624?style=flat&logo=Linux&logoColor=white" />
 </div>
 <br>
-<div align=center>
-	<p>🛠 Tools 🛠</p>
-</div>
-<div align=center>
+	<h2>Tools</h2>
+<div align=left>
 	<img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=VisualStudioCode&logoColor=white" />
 	<img src="https://img.shields.io/badge/AWS-232F3E?style=flat&logo=AmazonAWS&logoColor=white" />
 	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
 </div>
 
----
-
-## 설치 방법
-
-OS X & 리눅스:
-
-```sh
-npm install my-crazy-module --save
-```
-
-윈도우:
-
-```sh
-edit autoexec.bat
-```
-
-## 사용 예제
-
-스크린 샷과 코드 예제를 통해 사용 방법을 자세히 설명합니다.
-
-_더 많은 예제와 사용법은 [Wiki][wiki]를 참고하세요._
-
 ## 개발 환경 설정
-
-모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
 
 ```sh
 make install
@@ -94,13 +65,11 @@ npm test
 
 이름 – [@트위터 주소](https://twitter.com/dbader_org) – 이메일주소@example.com
 
-XYZ 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/ErrorMonkey/it-test-2023k](https://github.com/ErrorMonkey/it-test-2023)
 
 ## 기여 방법
 
-1. (<https://github.com/yourname/yourproject/fork>)을 포크합니다.
+1. (<https://github.com/ErrorMonkey/it-test-2023>)을 포크합니다.
 2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
 3. (`git commit -am 'Add some fooBar'`) 명령어로 커밋하세요.
 4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요. 
