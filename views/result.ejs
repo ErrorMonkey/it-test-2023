@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../public/result.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
+  <style></style>
   <body>
     <header>
       <div>
@@ -16,12 +17,12 @@
       </div>
       <h1>2023 IT TEST</h1>
     </header>
-    <div class="share-alert">주소 복사 완료!</div>
     <section class="wrapper">
       <div class="score">
         <h1>당신의 IT 능력 등급은?</h1>
         <p><%= %>3등급</p>
       </div>
+      <p>test</p>
       <div class="result-desc">
         <h3><%= %>"너 개발자야? 견적 좀 짜주라"</h3>
         <p>
@@ -42,14 +43,28 @@
           </div>
         </div>
       </div>
+      <div class="share-alert">주소 복사 완료!</div>
       <div onclick="copyUrl()" class="share-btn">공유하기</div>
+      <img class="pen" src="../public/img/pen.webp" />
     </section>
     <footer></footer>
-    <script>
+    <script defer>
+      const pen = document.querySelector(".pen");
+      window.addEventListener("mousemove", (event) => {
+        // console.log("e", event.pageX, event.pageY);
+        pen.style.top = event.pageY + "px";
+        pen.style.left = event.pageX + "px";
+      });
+
       // const url = window.location.href; // 현재 링크를 가져오는 코드
       const url = `http://www.localhost:8000`;
       const copyUrl = async () => {
         await navigator.clipboard.writeText(url);
+        const alert = document.querySelector(".share-alert");
+        alert.style.display = "block";
+        window.addEventListener("mousedown", () => {
+          alert.style.display = "none";
+        });
       };
     </script>
   </body>

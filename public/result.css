@@ -17,6 +17,15 @@ header h1 {
   text-align: center;
 }
 
+body {
+  cursor: none;
+}
+
+.pen {
+  position: absolute;
+  transform: translateY(-100%);
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -86,7 +95,7 @@ header h1 {
 
 .share-btn {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: var(--main-white-basic);
   color: var(--main-blue-main);
   border-radius: 10px;
@@ -97,12 +106,12 @@ header h1 {
 }
 
 .share-alert {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
-  display: block;
   box-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 10px;
