@@ -8,10 +8,12 @@ function comment(Sequelize, DataTypes) {
         automIncrement: true,
       },
       username: {
-        type: DataTypes.STRIMG(10),
+        type: DataTypes.STRING(10),
+        allowNull: false,
       },
-      text: {
-        type: DataTypes.STRIMG(50),
+      comment: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
       },
     },
     {
