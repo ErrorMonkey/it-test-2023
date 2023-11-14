@@ -51,6 +51,37 @@ const getAverageScore = async () => {
   }
 };
 
+const getComments = async () =>{
+  try{
+
+  const comments = await db.comment.findAll();
+  return comments;
+
+ } catch (error) {
+  console.error("에러 발생: ", error);
+  throw error;
+ }
+};
+
+// exports.home = async (req, res) => {
+//   try {
+//     // 댓글 조회 함수를 호출하여 댓글 목록을 가져옴
+//     const totalcomment = await getComments();
+    
+//     // 가져온 댓글 목록을 템플릿에 전달하여 렌더링
+//     res.render("index", {
+//       totalcomment
+//     });
+//   } catch (error) {
+//     // 오류 처리
+//     res.status(500).send("에러 발생");
+//   }
+// };
+
+
+
+
+
 // 메인 화면
 exports.home = async (req, res) => {
   try {
@@ -58,14 +89,21 @@ exports.home = async (req, res) => {
     const averageScore = await getAverageScore();
     const perfectScoreApplicants = await getPerfectScoreApplicants();
 
+
+    const totalComment = await getComments();
+
     // const totalApplicants_test = 75;
     // const averageScore_test = 75;
     // const perfectScoreApplicants_test = 75;
+
+    console.log(totalComment)
 
     res.render("index", {
       totalApplicants,
       averageScore,
       perfectScoreApplicants,
+      
+      totalComment
     });
   } catch (error) {
     res.status(500).send("에러 발생");
