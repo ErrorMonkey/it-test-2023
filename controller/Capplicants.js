@@ -51,16 +51,22 @@ const getAverageScore = async () => {
   }
 };
 
+const getQuestion = async () => {
+  try {
+    const perfectScoreApplicants = await db.applicants.count({});
+    return perfectScoreApplicants;
+  } catch (error) {
+    console.error("에러 발생: ", error);
+    throw error;
+  }
+};
+
 // 메인 화면
 exports.home = async (req, res) => {
   try {
     const totalApplicants = await getTotalApplicants();
     const averageScore = await getAverageScore();
     const perfectScoreApplicants = await getPerfectScoreApplicants();
-
-    // const totalApplicants_test = 75;
-    // const averageScore_test = 75;
-    // const perfectScoreApplicants_test = 75;
 
     res.render("index", {
       totalApplicants,
@@ -75,8 +81,16 @@ exports.home = async (req, res) => {
 // 메인 화면 정보 가져오기
 
 // 테스트 시작 화면
-exports.testStart = (req, res) => {
-  res.render("test2023");
+exports.testStart = async (req, res) => {
+  try {
+    const totalApplicants = await getTotalApplicants();
+
+    res.render("test2023", {
+      totalApplicants,
+    });
+  } catch (error) {
+    res.status(500).send("에러 발생");
+  }
 };
 
 // 결과 보기
@@ -130,7 +144,18 @@ function checkAnswers(req, res) {
   return score;
 }
 
-// module.exports = { checkAnswers };
-// module.exports = { getTotalApplicants };
-// module.exports = { getPerfectScoreApplicants };
-// module.exports = { getAverageScore };
+function check(req, res) {
+  const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
+
+  let score = 0;
+  for (let i = 0; i < userAnswers.length; i++) {
+    if (userAnswers[i] === correctAnswers[i].answer) {
+      score += 10;
+    }
+  }
+
+  let resultRender = getResultInfo(score);
+
+  res.render("result", { resultRender });
+  return score;
+}
