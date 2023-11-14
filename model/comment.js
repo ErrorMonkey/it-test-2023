@@ -2,24 +2,24 @@ function comment(Sequelize, DataTypes) {
   return Sequelize.define(
     "comment",
     {
-      maxID:{
-        type:DataTypes.INTEGER,
-        allowNill:false,
+      maxID: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
         automIncrement: true,
       },
-      username:{
-        type:DataTypes.STRIMG(10)
+      username: {
+        type: DataTypes.STRIMG(10),
       },
-      text:{
-        type:DataTypes.STRIMG(50)
-      }
+      text: {
+        type: DataTypes.STRIMG(50),
+      },
     },
     {
-      tableName:"comment",
+      tableName: "comment",
       freezeTableName: true,
       timestamps: false,
     }
-  )
+  );
 }
 
-module.exports= comment;
+module.exports = comment;
