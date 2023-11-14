@@ -51,6 +51,7 @@ const getAverageScore = async () => {
   }
 };
 
+
 const getComments = async () =>{
   try{
 
@@ -63,24 +64,15 @@ const getComments = async () =>{
  }
 };
 
-// exports.home = async (req, res) => {
-//   try {
-//     // 댓글 조회 함수를 호출하여 댓글 목록을 가져옴
-//     const totalcomment = await getComments();
-    
-//     // 가져온 댓글 목록을 템플릿에 전달하여 렌더링
-//     res.render("index", {
-//       totalcomment
-//     });
-//   } catch (error) {
-//     // 오류 처리
-//     res.status(500).send("에러 발생");
-//   }
-// };
-
-
-
-
+const getQuestion = async () => {
+  try {
+    const perfectScoreApplicants = await db.applicants.count({});
+    return perfectScoreApplicants;
+  } catch (error) {
+    console.error("에러 발생: ", error);
+    throw error;
+  }
+};
 
 // 메인 화면
 exports.home = async (req, res) => {
@@ -88,21 +80,12 @@ exports.home = async (req, res) => {
     const totalApplicants = await getTotalApplicants();
     const averageScore = await getAverageScore();
     const perfectScoreApplicants = await getPerfectScoreApplicants();
-
-
     const totalComment = await getComments();
-
-    // const totalApplicants_test = 75;
-    // const averageScore_test = 75;
-    // const perfectScoreApplicants_test = 75;
-
-    console.log(totalComment)
 
     res.render("index", {
       totalApplicants,
       averageScore,
       perfectScoreApplicants,
-      
       totalComment
     });
   } catch (error) {
@@ -113,8 +96,16 @@ exports.home = async (req, res) => {
 // 메인 화면 정보 가져오기
 
 // 테스트 시작 화면
-exports.testStart = (req, res) => {
-  res.render("test2023");
+exports.testStart = async (req, res) => {
+  try {
+    const totalApplicants = await getTotalApplicants();
+
+    res.render("test2023", {
+      totalApplicants,
+    });
+  } catch (error) {
+    res.status(500).send("에러 발생");
+  }
 };
 
 // 결과 보기
@@ -168,7 +159,18 @@ function checkAnswers(req, res) {
   return score;
 }
 
-// module.exports = { checkAnswers };
-// module.exports = { getTotalApplicants };
-// module.exports = { getPerfectScoreApplicants };
-// module.exports = { getAverageScore };
+function check(req, res) {
+  const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
+
+  let score = 0;
+  for (let i = 0; i < userAnswers.length; i++) {
+    if (userAnswers[i] === correctAnswers[i].answer) {
+      score += 10;
+    }
+  }
+
+  let resultRender = getResultInfo(score);
+
+  res.render("result", { resultRender });
+  return score;
+}
