@@ -13,5 +13,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.applicants = require("./applicants")(sequelize, Sequelize);
+db.applicants = require("./comment")(sequelize, Sequelize);
 
 module.exports = db;

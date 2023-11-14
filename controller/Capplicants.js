@@ -104,7 +104,7 @@ function checkAnswers(req, res) {
 
   let score = 0;
   for (let i = 0; i < userAnswers.length; i++) {
-    if (userAnswers[i] === correctAnswers[i]) {
+    if (userAnswers[i] === correctAnswers[i].answer) {
       score += 10;
     }
   }
