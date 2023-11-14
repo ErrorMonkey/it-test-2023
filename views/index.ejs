@@ -4,155 +4,155 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../public/main.css" />
-    <link rel="stylesheet" href="../public/index.css" />
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link rel="stylesheet" href="../public/css/index.css" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
   </head>
   <body>
     <!-- mobil 576 -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../public/css/main.css">
-  <link rel="stylesheet" href="../public/css/index.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
-  <!-- axios -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  <!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
-  
-</head>
-<body>
-  <!-- mobil 576 -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
-  
-  <header>
-    <img src="../public/image/logo.png" alt="헤더로고" />
-  </header>
+    <header>
+      <img src="../public/image/logo.png" alt="헤더로고" />
+    </header>
 
-  <section class="wrapper">
-    <div class="main-title">
-      <img src="../public/image/title.png" alt="타이틀" />
-    </div>
-    <!-- <p>벌써 트능이 3회차를 맞이했다고? 
+    <section class="wrapper">
+      <div class="main-title">
+        <img src="../public/image/title.png" alt="타이틀" />
+      </div>
+      <!-- <p>벌써 트능이 3회차를 맞이했다고? 
       그런데 아직 1등급 못 받아본 <br/>
       사람이 있다는 소문... <br/>
       올해 나의 트렌드 감각은 과연?
     </p> -->
-    <div>
-      <img src="../public/image/octocat.png" alt="메인캐릭터" class="octocat" />
-    </div>
-    <button onclick="startTest()" class="main-btn">능력고사 시작하기</button>
-  </section>
+      <div>
+        <img
+          src="../public/image/octocat.png"
+          alt="메인캐릭터"
+          class="octocat"
+        />
+      </div>
+      <button onclick="startTest()" class="main-btn">능력고사 시작하기</button>
+    </section>
 
-  <section class="cont-area">
-    <div>
-      <ul>
-        <li>
-          <div class="box data">
-            <span class="label">응시자</span>
-            <span class="value"><%= %>55명</span>
-          </div>
-          <div class="box data">
-            <span class="label">응시자 평균 점수</span>
-            <span class="value"><%= %>55명</span>
-          </div>
-          <div class="box data">
-            <span class="label">만점자</span>
-            <span class="value"><%= %>55명</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-          <!-- <div class="box trend">
+    <section class="cont-area">
+      <div>
+        <ul>
+          <li>
+            <div class="box data">
+              <span class="label">응시자</span>
+              <span class="value"><%=totalApplicants %>명</span>
+            </div>
+            <div class="box data">
+              <span class="label">응시자 평균 점수</span>
+              <span class="value"><%=averageScore%>점</span>
+            </div>
+            <div class="box data">
+              <span class="label">만점자</span>
+              <span class="value"><%=perfectScoreApplicants %>명</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- <div class="box trend">
             <span class="trend-label">가장 많은 트렌드 유형은?</span>
             <p>Lv.5 새우깡마냥 트렌드
               낚아채는 갈매기 (19%)</p>
               <img src="/public/image/level5.png" alt="lv5" class="lv5"/>
           </div> -->
 
-  <section class="sesac">
-    <div class="sesac-container">
-      <img src="../public/image/sesac-logo.png" alt="새싹 로고" />
-      <p>꿈꾸는 개발자 데뷔코스, 새싹</p> 
-      <a href="https://sesac.seoul.kr/common/greeting.do" class="sesac-link-button">홈페이지</a>
+    <section class="sesac">
+      <div class="sesac-container">
+        <img src="../public/image/sesac-logo.png" alt="새싹 로고" />
+        <p>꿈꾸는 개발자 데뷔코스, 새싹</p>
+        <a
+          href="https://sesac.seoul.kr/common/greeting.do"
+          class="sesac-link-button"
+          >홈페이지</a
+        >
       </div>
-  </section>        
+    </section>
 
-  <section class="comment-section">
-
-    <div>
-      <p class="honor">명예의 전당</p>
-      <p class="manjeom">만점자만 댓글 달수있음 </p>
-    </div>
-    
-    <div class="comment-box">
-      <div class="nickname">
-        <img src="../public/image/level5.png" alt="프로필사진"/>
-        <p class="name">새싹이</p>
+    <section class="comment-section">
+      <div>
+        <p class="honor">명예의 전당</p>
+        <p class="manjeom">만점자만 댓글 달수있음</p>
       </div>
-      <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
-    </div>
 
-    <div class="comment-box">
-      <div class="nickname">
-        <img src="../public/image/level5.png" alt="프로필사진"/>
-        <p class="name">새싹이</p>
+      <div class="comment-box">
+        <div class="nickname">
+          <img src="../public/image/level5.png" alt="프로필사진" />
+          <p class="name">새싹이</p>
+        </div>
+        <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
       </div>
-      <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
-    </div>
 
-    <div class="comment-box">
-      <div class="nickname">
-        <img src="../public/image/level5.png" alt="프로필사진"/>
-        <p class="name">새싹이</p>
+      <div class="comment-box">
+        <div class="nickname">
+          <img src="../public/image/level5.png" alt="프로필사진" />
+          <p class="name">새싹이</p>
+        </div>
+        <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
       </div>
-      <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
-    </div>
 
-    <div class="comment-box">
-      <div class="nickname">
-        <img src="../public/image/level5.png" alt="프로필사진"/>
-        <p class="name">새싹이</p>
+      <div class="comment-box">
+        <div class="nickname">
+          <img src="../public/image/level5.png" alt="프로필사진" />
+          <p class="name">새싹이</p>
+        </div>
+        <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
       </div>
-      <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
-    </div>
 
-    <div class="comment-box">
-      <div class="nickname">
-        <img src="../public/image/level5.png" alt="프로필사진"/>
-        <p class="name">새싹이</p>
+      <div class="comment-box">
+        <div class="nickname">
+          <img src="../public/image/level5.png" alt="프로필사진" />
+          <p class="name">새싹이</p>
+        </div>
+        <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
       </div>
-      <div class="comment">예 정말 재밌네요 추천합니다 ^^</div>
-    </div>
-  </section>
+    </section>
 
-  <div class="float-box" onclick="toggleSnsList()">
-    <p>IT-TEST 소문내기</p>
-    <div>
+    <div class="float-box" onclick="toggleSnsList()">
       <ul class="sns-list">
         <li>
-          <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
+          <a
+            id="btnTwitter"
+            class="link-icon twitter"
+            href="javascript:shareTwitter();"
+            >트위터</a
+          >
         </li>
         <li>
-          <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
+          <a
+            id="btnFacebook"
+            class="link-icon facebook"
+            href="javascript:shareFacebook();"
+            >페이스북</a
+          >
         </li>
         <li>
-          <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오톡</a>
+          <a
+            id="btnKakao"
+            class="link-icon kakao"
+            href="javascript:shareKakao();"
+            >카카오톡</a
+          >
         </li>
         <li>
-          <button type="button" class="copy-btn" onclick="copyUrl()">URL</button>
+          <button type="button" class="copy-btn" onclick="copyUrl()">
+            URL
+          </button>
         </li>
       </ul>
+      <p>IT-TEST 소문내기</p>
     </div>
-  </div>
 
-          <!-- <p>※ 트렌드 지수는 1시간마다 갱신됩니다.</p>
+    <!-- <p>※ 트렌드 지수는 1시간마다 갱신됩니다.</p>
           <button class="lv-button">전체 트렌드 유형 보기</button> -->
 
     <footer>
@@ -166,46 +166,50 @@
       }
 
       function toggleSnsList() {
-        const snsList = document.querySelector('.sns-list');
-        snsList.classList.toggle('show');
+        const snsList = document.querySelector(".sns-list");
+        snsList.classList.toggle("show");
       }
 
       let nowUrl = window.location.href;
-        function copyUrl() {
-      //nowUrl 변수에 담긴 주소를
-        navigator.clipboard.writeText(nowUrl).then(res => {
+      function copyUrl() {
+        //nowUrl 변수에 담긴 주소를
+        navigator.clipboard.writeText(nowUrl).then((res) => {
           alert("주소가 복사되었습니다!");
-      })
-    }
+        });
+      }
 
-    function shareTwitter() {
-      var sendText = "개발새발"; // 전달할 텍스트
-      var sendUrl = "https://9walnut.tistory.com/"; // 전달할 URL
-      window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
-    }
-    function shareFacebook() {
-      var sendUrl = "https://9walnut.tistory.com/"; // 전달할 URL
-      window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
-    }
-    function shareKakao() {
-      // 사용할 앱의 JavaScript 키 설정
-      Kakao.init('ca85f3701e06028b7519f363fadaaf14');
-      // 카카오링크 버튼 생성
-      Kakao.Link.createDefaultButton({
-        container: '#btnKakao', // 카카오공유버튼ID
-        objectType: 'feed',
-        content: {
-          title: "호두", // 보여질 제목
-          description: "호두네", // 보여질 설명
-          imageUrl: "https://9walnut.tistory.com/", // 콘텐츠 URL
-          link: {
-            mobileWebUrl: "https://9walnut.tistory.com/",
-            webUrl: "https://9walnut.tistory.com/"
-          }
-        }
-      });
-    }
-
+      function shareTwitter() {
+        var sendText = "개발새발"; // 전달할 텍스트
+        var sendUrl = "https://9walnut.tistory.com/"; // 전달할 URL
+        window.open(
+          "https://twitter.com/intent/tweet?text=" +
+            sendText +
+            "&url=" +
+            sendUrl
+        );
+      }
+      function shareFacebook() {
+        var sendUrl = "https://9walnut.tistory.com/"; // 전달할 URL
+        window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+      }
+      function shareKakao() {
+        // 사용할 앱의 JavaScript 키 설정
+        Kakao.init("ca85f3701e06028b7519f363fadaaf14");
+        // 카카오링크 버튼 생성
+        Kakao.Link.createDefaultButton({
+          container: "#btnKakao", // 카카오공유버튼ID
+          objectType: "feed",
+          content: {
+            title: "호두", // 보여질 제목
+            description: "호두네", // 보여질 설명
+            imageUrl: "https://9walnut.tistory.com/", // 콘텐츠 URL
+            link: {
+              mobileWebUrl: "https://9walnut.tistory.com/",
+              webUrl: "https://9walnut.tistory.com/",
+            },
+          },
+        });
+      }
     </script>
   </body>
 </html>
