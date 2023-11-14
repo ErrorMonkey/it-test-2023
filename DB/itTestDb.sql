@@ -14,3 +14,4 @@ CREATE TABLE comment (
 );
 
 INSERT INTO applicants VALUES(1, 100);
+INSERT INTO comment values ('1', 'kk','comment');
