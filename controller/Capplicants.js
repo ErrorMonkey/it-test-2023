@@ -51,6 +51,19 @@ const getAverageScore = async () => {
   }
 };
 
+
+const getComments = async () =>{
+  try{
+
+  const comments = await db.comment.findAll();
+  return comments;
+
+ } catch (error) {
+  console.error("에러 발생: ", error);
+  throw error;
+ }
+};
+
 const getQuestion = async () => {
   try {
     const perfectScoreApplicants = await db.applicants.count({});
@@ -67,11 +80,13 @@ exports.home = async (req, res) => {
     const totalApplicants = await getTotalApplicants();
     const averageScore = await getAverageScore();
     const perfectScoreApplicants = await getPerfectScoreApplicants();
+    const totalComment = await getComments();
 
     res.render("index", {
       totalApplicants,
       averageScore,
       perfectScoreApplicants,
+      totalComment
     });
   } catch (error) {
     res.status(500).send("에러 발생");

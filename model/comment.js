@@ -5,7 +5,8 @@ function comment(Sequelize, DataTypes) {
       maxID: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        automIncrement: true,
+        automIncrement: true, 
+        primaryKey: true,
       },
       username: {
         type: DataTypes.STRING(10),
