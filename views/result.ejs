@@ -4,10 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- axios -->
     <link rel="stylesheet" href="../public/css/main.css" />
     <link rel="stylesheet" href="../public/css/result.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
+  <style></style>
   <body>
     <header>
       <div>
@@ -16,12 +25,22 @@
       </div>
       <h1>2023 IT TEST</h1>
     </header>
-    <div class="share-alert">주소 복사 완료!</div>
+    <div class="form-wrapper">
+      <form class="comment-form" name="userComment">
+        <p>만점 소감을 남겨주세요!</p>
+        <label for="userName">이름</label
+        ><input type="text" name="userName" id="userName" />
+        <label for="comment">소감</label
+        ><input type="text" name="comment" id="comment" />
+        <button type="button" onclick="commentSubmit()">작성 완료</button>
+      </form>
+    </div>
     <section class="wrapper">
       <div class="score">
         <h1>당신의 IT 능력 등급은?</h1>
         <p><%= %>3등급</p>
       </div>
+      <p>test</p>
       <div class="result-desc">
         <h3><%= %>"너 개발자야? 견적 좀 짜주라"</h3>
         <p>
@@ -42,14 +61,49 @@
           </div>
         </div>
       </div>
+      <div class="share-alert">주소 복사 완료!</div>
       <div onclick="copyUrl()" class="share-btn">공유하기</div>
+      <img class="pen" src="../public/img/pen.webp" />
     </section>
     <footer></footer>
     <script>
+      window.onload = () => {
+        $(".form-wrapper").fadeIn(500, "swing");
+      };
+      const forms = document.forms["userComment"];
+      const userComment = {
+        userName: forms.userName,
+        comment: forms.comment,
+      };
+      const commentSubmit = async () => {
+        // const form = document.querySelector(".comment-form");
+        await $(".form-wrapper").fadeOut(500, "swing");
+        await setTimeout((form.style.visibility = "hidden"), 3000);
+        axios({
+          method: "post",
+          url: "/comment",
+          data: userComment,
+        });
+      };
+
+      const pen = document.querySelector(".pen");
+      window.addEventListener("mousemove", (event) => {
+        // console.log("e", event.pageX, event.pageY);
+        pen.style.top = event.pageY + "px";
+        pen.style.left = event.pageX + "px";
+      });
+
       // const url = window.location.href; // 현재 링크를 가져오는 코드
       const url = `http://www.localhost:8000`;
       const copyUrl = async () => {
         await navigator.clipboard.writeText(url);
+        const alert = document.querySelector(".share-alert");
+        $(alert).fadeIn(500, "swing");
+        setTimeout($(alert).fadeOut(500, "swing"), 2000);
+        // window.addEventListener("mousedown", () => {
+        //   // alert.style.display = "none";
+        //   $(alert).fadeOut(500, "swing");
+        // });
       };
     </script>
   </body>
