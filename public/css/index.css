@@ -46,22 +46,13 @@ header div {
   margin-top: 20px;
 }
 
-.balloon{
-  width: 30%;
-  height: 98px;
-  margin-top: 28px;
-  margin-left: 34px;
-  transition: transform 0.2s ease-in-out;
+
+.characters{
+  bottom: 12px;
+  width: 100%;
   &:hover {
     transform: translate(2px, 2px); 
   }
-}
-
-.characters{
-  width: 90%;
-  height: 273px;
-  margin-left: 19px;
-  margin-bottom: 12px;
 }
 
 .cont-area{

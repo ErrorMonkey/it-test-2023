@@ -3,47 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/main.css">
-  <link rel="stylesheet" href="../public/test.css">
+  <link rel="stylesheet" href="../public/css/main.css">
+  <link rel="stylesheet" href="../public/css/test.css">
   <title>Document</title>
 </head>
 <body>
   <header>
-    <div>logo</div>
-    <img src="" alt="" />
+    <a href="./index.ejs"><img class="logo" src="../public/image/logo.svg" alt="logo" /></a>
   </header>
   <section class="section01">
-    <div>2023</div>
+    <div>    
+      <img class="main-title" src="../public/image/maintitle.png" alt="title">
+      <img class="sub-title" src="../public/image/subtitle.png" alt="title">
+    </div>
+    <img class="main-octocat" src="../public/image/main-octocat-.png" alt="">
   </section>
   <section class="section02">
     <!-- 문제 카드 -->
     <div class="question-box">
-      <p class="question-number">단계 도전!</p>
-      <p class="question-text">신조어 오뱅알은 무엇의 줄임말일까?&nbsp;<span class="question-score">(6점)</span></p>
+      <p class="question-number"><%=  %>번 문제</p>
+      <p class="question-text"><%=  %> &nbsp;<span class="question-score">(N점)</span></p>
     </div>
     <!-- 대답 선택지 -->
-    <form action="" id="answer-form">
+    <form action="" id="answer-form" name="answerForm">
       <div id="answer-list">
-        <button class="answer">
-          <object data="../public/img/icon-park-solid_check-one.svg" alt=""></object>
-          <span>오늘 방송 알찼다.</span>
-        </button>
-        <button class="answer">
-          <object data="../public/img/icon-park-solid_check-one.svg" alt=""></object>
-          <span>오늘 방송 알찼다.</span>
-        </button>
-        <button class="answer">
-          <object data="../public/img/icon-park-solid_check-one.svg" alt=""></object>
-          <span>오늘 방송 알찼다.</span>
-        </button>
-        <button class="answer">
-          <object data="../public/img/icon-park-solid_check-one.svg" alt=""></object>
-          <span>오늘 방송 알찼다.</span>
-        </button>
+        <label class="answer">
+          <input type="radio" value="A" name="answer" >
+          <object data="../public/image/icon-park-solid_check-one.svg" alt=""></object>
+          <span class="answer-text">A</span>
+        </label>
+
+        <label class="answer">
+          <input  type="radio" value="B" name="answer">
+          <object data="../public/image/icon-park-solid_check-one.svg" alt=""></object>
+          <span class="answer-text">B</span>
+        </label>
+
+        <label class="answer">
+          <input type="radio" value="C" name="answer">
+          <object data="../public/image/icon-park-solid_check-one.svg" alt=""></object>
+          <span class="answer-text">C</span>
+        </label>
+
+        <label class="answer">
+          <input type="radio" value="D" name="answer">
+          <object data="../public/image/icon-park-solid_check-one.svg" alt=""></object>
+          <span class="answer-text">D</span>
+        </label>
+
       </div>
-      <button class="main-btn question-next">다음으로</button>
-      <button class="main-btn question-next" onclick="showResult()">트렌드 지수 결과 보기</button>
-      <p class="question-capion">15개의 문제가 남았습니다.</p>
+      <button class="main-btn question-next" id="nextBtn" onclick="next()" type="button">다음으로</button>
+      <button class="main-btn question-next question-last" id="endBtn" onclick="showResult()" type="button">트렌드 지수 결과 보기</button>
+      <p class="question-capion" id="capion">15개의 문제가 남았습니다.</p>
     </form>
   </section>
 
@@ -51,12 +62,52 @@
     <span>COPYRIGHT(C) UNIVTOMORROWA.ALL RIGHTS RESERVED.</span>
   </footer>
 
+
+
   <script>
+
+
+    const qustionForm = document.forms["answerForm"]
+    const input = document.querySelectorAll("input") 
+    const value = input.value
+    const nextBtn = document.getElementById("nextBtn")  
+    const endBtn = document.getElementById("endBtn")  
+    const capion = document.getElementById("capion")  
+    const answer = document.getElementsByClassName("answer")
+    const userAnwser = []
+    
+    // 다음 버튼
+    function next (DOMContentLoaded){
+      const targetAnswer = document.querySelector('input[name="answer"]:checked').value;
+      if(value == "A"||"B"||"C"||"D"){
+        // console.log(targetAnswer)
+        userAnwser.push(targetAnswer)
+        console.log(userAnwser)
+        console.log(userAnwser.length)
+        
+        if(userAnwser.length === 3){
+          endBtn.style.display= "inline"
+          nextBtn.style.display= "none"
+          capion.style.display= "none"
+        }
+
+      }else{
+        alert("문제를 풀어주세요.")
+      }
+
+    }
+
+
+
     function showResult() {
       console.log("click")
       location.href="/result";
     }
-</script>
+
+
+  </script>
+
 </body>
 </html>
+
 
