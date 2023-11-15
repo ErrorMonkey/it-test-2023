@@ -61,22 +61,22 @@ const getComments = async () => {
   }
 };
 
-const getQuestion = async (req, res) => {
-  try {
-    const questioncount = req.body.count;
-    const questionlist = quizModel.getCorrectAnswers;
+// const getQuestion = async (req, res) => {
+//   try {
+//     const questioncount = req.body.count;
+//     const questionlist = quizModel.getCorrectAnswers;
 
-    for (let i = 0; i < questioncount.length; i++) {
-      if (questioncount === questionlist[i]) {
-        const currentQuestion = questionlist[i].question;
-        return res.send(currentQuestion);
-      }
-    }
-  } catch (error) {
-    console.error("에러 발생: ", error);
-    res.status(500).send("에러 발생");
-  }
-};
+//     for (let i = 0; i < questioncount.length; i++) {
+//       if (questioncount === questionlist[i]) {
+//         const currentQuestion = questionlist[i].question;
+//         return res.send(currentQuestion);
+//       }
+//     }
+//   } catch (error) {
+//     console.error("에러 발생: ", error);
+//     res.status(500).send("에러 발생");
+//   }
+// };
 
 // 결과 보기 버튼 누른 후 사용자 답안과 정답 비교
 function checkAnswers(req, res) {
@@ -117,18 +117,20 @@ exports.home = async (req, res) => {
 // 메인 화면 정보 가져오기
 
 // 테스트 시작 화면
-exports.testStart = async (req, res) => {
-  try {
-    const questionlist = await getQuestion(req, res);
+// exports.testStart = async (req, res) => {
+//   try {
+//     const questionlist = await getQuestion(req, res);
 
-    res.render("test2023", {
-      questionlist,
-    });
-  } catch (error) {
-    res.status(500).send("에러 발생");
-  }
-};
-
+//     res.render("test2023", {
+//       questionlist,
+//     });
+//   } catch (error) {
+//     res.status(500).send("에러 발생");
+//   }
+// };
+    exports.testStart = (req, res)=>{
+      res.render("test2023")
+    }
 // 결과 보기
 exports.getResult = async (req, res) => {
   try {
