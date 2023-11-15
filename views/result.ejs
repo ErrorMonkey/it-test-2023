@@ -21,10 +21,14 @@
     <div class="form-wrapper">
       <form class="comment-form" name="userComment">
         <p>만점 소감을 남겨주세요!</p>
-        <label for="userName">이름</label
-        ><input type="text" name="userName" id="userName" />
-        <label for="comment">소감</label
-        ><input type="text" name="comment" id="comment" />
+        <div>
+          <label for="userName">이름</label
+          ><input type="text" name="userName" id="userName" />
+        </div>
+        <div>
+          <label for="comment">소감</label
+          ><input type="text" name="comment" id="comment" />
+        </div>
         <button type="button" onclick="commentSubmit()">작성 완료</button>
       </form>
     </div>
@@ -61,8 +65,6 @@
           </div>
         </div>
       </div>
-      <div class="share-alert">주소 복사 완료!</div>
-      <div onclick="copyUrl()" class="share-btn">공유하기</div>
       <section class="comment-section">
         <div>
           <p class="honor">명예의 전당</p>
@@ -72,27 +74,36 @@
           <% for(let i = 0; i < data.length; i++) { %>
           <div class="nickname">
             <p class="name"><%= data[i].username%></p>
+            <div class="comment"><%= data[i].comment%></div>
           </div>
-          <div class="comment"><%= data[i].comment%></div>
           <%}%>
         </div>
       </section>
       <!-- <img class="pen" src="../public/img/pen.webp" /> -->
+      <div class="share-alert">주소 복사 완료!</div>
+      <div onclick="copyUrl()" class="share-btn">공유하기</div>
     </section>
+
     <footer></footer>
+
     <script>
-      window.onload = () => {
-        $(".form-wrapper").css("display", "block");
-        $(".form-bg").fadeIn(500);
-      };
+      const resultValue = require("../utils/resultValue");
+      // import resultValue from "../utils/resultValue";
+      console.log("resultValue(50)", resultValue(50));
+      if (true) {
+        window.onload = () => {
+          // 만점자일 때만 이 코드가 실행되도록
+          $(".form-wrapper").css("display", "block");
+          $(".form-bg").fadeIn(500);
+        };
+      }
 
       const commentSubmit = async () => {
         const forms = document.forms["userComment"];
         const userComment = {
-          username: forms.userName,
-          comment: forms.comment,
+          username: forms.userName.value,
+          comment: forms.comment.value,
         };
-        // const form = document.querySelector(".comment-form");
         await $(".form-wrapper").fadeOut(500, "swing");
         await $(".form-bg").fadeOut(500);
         await setTimeout(() => {
