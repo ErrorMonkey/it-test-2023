@@ -17,7 +17,6 @@
 * 권구호(BE) :
 * 이다현(BE) : 
 
-## 기술 스택
 <h2>Stack</h2>
 <div align="left">
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
