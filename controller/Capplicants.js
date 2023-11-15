@@ -53,7 +53,9 @@ const getAverageScore = async () => {
 
 const getComments = async () => {
   try {
-    const comments = await db.comment.findAll();
+    const comments = await db.comment.findAll({
+      order:[["maxID","DESC"]]
+    });
     return comments;
   } catch (error) {
     console.error("에러 발생: ", error);
