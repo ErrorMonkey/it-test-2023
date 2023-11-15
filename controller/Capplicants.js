@@ -61,20 +61,24 @@ const getComments = async () => {
   }
 };
 
-const getQuestion = async () => {
-  const questioncount = req.body.count;
-  const questionlist = quizModel.getCorrectAnswers;
+const getQuestion = async (req, res) => {
+  try {
+    const questioncount = req.body.count;
+    const questionlist = quizModel.getCorrectAnswers;
 
-  for (let i = 0; i < questioncount.length; i++) {
-    if (questioncount === questionlist[i]) {
-      const currentQuestion = questionlist[i].question;
-      res.send(currentQuestion);
+    for (let i = 0; i < questioncount.length; i++) {
+      if (questioncount === questionlist[i]) {
+        const currentQuestion = questionlist[i].question;
+        return res.send(currentQuestion);
+      }
     }
+  } catch (error) {
+    console.error("에러 발생: ", error);
+    res.status(500).send("에러 발생");
   }
 };
 
 // 결과 보기 버튼 누른 후 사용자 답안과 정답 비교
-// 비교 후 결과에 따른 페이징 렌더
 function checkAnswers(req, res) {
   const userAnswers = req.body.score; // 사용자의 답안
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
@@ -85,25 +89,10 @@ function checkAnswers(req, res) {
       score += 10;
     }
   }
+  // 점수에 따른 결과 페이지 이미지 변경 - resultValue
+  let resultImage = getResultInfo(score);
 
-  // const resultName = resultValue.resultname();
-  // const resulttext = resultValue.resulttext();
-
-  let resultRender = getResultInfo(score);
-
-  // let pageToRender;
-  // if (score >= 0 && score <= 20) {
-  //   pageToRender = "lowScorePage"; // 0~20점 범위
-  // } else if (score > 20 && score <= 40) {
-  //   pageToRender = "mediumScorePage"; // 21~40점 범위
-  // } else if (score > 40 && score <= 60) {
-  //   pageToRender = "mediumHighScorePage"; // 41~60점 범위
-  // } else if (score > 60 && score <= 80) {
-  //   pageToRender = "highScorePage"; // 61~80점 범위
-  // } else {
-  //   pageToRender = "perfectScorePage"; // 81~100점 범위
-  // }
-  res.render("result", { resultRender });
+  res.render("result", { resultImage });
   return score;
 }
 
@@ -130,7 +119,7 @@ exports.home = async (req, res) => {
 // 테스트 시작 화면
 exports.testStart = async (req, res) => {
   try {
-    const questionlist = await getQuestion();
+    const questionlist = await getQuestion(req, res);
 
     res.render("test2023", {
       questionlist,
@@ -142,17 +131,21 @@ exports.testStart = async (req, res) => {
 
 // 결과 보기
 exports.getResult = async (req, res) => {
-  let data = {
-    applicantsid: req.body.applicantsid,
-    name: req.body.name,
-    score: checkAnswers(),
-  };
+  try {
+    let data = {
+      applicantsid: req.body.applicantsid,
+      score: checkAnswers(req, res), // checkAnswers에 req, res 전달
+    };
 
-  const createScore = await applicants.create(data);
+    const createScore = await applicants.create(data);
 
-  if (createScore) {
-    res.send({ return: true });
-  } else {
-    res.status(500).send({ return: false });
+    if (createScore) {
+      res.send({ return: true });
+    } else {
+      res.status(500).send({ return: false });
+    }
+  } catch (error) {
+    console.error("에러 발생: ", error);
+    res.status(500).send("에러 발생");
   }
 };
