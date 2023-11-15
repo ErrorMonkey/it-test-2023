@@ -44,7 +44,7 @@
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 18.18.2]([https://nodejs.org/ca/blog/release/v14.19.3/])
+- [Node.js 18.18.2]([https://nodejs.org/download/release/v18.18.2/])
 - [Npm 8.5.1](https://www.npmjs.com/package/npm/v/8.5.1)
 
 ### Installation
@@ -52,23 +52,17 @@ For building and running the application you need:
 $ git clone https://github.com/ErrorMonkey/it-test-2023.git
 $ cd it-test-2023
 ```
-#### Backend
-```
-$ nvm use v.18.18.0
-$ npm install
-$ npm run develop
-```
 
-#### Frontend
+#### Enviroment
 ```
-$ nvm use v.18.18.0
+$ nvm use v.16.14.0
 $ npm install 
 $ npm run dev
 ```
 ---
 ## 화면 구성 📺
 | 메인 페이지  |  문제 페이지   |  결과 페이지   |  
-| :-------------------------------------------: | :------------: | :------------: |
+| :------------: | :------------: | :------------: |
 |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036155-a57900f7-c68a-470d-923c-ff3c296ea635.png"/> |  <img width="329" src=""/>|  <img width="329" src=""/>|  
 
 ---
@@ -86,8 +80,8 @@ $ npm run dev
 │   ├── Ccomments.js : 만점자 댓글 달기 기능
 ├── model : 
 │   ├── index.js
-│   ├── applicants.js :응시자ID, 점수 테이블
-│   └── comments.js :만점자 댓글 테이블
+│   ├── applicants.js :응시자ID, 점수 데이터베이스 모델
+│   └── comments.js :만점자 댓글 데이터베이스 모델
 ├── public : 
 │   ├── CSS
 │   ├── img
@@ -95,6 +89,7 @@ $ npm run dev
 ├── routes :
 │   └── index.js
 ├── utils :
+│   ├── resultValue.js : 점수에 따른 결과페이지 이미지 반환
 │   └── answersolution.js : 문항별 정답 배열 저장
 └── views : 
     ├── index.ejs
@@ -102,7 +97,7 @@ $ npm run dev
     └── test2023.ejs
 ```
 
-## 업데이트 내역
+## 업데이트 내역 - (수정 필요)
 
 * 0.2.1
     * 수정: 문서 업데이트 (모듈 코드 동일)
