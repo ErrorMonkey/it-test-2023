@@ -44,7 +44,7 @@
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 18.18.2]([https://nodejs.org/download/release/v18.18.2/])
+- [Node.js 18.18.2](https://nodejs.org/download/release/v18.18.2/)
 - [Npm 8.5.1](https://www.npmjs.com/package/npm/v/8.5.1)
 
 ### Installation
