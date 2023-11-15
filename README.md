@@ -113,7 +113,11 @@ $ npm run dev
 
 ## 정보
 
-이름 – [@트위터 주소](https://twitter.com/dbader_org) – 이메일주소@example.com
+* 이세윤 - dominobomb@gmail.com
+* 이산하 - sanppi@naver.com
+* 한기선 - mssk2490@gmail.com
+* 권구호 - kguho9202@gmail.com
+* 이다현 - da0956@gmail.com
 
 [https://github.com/ErrorMonkey/it-test-2023k](https://github.com/ErrorMonkey/it-test-2023)
 
