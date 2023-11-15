@@ -12,12 +12,11 @@ router.get("/test2023", controller.testStart);
 // // 결과 보기
 router.post("/test2023", controller.getResult);
 
-// router.get("/result", (req, res) => {
-//   res.render("result");
-// });
+// 결과창 이동
+router.get("/result", controller2.comments);
 
 // 댓글조회
-router.post("/comments", controller2.comments);
+// router.post("/comments", controller2.comments);
 
 // 댓글 등록
 router.post("/comment", controller2.createComments);

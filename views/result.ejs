@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  
+
     <!-- jquery -->
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -18,13 +18,6 @@
   </head>
   <style></style>
   <body>
-    <header>
-      <div>
-        <div class="logo">logo</div>
-        <!-- <img src="" alt="" /> -->
-      </div>
-      <h1>2023 IT TEST</h1>
-    </header>
     <div class="form-wrapper">
       <form class="comment-form" name="userComment">
         <p>만점 소감을 남겨주세요!</p>
@@ -35,12 +28,19 @@
         <button type="button" onclick="commentSubmit()">작성 완료</button>
       </form>
     </div>
+    <div class="form-bg"></div>
+    <header>
+      <div>
+        <div class="logo">logo</div>
+        <!-- <img src="" alt="" /> -->
+      </div>
+      <h1>2023 IT TEST</h1>
+    </header>
     <section class="wrapper">
       <div class="score">
         <h1>당신의 IT 능력 등급은?</h1>
         <p><%= %>3등급</p>
       </div>
-      <p>test</p>
       <div class="result-desc">
         <h3><%= %>"너 개발자야? 견적 좀 짜주라"</h3>
         <p>
@@ -63,47 +63,63 @@
       </div>
       <div class="share-alert">주소 복사 완료!</div>
       <div onclick="copyUrl()" class="share-btn">공유하기</div>
-      <img class="pen" src="../public/img/pen.webp" />
+      <section class="comment-section">
+        <div>
+          <p class="honor">명예의 전당</p>
+          <p class="manjeom">만점자만 댓글 달수있음</p>
+        </div>
+        <div class="comment-box">
+          <% for(let i = 0; i < data.length; i++) { %>
+          <div class="nickname">
+            <p class="name"><%= data[i].username%></p>
+          </div>
+          <div class="comment"><%= data[i].comment%></div>
+          <%}%>
+        </div>
+      </section>
+      <!-- <img class="pen" src="../public/img/pen.webp" /> -->
     </section>
     <footer></footer>
     <script>
       window.onload = () => {
-        $(".form-wrapper").fadeIn(500, "swing");
+        $(".form-wrapper").css("display", "block");
+        $(".form-bg").fadeIn(500);
       };
-      const forms = document.forms["userComment"];
-      const userComment = {
-        userName: forms.userName,
-        comment: forms.comment,
-      };
+
       const commentSubmit = async () => {
+        const forms = document.forms["userComment"];
+        const userComment = {
+          username: forms.userName,
+          comment: forms.comment,
+        };
         // const form = document.querySelector(".comment-form");
         await $(".form-wrapper").fadeOut(500, "swing");
-        await setTimeout((form.style.visibility = "hidden"), 3000);
+        await $(".form-bg").fadeOut(500);
+        await setTimeout(() => {
+          forms.style.visibility = "hidden";
+        }, 3000);
         axios({
           method: "post",
           url: "/comment",
           data: userComment,
-        });
+        }).then();
       };
 
-      const pen = document.querySelector(".pen");
-      window.addEventListener("mousemove", (event) => {
-        // console.log("e", event.pageX, event.pageY);
-        pen.style.top = event.pageY + "px";
-        pen.style.left = event.pageX + "px";
-      });
+      // const pen = document.querySelector(".pen");
+      // window.addEventListener("mousemove", (event) => {
+      //   pen.style.top = event.pageY + "px";
+      //   pen.style.left = event.pageX + "px";
+      // });
 
       // const url = window.location.href; // 현재 링크를 가져오는 코드
       const url = `http://www.localhost:8000`;
       const copyUrl = async () => {
         await navigator.clipboard.writeText(url);
         const alert = document.querySelector(".share-alert");
-        $(alert).fadeIn(500, "swing");
-        setTimeout($(alert).fadeOut(500, "swing"), 2000);
-        // window.addEventListener("mousedown", () => {
-        //   // alert.style.display = "none";
-        //   $(alert).fadeOut(500, "swing");
-        // });
+        $(alert).fadeIn(300, "swing");
+        setTimeout(() => {
+          $(alert).fadeOut(500, "swing");
+        }, 400);
       };
     </script>
   </body>
