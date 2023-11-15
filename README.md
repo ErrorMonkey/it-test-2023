@@ -127,7 +127,7 @@ $ npm run dev
 2. (`git checkout -b feature/itTest`) 명령어로 새 브랜치를 만드세요.
 3. (`git commit -am 'Add some itTest'`) 명령어로 커밋하세요.
 4. (`git push origin feature/itTest`) 명령어로 브랜치에 푸시하세요. 
-5. 풀리퀘스트를 보내주세요.
+5. Pull request 를 보내주세요.
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
