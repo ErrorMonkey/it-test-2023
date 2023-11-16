@@ -87,45 +87,7 @@
     <footer></footer>
 
     <script>
-
-
-window.onload = () => {
-  $(".form-wrapper").fadeIn(500, "swing");
-};
-
-const commentSubmit = () => {
-  const forms = document.forms["userComment"];
-  
-  const userComment = {
-    userName: forms.userName.value,
-    comment: forms.comment.value,
-  };
-
-  console.log("폼 데이터:", userComment);
-  $(".form-wrapper").fadeOut(500, "swing");
-
-  axios({
-          method: "post",
-          url: "/comment",
-          data: userComment,
-        })
-    // .then((res) => {
-    //   // const {
-    //   //   username,
-    //   //   comment,
-    //   // } = res.data;
-
-    //   // console.log(res.data);
-    // })
-    .catch((error) => {
-      console.error("댓글 제출 중 오류 발생:", error);
-    });
-};
-
-      const resultValue = require("../utils/resultValue");
-      // import resultValue from "../utils/resultValue";
-      console.log("resultValue(50)", resultValue(50));
-      if (true) {
+      if (false) {
         window.onload = () => {
           // 만점자일 때만 이 코드가 실행되도록
           $(".form-wrapper").css("display", "block");
@@ -136,7 +98,7 @@ const commentSubmit = () => {
       const commentSubmit = async () => {
         const forms = document.forms["userComment"];
         const userComment = {
-          username: forms.userName.value,
+          userName: forms.userName.value,
           comment: forms.comment.value,
         };
         await $(".form-wrapper").fadeOut(500, "swing");
