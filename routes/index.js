@@ -9,8 +9,11 @@ router.get("/", controller.home);
 // // 테스트 시작 화면
 router.get("/test2023", controller.testStart);
 
+// 다음 버튼
+router.post("/postCorrectAnswers", controller.postCorrectAnswers);
+
 // // 결과 보기
-router.post("/test2023", controller.getResult);
+router.post("/postUserAnswers", controller.getResult);
 
 // router.get("/result", (req, res) => {
 //   res.render("result");
