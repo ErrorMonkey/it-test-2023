@@ -89,7 +89,7 @@
         </button>
        
           <p class="question-capion" id="capion">
-            <!-- <span>%= remainQuestion %</span>개의 문제가 남았습니다. -->
+            <span>%= remainQuestion %</span>개의 문제가 남았습니다.
           </p>
 
       </form>
@@ -143,6 +143,10 @@
               // 다음 질문 로딩
               count++; // count를 증가시켜 다음 질문으로 이동
               await loadQuestion(count);
+
+              const remainingQuestions = 10 - count;
+              capion.textContent = `${remainingQuestions} 문제 남았습니다.`;
+
             } else {
               alert("문제를 풀어주세요.");
             }
@@ -153,7 +157,7 @@
             // 서버로부터 정답 데이터를 가져옴
             const response = await axios.post("/postCorrectAnswers");
             const correctAnswers = response.data;
-            remainQuestion--;
+            
 
             // 현재 진행 중인 문제 가져오기
             const currentQuestion = correctAnswers[count];
@@ -162,6 +166,9 @@
             document.querySelector(".question-number").textContent = `${
               count + 1
             }번 문제`;
+            document.querySelector(".question-capion").textContent = `${
+              remainQuestion
+            } 문제 남았습니다.`;
             document.querySelector(
               ".question-text"
             ).textContent = `${currentQuestion.question}`;
@@ -180,7 +187,6 @@
             // 답변 선택지 업데이트
             answerElements.forEach((answerElement, index) => {
               answerElement.textContent = currentQuestion.options[index];
-
               console.log("currentQuestion:", currentQuestion);
             });
           } catch (error) {
