@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/css/main.css" />
     <link rel="stylesheet" href="../public/css/test.css" />
+     <!-- axios -->
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -31,9 +33,9 @@
     <section class="section02">
       <!-- 문제 카드 -->
       <div class="question-box">
-        <p class="question-number"><%= correctAnswers[i]%>번 문제</p>
+        <p class="question-number">번 문제</p>
         <p class="question-text">
-          <%= correctAnswers[i].question%> &nbsp;<span class="question-score"
+          &nbsp;<span class="question-score"
             >(N점)</span
           >
         </p>
@@ -103,39 +105,69 @@
 
     <script>
       const qustionForm = document.forms["answerForm"];
-      const input = document.querySelectorAll("input");
-      const value = input.value;
       const nextBtn = document.getElementById("nextBtn");
       const endBtn = document.getElementById("endBtn");
       const capion = document.getElementById("capion");
       const answer = document.getElementsByClassName("answer");
+      let radio = document.getElementsByName("answer");
       const userAnwser = [];
 
       // 다음 버튼
       function next(DOMContentLoaded) {
-        const targetAnswer = document.querySelector(
-          'input[name="answer"]:checked'
-        ).value;
-        if (value == "A" || "B" || "C" || "D") {
-          // console.log(targetAnswer)
+        const checkedRadio = document.querySelector('input[name="answer"]:checked');
+        if (checkedRadio) {
+          const targetAnswer = checkedRadio.value
           userAnwser.push(targetAnswer);
-          console.log(userAnwser);
-          console.log(userAnwser.length);
 
+          // 라디오 버튼 해제
+          for(i=0 ; i<radio.length; i++){
+            if(radio[i].checked)
+              radio[i].checked = false
+          }
+
+          //문제 인덱스 확인을 위해 arr 전달
+          const data = {
+              userAnwser
+            }
+            axios({
+              method: "POST",
+              url: "/test2023",
+              data: data,
+            })
+            
           if (userAnwser.length === 3) {
             endBtn.style.display = "inline";
             nextBtn.style.display = "none";
             capion.style.display = "none";
           }
-        } else {
+        } else{
           alert("문제를 풀어주세요.");
         }
       }
 
       function showResult() {
-        console.log("click");
-        location.href = "/result";
+        const checkedRadio = document.querySelector('input[name="answer"]:checked');
+        if (checkedRadio) {
+          const targetAnswer = checkedRadio.value
+          userAnwser.push(targetAnswer);
+          if (userAnwser.length === 4){
+            // axios userAnwwer Arr 전달
+            const data = {
+              userAnwser
+            }
+            axios({
+              method: "POST",
+              url: "/result",
+              data: data,
+            })
+
+            location.href = "/result";
+         }
+        } else{
+          alert("문제를 풀어주세요.");
+        }
       }
+      
     </script>
   </body>
 </html>

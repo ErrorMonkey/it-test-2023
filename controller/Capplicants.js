@@ -61,6 +61,7 @@ const getComments = async () => {
   }
 };
 
+
 const getQuestion = async (count) => {
   try {
     const questionList = quizModel.getCorrectAnswers();
