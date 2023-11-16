@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <a href="./index.ejs"
+      <a href="/"
         ><img class="logo" src="../public/image/logo.svg" alt="logo"
       /></a>
     </header>
@@ -87,7 +87,11 @@
         >
           트렌드 지수 결과 보기
         </button>
-        <p class="question-capion" id="capion">15개의 문제가 남았습니다.</p>
+       
+          <p class="question-capion" id="capion">
+            <!-- <span>%= remainQuestion %</span>개의 문제가 남았습니다. -->
+          </p>
+
       </form>
     </section>
 
@@ -106,6 +110,8 @@
       // 다음 버튼
       document.addEventListener("DOMContentLoaded", function () {
         let count = 0; // 변수명을 currentQuestionIndex에서 count로 수정
+        let remainQuestion = 10;
+        
 
         // 초기 질문 로딩
         loadQuestion(count);
@@ -128,7 +134,7 @@
               }
 
               //결과보기 버튼 노출
-              if (userAnwsers.length === 10) {
+              if (userAnswers.length === 9) {
                 endBtn.style.display = "inline";
                 nextBtn.style.display = "none";
                 capion.style.display = "none";
@@ -147,6 +153,7 @@
             // 서버로부터 정답 데이터를 가져옴
             const response = await axios.post("/postCorrectAnswers");
             const correctAnswers = response.data;
+            remainQuestion--;
 
             // 현재 진행 중인 문제 가져오기
             const currentQuestion = correctAnswers[count];
@@ -187,6 +194,9 @@
           .getElementById("endBtn")
           .addEventListener("click", async function () {
             try {
+              const selectedAnswer = document.querySelector(
+              'input[name="answer"]:checked'
+            );
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
