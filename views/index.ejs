@@ -6,29 +6,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="../public/css/main.css" />
     <link rel="stylesheet" href="../public/css/index.css" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
-    <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
   </head>
-  <body>
-    <!-- mobil 576 -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
 
+  <body>
     <header>
       <img src="../public/image/logo.png" alt="헤더로고" />
     </header>
 
+    <!-- section1 -->
     <section class="wrapper">
       <div class="main-title">
         <img src="../public/image/title.png" alt="타이틀" />
       </div>
-      <!-- <p>벌써 트능이 3회차를 맞이했다고? 
-      그런데 아직 1등급 못 받아본 <br/>
-      사람이 있다는 소문... <br/>
-      올해 나의 트렌드 감각은 과연?
-    </p> -->
       <div>
         <img
           src="../public/image/octocat.png"
@@ -39,33 +29,27 @@
       <button onclick="startTest()" class="main-btn">능력고사 시작하기</button>
     </section>
 
+    <!-- section2 -->
     <section class="cont-area">
-      <div>
         <ul>
           <li>
-            <div class="box data">
+            <div class="box">
               <span class="label">응시자</span>
               <span class="value"><%=totalApplicants %>명</span>
             </div>
-            <div class="box data">
+            <div class="box">
               <span class="label">응시자 평균 점수</span>
               <span class="value"><%=averageScore%>점</span>
             </div>
-            <div class="box data">
+            <div class="box">
               <span class="label">만점자</span>
               <span class="value"><%=perfectScoreApplicants %>명</span>
             </div>
           </li>
         </ul>
-      </div>
     </section>
-    <!-- <div class="box trend">
-            <span class="trend-label">가장 많은 트렌드 유형은?</span>
-            <p>Lv.5 새우깡마냥 트렌드
-              낚아채는 갈매기 (19%)</p>
-              <img src="/public/image/level5.png" alt="lv5" class="lv5"/>
-          </div> -->
 
+    <!-- section3 -->
     <section class="sesac">
       <div class="sesac-container">
         <img src="../public/image/sesac-logo.png" alt="새싹 로고" />
@@ -73,25 +57,28 @@
         <a
           href="https://sesac.seoul.kr/common/greeting.do"
           class="sesac-link-button"
-          >홈페이지</a
-        >
+          >홈페이지</a>
       </div>
     </section>
 
+    <!-- section4 -->
     <section class="comment-section">
       <div>
         <p class="honor">명예의 전당</p>
         <p class="manjeom">만점자만 댓글 달수있음</p>
       </div>
 
-      <div class="comment-box">
-        <div class="nickname">
-          <img src="../public/image/level5.png" alt="프로필사진" />
-          <p class="name"><%= totalComment[0].dataValues.username %></p>
+      <% for (let i = 0; i < totalComment.length; i++) { %>
+        <div class="comment-box">
+          <div class="nickname">
+            <img src="../public/image/level5.png" alt="프로필사진" />
+            <p class="name"><%= totalComment[i].username %></p>
+          </div>
+          <div class="comment"><%= totalComment[i].comment %></div>
         </div>
-        <div class="comment"><%= totalComment[0].dataValues.comment %></div>
-      </div>
+      <% } %>
 
+    <!-- float-box -->
     <div class="float-box" onclick="toggleSnsList()">
       <ul class="sns-list">
         <li>
@@ -126,9 +113,6 @@
       </ul>
       <p>IT-TEST 소문내기</p>
     </div>
-
-    <!-- <p>※ 트렌드 지수는 1시간마다 갱신됩니다.</p>
-          <button class="lv-button">전체 트렌드 유형 보기</button> -->
 
     <footer>
       <span>COPYRIGHT(C) UNIVTOMORROWA.ALL RIGHTS RESERVED.</span>
