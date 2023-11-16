@@ -1,6 +1,6 @@
 const db = require("../model");
 
-//댓글 조회..
+// 댓글 조회
 exports.comments = (req, res) => {
   Comment.findAll().then((result) => {
     console.log("댓글창", result);
@@ -8,7 +8,7 @@ exports.comments = (req, res) => {
   });
 };
 
-//댓글작성
+// 댓글작성
 exports.createComments = async (req, res) => {
   const data = {
     username: req.body.username,
