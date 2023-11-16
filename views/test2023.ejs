@@ -89,7 +89,7 @@
         </button>
        
           <p class="question-capion" id="capion">
-            <!-- <span>%= remainQuestion %</span>개의 문제가 남았습니다. -->
+            
           </p>
 
       </form>
@@ -127,7 +127,7 @@
             if (selectedAnswer) {
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
-
+              console.log(userAnswers)
               // 라디오 버튼 해제
               for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked) radio[i].checked = false;
@@ -143,6 +143,10 @@
               // 다음 질문 로딩
               count++; // count를 증가시켜 다음 질문으로 이동
               await loadQuestion(count);
+
+              const remainingQuestions = 10 - count;
+              capion.textContent = `${remainingQuestions} 문제 남았습니다.`;
+
             } else {
               alert("문제를 풀어주세요.");
             }
@@ -162,6 +166,9 @@
             document.querySelector(".question-number").textContent = `${
               count + 1
             }번 문제`;
+            document.querySelector(".question-capion").textContent = `${
+              remainQuestion
+            } 문제 남았습니다.`;
             document.querySelector(
               ".question-text"
             ).textContent = `${currentQuestion.question}`;
@@ -200,7 +207,7 @@
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
-
+                console.log(userAnswers)
                 const response = await axios.post("/postUserAnswers", {
                   userAnswers: userAnswers,
                 });
