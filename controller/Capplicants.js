@@ -86,7 +86,9 @@ const getQuestion = async (count) => {
 
 // 결과 보기 버튼 누른 후 사용자 답안과 정답 비교
 function checkAnswers(req, res) {
-  const userAnswers = req.body.score; // 사용자의 답안
+  const userAnswers = req.query.userAnswers; // 사용자의 답안
+  console.log("userAnsers", req.params);
+  console.log("userAnsers2", req.query);
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
 
   let score = 0;
@@ -95,10 +97,6 @@ function checkAnswers(req, res) {
       score += 10;
     }
   }
-  // 점수에 따른 결과 페이지 이미지 변경 - resultValue
-  let resultImage = getResultInfo(score);
-
-  res.render("result", { resultImage });
   return score;
 }
 
@@ -164,12 +162,12 @@ exports.postCorrectAnswers = (req, res) => {
 exports.getResult = async (req, res) => {
   try {
     let data = {
-      applicantsid: req.body.applicantsid,
+      // applicantsid: req.body.applicantsid,
       score: checkAnswers(req, res), // checkAnswers에 req, res 전달
     };
 
-    const createScore = await applicants.create(data);
-
+    const createScore = await db.applicants.create(data);
+    console.log(req.params);
     if (createScore) {
       res.send({ return: true });
     } else {

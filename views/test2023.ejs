@@ -35,8 +35,8 @@
       <!-- 문제 카드 -->
       <div class="question-box">
         <p class="question-number"><%= count+1%>번 문제</p>
-        <span class="question-text"><%= questionText %></span>
-        <span class="question-score">(10점)</span>
+        <p class="question-text"><%= questionText %></p>
+        &nbsp;<span class="question-score">(10점)</span>
       </div>
       <!-- 대답 선택지 -->
       <form action="" id="answer-form" name="answerForm">
@@ -87,10 +87,10 @@
         >
           트렌드 지수 결과 보기
         </button>
-       
 
-          <p class="question-capion" id="capion"></p>
-
+        <p class="question-capion" id="capion">
+          <span>%= remainQuestion %</span>개의 문제가 남았습니다.
+        </p>
       </form>
     </section>
 
@@ -110,7 +110,6 @@
       document.addEventListener("DOMContentLoaded", function () {
         let count = 0; // 변수명을 currentQuestionIndex에서 count로 수정
         let remainQuestion = 10;
-        
 
         // 초기 질문 로딩
         loadQuestion(count);
@@ -126,7 +125,7 @@
             if (selectedAnswer) {
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
-              console.log(userAnswers)
+
               // 라디오 버튼 해제
               for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked) radio[i].checked = false;
@@ -145,7 +144,6 @@
 
               const remainingQuestions = 10 - count;
               capion.textContent = `${remainingQuestions} 문제 남았습니다.`;
-
             } else {
               alert("문제를 풀어주세요.");
             }
@@ -156,7 +154,6 @@
             // 서버로부터 정답 데이터를 가져옴
             const response = await axios.post("/postCorrectAnswers");
             const correctAnswers = response.data;
-            
 
             // 현재 진행 중인 문제 가져오기
             const currentQuestion = correctAnswers[count];
@@ -165,9 +162,9 @@
             document.querySelector(".question-number").textContent = `${
               count + 1
             }번 문제`;
-            document.querySelector(".question-capion").textContent = `${
-              remainQuestion
-            } 문제 남았습니다.`;
+            document.querySelector(
+              ".question-capion"
+            ).textContent = `${remainQuestion} 문제 남았습니다.`;
             document.querySelector(
               ".question-text"
             ).textContent = `${currentQuestion.question}`;
@@ -200,15 +197,18 @@
           .addEventListener("click", async function () {
             try {
               const selectedAnswer = document.querySelector(
-              'input[name="answer"]:checked'
-            );
+                'input[name="answer"]:checked'
+              );
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
-                console.log(userAnswers)
-                const response = await axios.post("/postUserAnswers", {
-                  userAnswers: userAnswers,
+                console.log(userAnswers);
+                const response = await axios.get("/result", {
+                  params: {
+                    userAnswers: userAnswers,
+                  },
                 });
+                window.location.href = "/result";
               }
             } catch (error) {
               console.error("에러 발생: ", error);
