@@ -85,20 +85,21 @@ const getQuestion = async (count) => {
 };
 
 // 결과 보기 버튼 누른 후 사용자 답안과 정답 비교
-function checkAnswers(req, res) {
-  const userAnswers = req.body.score; // 사용자의 답안
-  const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
+let score = 0;
 
-  let score = 0;
+function checkAnswers(req, res) {
+  const userAnswers = req.body.userAnswers; // 사용자의 답안
+  const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
+  // console.log("userAnswers[0]", userAnswers[0]);
+  // console.log("correctAnswers", correctAnswers[0].answer);
   for (let i = 0; i < userAnswers.length; i++) {
     if (userAnswers[i] === correctAnswers[i].answer) {
       score += 10;
     }
   }
   // 점수에 따른 결과 페이지 이미지 변경 - resultValue
-  let resultImage = getResultInfo(score);
-
-  res.render("result", { resultImage });
+  // let resultImage = getResultInfo(score);
+  // res.render("result", { resultImage });
   return score;
 }
 
@@ -166,12 +167,16 @@ exports.getResult = async (req, res) => {
     let data = {
       applicantsid: req.body.applicantsid,
       score: checkAnswers(req, res), // checkAnswers에 req, res 전달
+      result: getResultInfo(score),
+      perfect: score == 100 ? true : false,
     };
-
-    const createScore = await applicants.create(data);
-
+    const createScore = await db.applicants.create(data);
+    console.log("createScore", createScore);
+    console.log("data", data);
+    res.render("result", { data });
+    // res.send("result", { data });
     if (createScore) {
-      res.send({ return: true });
+      // res.send({ return: true });
     } else {
       res.status(500).send({ return: false });
     }

@@ -8,10 +8,6 @@ function applicants(Sequelize, DataTypes) {
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
-        type: DataTypes.STRING(15),
-        allowNull: false,
-      },
       score: {
         type: DataTypes.INTEGER,
         allowNull: false,
