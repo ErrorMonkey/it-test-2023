@@ -88,6 +88,7 @@
           트렌드 지수 결과 보기
         </button>
        
+
           <p class="question-capion" id="capion"></p>
 
       </form>
@@ -125,7 +126,7 @@
             if (selectedAnswer) {
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
-
+              console.log(userAnswers)
               // 라디오 버튼 해제
               for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked) radio[i].checked = false;
@@ -204,7 +205,7 @@
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
-
+                console.log(userAnswers)
                 const response = await axios.post("/postUserAnswers", {
                   userAnswers: userAnswers,
                 });
