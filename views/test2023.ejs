@@ -47,7 +47,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text">A</span>
+            <span class="answer-text"><%= getCorrectAnswers[i].answer.select1 %></span>
           </label>
 
           <label class="answer">
@@ -56,7 +56,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text">B</span>
+            <span class="answer-text"><%= getCorrectAnswers[i].answer.select2 %></span>
           </label>
 
           <label class="answer">
@@ -65,7 +65,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text">C</span>
+            <span class="answer-text"><%= getCorrectAnswers[i].answer.select3 %></span>
           </label>
 
           <label class="answer">
@@ -74,7 +74,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text">D</span>
+            <span class="answer-text"><%= getCorrectAnswers[i].answer.select4 %></span>
           </label>
         </div>
         <button class="main-btn question-next" id="nextBtn" type="button">
@@ -100,6 +100,7 @@
       const endBtn = document.getElementById("endBtn");
       const capion = document.getElementById("capion");
       const answer = document.getElementsByClassName("answer");
+      let radio = document.getElementsByName("answer");
       const userAnswers = [];
 
       // 다음 버튼
@@ -113,15 +114,24 @@
         document
           .getElementById("nextBtn")
           .addEventListener("click", async function () {
-            const selectedAnswer = document.querySelector(
-              'input[name="answer"]:checked'
-            );
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
 
             if (selectedAnswer) {
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
 
-              // 서버로 답안을 전송하고 결과를 받아오는 로직 추가 가능 (예: AJAX 요청)
+              // 라디오 버튼 해제
+              for(i=0 ; i<radio.length; i++){
+                if(radio[i].checked)
+                radio[i].checked = false
+              }
+
+              //결과보기 버튼 노출
+              if (userAnwsers.length === 3) {
+                endBtn.style.display = "inline";
+                nextBtn.style.display = "none";
+                capion.style.display = "none";
+              }
 
               // 다음 질문 로딩
               count++; // count를 증가시켜 다음 질문으로 이동
@@ -130,7 +140,6 @@
               alert("문제를 풀어주세요.");
             }
           });
-
         async function loadQuestion(count) {
           console.log(count);
           try {
@@ -158,79 +167,28 @@
           } catch (error) {
             console.error("에러 발생: ", error);
           }
-      let radio = document.getElementsByName("answer");
-      const userAnwser = [];
-
-      // 다음 버튼
-      function next(DOMContentLoaded) {
-        const checkedRadio = document.querySelector('input[name="answer"]:checked');
-        if (checkedRadio) {
-          const targetAnswer = checkedRadio.value
-          userAnwser.push(targetAnswer);
-
-          // 라디오 버튼 해제
-          for(i=0 ; i<radio.length; i++){
-            if(radio[i].checked)
-              radio[i].checked = false
-          }
-
-          //문제 인덱스 확인을 위해 arr 전달
-          const data = {
-              userAnwser
-            }
-            axios({
-              method: "POST",
-              url: "/test2023",
-              data: data,
-            })
-            
-          if (userAnwser.length === 3) {
-            endBtn.style.display = "inline";
-            nextBtn.style.display = "none";
-            capion.style.display = "none";
-          }
-        } else{
-          alert("문제를 풀어주세요.");
         }
+      
+
+      // 결과보기------------------------------------------------------------------
         // 결과 보기 버튼 클릭 시 답안 전송
         document
           .getElementById("endBtn")
           .addEventListener("click", async function () {
             try {
-              const response = await axios.post("/postUserAnswers", {
-                userAnswers: userAnswers,
-              });
+              if (selectedAnswer) {
+                // 선택된 답안을 배열에 추가
+                userAnswers.push(selectedAnswer.value);
 
-              // 결과를 받아와서 처리하는 로직 추가
-              console.log(response.data);
+                const response = await axios.post("/postUserAnswers", {
+                  userAnswers: userAnswers,
+                });
+              }
             } catch (error) {
               console.error("에러 발생: ", error);
             }
           });
       });
-      
-      function showResult() {
-        const checkedRadio = document.querySelector('input[name="answer"]:checked');
-        if (checkedRadio) {
-          const targetAnswer = checkedRadio.value
-          userAnwser.push(targetAnswer);
-          if (userAnwser.length === 4){
-            // axios userAnwwer Arr 전달
-            const data = {
-              userAnwser
-            }
-            axios({
-              method: "POST",
-              url: "/result",
-              data: data,
-            })
-
-            location.href = "/result";
-         }
-        } else{
-          alert("문제를 풀어주세요.");
-        }
-      }
      
     </script>
   </body>
