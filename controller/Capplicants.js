@@ -51,10 +51,12 @@ const getAverageScore = async () => {
   }
 };
 
+//메인화면에 댓글창 전송
 const getComments = async () => {
   try {
     const comments = await db.comment.findAll({
-      order:[["maxID","DESC"]]
+      order:[["maxID","DESC"]],
+      limit:5
     });
     return comments;
   } catch (error) {
