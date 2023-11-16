@@ -55,8 +55,8 @@ const getAverageScore = async () => {
 const getComments = async () => {
   try {
     const comments = await db.comment.findAll({
-      order:[["maxID","DESC"]],
-      limit:5
+      order: [["maxID", "DESC"]],
+      limit: 5,
     });
     return comments;
   } catch (error) {
@@ -65,14 +65,19 @@ const getComments = async () => {
   }
 };
 
-
 const getQuestion = async (count) => {
   try {
     const questionList = quizModel.getCorrectAnswers();
     // console.log(("questionList:", questionList));
     const currentQuestion = questionList[count];
 
-    return currentQuestion.question;
+    return [
+      currentQuestion.question,
+      currentQuestion.select1,
+      currentQuestion.select2,
+      currentQuestion.select3,
+      currentQuestion.select4,
+    ];
   } catch (error) {
     console.error("에러 발생: ", error);
     throw error;
@@ -124,10 +129,18 @@ exports.testStart = async (req, res) => {
     const count = req.query.count || 0; // query로 변경
 
     const questionText = await getQuestion(count);
+    const questionSelect1 = await getQuestion(count);
+    const questionSelect2 = await getQuestion(count);
+    const questionSelect3 = await getQuestion(count);
+    const questionSelect4 = await getQuestion(count);
 
     res.render("test2023", {
       count,
       questionText,
+      questionSelect1,
+      questionSelect2,
+      questionSelect3,
+      questionSelect4,
     });
   } catch (error) {
     console.error("에러 발생: ", error);

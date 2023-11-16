@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/css/main.css" />
+    <link rel="stylesheet" href="../public/css/test.css " />
 
-     <!-- axios -->
-     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -35,8 +36,7 @@
       <div class="question-box">
         <p class="question-number"><%= count+1%>번 문제</p>
         <p class="question-text"><%= questionText %></p>
-        &nbsp;<span class="question-score">(N점)</span>
-
+        &nbsp;<span class="question-score">(10점)</span>
       </div>
       <!-- 대답 선택지 -->
       <form action="" id="answer-form" name="answerForm">
@@ -47,7 +47,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text"><%= getCorrectAnswers[i].answer.select1 %></span>
+            <span class="answer-text1"><%= questionSelect1 %></span>
           </label>
 
           <label class="answer">
@@ -56,7 +56,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text"><%= getCorrectAnswers[i].answer.select2 %></span>
+            <span class="answer-text2"><%= questionSelect2 %></span>
           </label>
 
           <label class="answer">
@@ -65,7 +65,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text"><%= getCorrectAnswers[i].answer.select3 %></span>
+            <span class="answer-text3"><%= questionSelect3 %></span>
           </label>
 
           <label class="answer">
@@ -74,7 +74,7 @@
               data="../public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text"><%= getCorrectAnswers[i].answer.select4 %></span>
+            <span class="answer-text4"><%= questionSelect4 %></span>
           </label>
         </div>
         <button class="main-btn question-next" id="nextBtn" type="button">
@@ -114,20 +114,21 @@
         document
           .getElementById("nextBtn")
           .addEventListener("click", async function () {
-            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            const selectedAnswer = document.querySelector(
+              'input[name="answer"]:checked'
+            );
 
             if (selectedAnswer) {
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
 
               // 라디오 버튼 해제
-              for(i=0 ; i<radio.length; i++){
-                if(radio[i].checked)
-                radio[i].checked = false
+              for (i = 0; i < radio.length; i++) {
+                if (radio[i].checked) radio[i].checked = false;
               }
 
               //결과보기 버튼 노출
-              if (userAnwsers.length === 3) {
+              if (userAnwsers.length === 10) {
                 endBtn.style.display = "inline";
                 nextBtn.style.display = "none";
                 capion.style.display = "none";
@@ -150,7 +151,6 @@
             // 현재 진행 중인 문제 가져오기
             const currentQuestion = correctAnswers[count];
             const answerElements = document.querySelectorAll(".answer-text");
-
             // 문제 번호와 텍스트 업데이트
             document.querySelector(".question-number").textContent = `${
               count + 1
@@ -158,19 +158,30 @@
             document.querySelector(
               ".question-text"
             ).textContent = `${currentQuestion.question}`;
-
+            document.querySelector(
+              ".answer-text1"
+            ).textContent = `${currentQuestion.select1}`;
+            document.querySelector(
+              ".answer-text2"
+            ).textContent = `${currentQuestion.select2}`;
+            document.querySelector(
+              ".answer-text3"
+            ).textContent = `${currentQuestion.select3}`;
+            document.querySelector(
+              ".answer-text4"
+            ).textContent = `${currentQuestion.select4}`;
             // 답변 선택지 업데이트
             answerElements.forEach((answerElement, index) => {
               answerElement.textContent = currentQuestion.options[index];
+
               console.log("currentQuestion:", currentQuestion);
             });
           } catch (error) {
             console.error("에러 발생: ", error);
           }
         }
-      
 
-      // 결과보기------------------------------------------------------------------
+        // 결과보기------------------------------------------------------------------
         // 결과 보기 버튼 클릭 시 답안 전송
         document
           .getElementById("endBtn")
@@ -189,7 +200,6 @@
             }
           });
       });
-     
     </script>
   </body>
 </html>
