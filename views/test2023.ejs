@@ -202,9 +202,11 @@
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
-
+                console.log(userAnswers);
                 const response = await axios.get("/result", {
-                  userAnswers: userAnswers,
+                  params: {
+                    userAnswers: userAnswers,
+                  },
                 });
                 window.location.href = "/result";
               }

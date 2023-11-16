@@ -31,10 +31,10 @@ app.use("/", router);
 // }
 // });
 
-app.get("/result", (req, res) => {
-  const userAnswers = req.query.userAnswers;
-  res.render("result", { userAnswers });
-});
+// app.get("/result", (req, res) => {
+//   const userAnswers = req.query.userAnswers;
+//   res.render("result", { userAnswers });
+// });
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
