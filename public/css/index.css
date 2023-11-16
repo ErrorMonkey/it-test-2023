@@ -1,3 +1,4 @@
+/* header (semicolon logo) */
 header {
   background-color: var(--main-blue-deep);
   height: 72px;
@@ -11,8 +12,9 @@ header img {
   height: 30px;
 }
 
+/* section1: 퀴즈 타이틀, 캐릭터, 시작하기 버튼 */
 .wrapper {
-  padding: 53px 0px;
+  padding: 53px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +39,6 @@ header img {
   border-radius: 60px;
   border: 0;
   font-weight: 700;
-  /* margin-top: 20px; */
   cursor: pointer;
   box-shadow: 0 10px 0 var(--main-blue-dark);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -48,6 +49,8 @@ header img {
   box-shadow: 0 5px 0 var(--main-blue-dark);
 }
 
+
+/* section2: 응시자, 평균점수, 만점자*/
 .cont-area {
   display: flex;
   flex-direction: column;
@@ -55,15 +58,13 @@ header img {
   background-color: var(--main-blue-main);
   padding: 36px 18px;
   text-align: center;
+  
 }
 
 .box {
   width: 100%;
   padding: 11px 18px 10px;
   background: var(--main-blue-deep);
-}
-
-.data {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,12 +76,12 @@ header img {
   margin-bottom: 12px;
 }
 
-.data .label {
+.box .label {
   font-weight: 400;
   font-size: 24px;
 }
 
-.data .value {
+.box .value {
   font-weight: 900;
   font-size: 32px;
 }
@@ -91,28 +92,11 @@ ul {
   margin: 0;
 }
 
-p {
-  color: var(--main-gray-light);
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.lv-button {
-  background-color: var(--main-blue-main);
-  color: var(--main-white-basic);
-  border-radius: 555px;
-  width: 179px;
-  height: 31px;
-  margin-top: 6px;
-  border: 1px solid var(--main-white-basic);
-  font-size: 14px;
-  font-weight: 700;
-}
+/* section3: 새싹 링크 */
 
 .sesac {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: var(--main-white-basic);
   align-items: center;
   text-align: center;
@@ -145,10 +129,11 @@ p {
   text-decoration: none;
   border-radius: 10px;
   font-size: 14px;
-  padding: 10px 12px;
+  padding: 8px 8px;
   color: inherit;
 }
 
+/* section4: 댓글 */
 .comment-section {
   border-top: 1px solid var(--main-gray-light);
   padding: 10px 15px;
@@ -187,22 +172,28 @@ p {
   color: var(--main-black-basic);
 }
 
+/* float-box */
 .float-box {
   background-color: var(--main-black-basic);
   color: var(--main-white-basic);
   align-items: center;
   text-align: center;
   cursor: pointer;
-  position: fixed;
-  height: 40px;
+  height: 35px;
   display: flex;
   justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  font-size: 15px;  
+  left: 0;
 }
 
 .sns-list {
   display: none;
   list-style: none;
-  bottom: 90px;
+  bottom: 45px;
 }
 
 .sns-list.show {
@@ -222,11 +213,9 @@ p {
 .link-icon.twitter {
   background-image: url(../image/icon-twitter.png);
 }
-
 .link-icon.facebook {
   background-image: url(../image/icon-facebook.png);
 }
-
 .link-icon.kakao {
   background-image: url(../image/icon-kakao.png);
 }
@@ -243,26 +232,11 @@ p {
   background-color: var(--main-black-basic);
 }
 
-.float-box {
-  height: 75px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-  color: var(--main-white-basic);
-}
-.float-box p {
-  font-size: 1.5em;
-}
+/* 미디어쿼리 breakpoint: 576, 1440 px*/
+/* 적용되어야 할 요소들: section1-wrapper, float-box 이렇게 두 개! */
 
-@media (min-width: 576px) {
-  .main-title img {
-    width: 100%;
-    max-width: 800px;
-    margin-left: 0;
-  }
 
-  .float-box {
+  /* .float-box {
     color: var(--main-white-basic);
     position: fixed;
     overflow: visible;
@@ -278,18 +252,58 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute; /* 상대 위치 대신 절대 위치로 변경 */
-  }
+    position: absolute; }/* 상대 위치 대신 절대 위치로 변경 */
+  
 
-  .sns-list li {
-    margin-bottom: 10px;
-  }
-  .octocat {
-    right: auto;
-    width: 100%;
-    max-width: 129%;
-  }
-}
+  /* .sns-list li {
+    margin-bottom: 10px; */
+  /* } */ 
 
-@media (min-width: 1440px) {
-}
+  @media screen and (min-width: 576px) {
+    .wrapper {
+      width: 100%;
+    
+    }
+
+    .main-title img {
+      max-width: 700px;
+      left: 0;
+    }
+  
+    .octocat { 
+      max-width: 500px;
+
+    }
+  
+    .main-btn {
+      font-size: 40px;
+      height: 90px;
+      padding: 10px;
+      width: 75%;
+      border-radius: 60px;
+      border: 0;
+
+    }
+
+    
+    .float-box {
+      color: var(--main-white-basic);
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      top: 35%;
+      right: 2%;
+      border: 2px solid var(--main-gray-light);
+      /* box-shadow: 0 0 10px var(--main-black-basic); */
+      left: auto;
+    }
+
+    .sns-list.show {
+      flex-direction: column; 
+      top: 130%;
+      gap: 1.5em;
+    }
+
+
+
+  } 

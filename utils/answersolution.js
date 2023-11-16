@@ -52,7 +52,8 @@ const correctAnswers = [
 ];
 
 function getCorrectAnswers() {
+  // console.log("correctAnswers:", correctAnswers);
   return correctAnswers;
 }
 
-module.exports = getCorrectAnswers;
+module.exports = { getCorrectAnswers };

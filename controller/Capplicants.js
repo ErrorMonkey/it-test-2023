@@ -63,20 +63,17 @@ const getComments = async () => {
   }
 };
 
-const getQuestion = async (req, res) => {
-  try {
-    const questioncount = req.body.count;
-    const questionlist = quizModel.getCorrectAnswers;
 
-    for (let i = 0; i < questioncount.length; i++) {
-      if (questioncount === questionlist[i]) {
-        const currentQuestion = questionlist[i].question;
-        return res.send(currentQuestion);
-      }
-    }
+const getQuestion = async (count) => {
+  try {
+    const questionList = quizModel.getCorrectAnswers();
+    // console.log(("questionList:", questionList));
+    const currentQuestion = questionList[count];
+
+    return currentQuestion.question;
   } catch (error) {
     console.error("에러 발생: ", error);
-    res.status(500).send("에러 발생");
+    throw error;
   }
 };
 
@@ -121,12 +118,29 @@ exports.home = async (req, res) => {
 // 테스트 시작 화면
 exports.testStart = async (req, res) => {
   try {
-    const questionlist = await getQuestion(req, res);
+    // 클라이언트에서 넘어온 count 값에 해당하는 문제 가져오기
+    const count = req.query.count || 0; // query로 변경
+
+    const questionText = await getQuestion(count);
 
     res.render("test2023", {
-      questionlist,
+      count,
+      questionText,
     });
   } catch (error) {
+    console.error("에러 발생: ", error);
+    res.status(500).send("에러 발생");
+  }
+};
+
+// 다음 버튼 포스트 요청
+exports.postCorrectAnswers = (req, res) => {
+  try {
+    const correctAnswers = quizModel.getCorrectAnswers();
+    // res.json(correctAnswers);
+    res.send(correctAnswers);
+  } catch (error) {
+    console.error("에러 발생: ", error);
     res.status(500).send("에러 발생");
   }
 };
