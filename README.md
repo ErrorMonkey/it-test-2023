@@ -119,8 +119,6 @@ $ npm run dev
 * 권구호 - kguho9202@gmail.com
 * 이다현 - da0956@gmail.com
 
-[https://github.com/ErrorMonkey/it-test-2023k](https://github.com/ErrorMonkey/it-test-2023)
-
 ## Contribute
 
 1. (<https://github.com/ErrorMonkey/it-test-2023>)을 포크합니다.
