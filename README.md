@@ -4,20 +4,19 @@
 > it 얼마나 알고있니? 
 
 
-## 프로젝트 소개
+## Introduce
 > 트렌드 능력고사를 참고하여 만든 it 능력고사 사이트입니다.
 
-## 개발기간
+## Develop period
 > 23.11.09 ~ 23.11.23
 
-## 멤버 구성
+## Members
 * 이세윤(FE) :
 * 이산하(FE) :
 * 한기선(FE) :
 * 권구호(BE) :
 * 이다현(BE) : 
 
-## 기술 스택
 <h2>Stack</h2>
 <div align="left">
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
@@ -40,11 +39,11 @@
 	<img src="https://img.shields.io/badge/figma-F24E1E?style=flat&logo=figma&logoColor=white" />
 </div>
 
-## 시작 가이드
+### Getting Started Guide
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 18.18.2]([https://nodejs.org/ca/blog/release/v14.19.3/])
+- [Node.js 18.18.2](https://nodejs.org/download/release/v18.18.2/)
 - [Npm 8.5.1](https://www.npmjs.com/package/npm/v/8.5.1)
 
 ### Installation
@@ -52,30 +51,24 @@ For building and running the application you need:
 $ git clone https://github.com/ErrorMonkey/it-test-2023.git
 $ cd it-test-2023
 ```
-#### Backend
-```
-$ nvm use v.18.18.0
-$ npm install
-$ npm run develop
-```
 
-#### Frontend
+#### Enviroment
 ```
-$ nvm use v.18.18.0
+$ nvm use v.16.14.0
 $ npm install 
 $ npm run dev
 ```
 ---
-## 화면 구성 📺
-| 메인 페이지  |  문제 페이지   |  결과 페이지   |  
-| :-------------------------------------------: | :------------: | :------------: |
+## Screen Layout 📺
+| Main page  |  Quiz page   |  Result page   |  
+| :------------: | :------------: | :------------: |
 |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036155-a57900f7-c68a-470d-923c-ff3c296ea635.png"/> |  <img width="329" src=""/>|  <img width="329" src=""/>|  
 
 ---
 
-## 아키텍쳐
+## Architecture
 
-### 디렉토리 구조
+### Directory
 ```bash
 ├── README.md
 ├── app.js
@@ -86,8 +79,8 @@ $ npm run dev
 │   ├── Ccomments.js : 만점자 댓글 달기 기능
 ├── model : 
 │   ├── index.js
-│   ├── applicants.js :응시자ID, 점수 테이블
-│   └── comments.js :만점자 댓글 테이블
+│   ├── applicants.js :응시자ID, 점수 데이터베이스 모델
+│   └── comments.js :만점자 댓글 데이터베이스 모델
 ├── public : 
 │   ├── CSS
 │   ├── img
@@ -95,6 +88,7 @@ $ npm run dev
 ├── routes :
 │   └── index.js
 ├── utils :
+│   ├── resultValue.js : 점수에 따른 결과페이지 이미지 반환
 │   └── answersolution.js : 문항별 정답 배열 저장
 └── views : 
     ├── index.ejs
@@ -102,7 +96,7 @@ $ npm run dev
     └── test2023.ejs
 ```
 
-## 업데이트 내역
+## Update - (수정 필요)
 
 * 0.2.1
     * 수정: 문서 업데이트 (모듈 코드 동일)
@@ -117,19 +111,21 @@ $ npm run dev
 * 0.0.1
     * 작업 진행 중
 
-## 정보
+## Infomation
 
-이름 – [@트위터 주소](https://twitter.com/dbader_org) – 이메일주소@example.com
+* 이세윤 - dominobomb@gmail.com
+* 이산하 - sanppi@naver.com
+* 한기선 - mssk2490@gmail.com
+* 권구호 - kguho9202@gmail.com
+* 이다현 - da0956@gmail.com
 
-[https://github.com/ErrorMonkey/it-test-2023k](https://github.com/ErrorMonkey/it-test-2023)
-
-## 기여 방법
+## Contribute
 
 1. (<https://github.com/ErrorMonkey/it-test-2023>)을 포크합니다.
 2. (`git checkout -b feature/itTest`) 명령어로 새 브랜치를 만드세요.
 3. (`git commit -am 'Add some itTest'`) 명령어로 커밋하세요.
 4. (`git push origin feature/itTest`) 명령어로 브랜치에 푸시하세요. 
-5. 풀리퀘스트를 보내주세요.
+5. Pull request 를 보내주세요.
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
