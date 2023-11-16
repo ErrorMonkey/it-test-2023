@@ -35,8 +35,8 @@
       <!-- 문제 카드 -->
       <div class="question-box">
         <p class="question-number"><%= count+1%>번 문제</p>
-        <p class="question-text"><%= questionText %></p>
-        &nbsp;<span class="question-score">(10점)</span>
+        <span class="question-text"><%= questionText %></span>
+        <span class="question-score">(10점)</span>
       </div>
       <!-- 대답 선택지 -->
       <form action="" id="answer-form" name="answerForm">
@@ -88,9 +88,8 @@
           트렌드 지수 결과 보기
         </button>
        
-          <p class="question-capion" id="capion">
-            
-          </p>
+
+          <p class="question-capion" id="capion"></p>
 
       </form>
     </section>
@@ -157,7 +156,7 @@
             // 서버로부터 정답 데이터를 가져옴
             const response = await axios.post("/postCorrectAnswers");
             const correctAnswers = response.data;
-            remainQuestion--;
+            
 
             // 현재 진행 중인 문제 가져오기
             const currentQuestion = correctAnswers[count];
@@ -187,7 +186,6 @@
             // 답변 선택지 업데이트
             answerElements.forEach((answerElement, index) => {
               answerElement.textContent = currentQuestion.options[index];
-
               console.log("currentQuestion:", currentQuestion);
             });
           } catch (error) {
