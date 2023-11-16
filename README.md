@@ -4,13 +4,13 @@
 > it 얼마나 알고있니? 
 
 
-## 프로젝트 소개
+## Introduce
 > 트렌드 능력고사를 참고하여 만든 it 능력고사 사이트입니다.
 
-## 개발기간
+## Develop period
 > 23.11.09 ~ 23.11.23
 
-## 멤버 구성
+## Members
 * 이세윤(FE) :
 * 이산하(FE) :
 * 한기선(FE) :
@@ -39,7 +39,7 @@
 	<img src="https://img.shields.io/badge/figma-F24E1E?style=flat&logo=figma&logoColor=white" />
 </div>
 
-## 시작 가이드
+### Getting Started Guide
 ### Requirements
 For building and running the application you need:
 
@@ -59,16 +59,16 @@ $ npm install
 $ npm run dev
 ```
 ---
-## 화면 구성 📺
-| 메인 페이지  |  문제 페이지   |  결과 페이지   |  
+## Screen Layout 📺
+| Main page  |  Quiz page   |  Result page   |  
 | :------------: | :------------: | :------------: |
 |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036155-a57900f7-c68a-470d-923c-ff3c296ea635.png"/> |  <img width="329" src=""/>|  <img width="329" src=""/>|  
 
 ---
 
-## 아키텍쳐
+## Architecture
 
-### 디렉토리 구조
+### Directory
 ```bash
 ├── README.md
 ├── app.js
@@ -96,7 +96,7 @@ $ npm run dev
     └── test2023.ejs
 ```
 
-## 업데이트 내역 - (수정 필요)
+## Update - (수정 필요)
 
 * 0.2.1
     * 수정: 문서 업데이트 (모듈 코드 동일)
@@ -111,7 +111,7 @@ $ npm run dev
 * 0.0.1
     * 작업 진행 중
 
-## 정보
+## Infomation
 
 * 이세윤 - dominobomb@gmail.com
 * 이산하 - sanppi@naver.com
@@ -121,7 +121,7 @@ $ npm run dev
 
 [https://github.com/ErrorMonkey/it-test-2023k](https://github.com/ErrorMonkey/it-test-2023)
 
-## 기여 방법
+## Contribute
 
 1. (<https://github.com/ErrorMonkey/it-test-2023>)을 포크합니다.
 2. (`git checkout -b feature/itTest`) 명령어로 새 브랜치를 만드세요.
