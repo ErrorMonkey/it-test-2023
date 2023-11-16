@@ -35,8 +35,8 @@
       <!-- 문제 카드 -->
       <div class="question-box">
         <p class="question-number"><%= count+1%>번 문제</p>
-        <p class="question-text"><%= questionText %></p>
-        &nbsp;<span class="question-score">(10점)</span>
+        <span class="question-text"><%= questionText %></span>
+        <span class="question-score">(10점)</span>
       </div>
       <!-- 대답 선택지 -->
       <form action="" id="answer-form" name="answerForm">
@@ -88,9 +88,7 @@
           트렌드 지수 결과 보기
         </button>
        
-          <p class="question-capion" id="capion">
-            <span>%= remainQuestion %</span>개의 문제가 남았습니다.
-          </p>
+          <p class="question-capion" id="capion"></p>
 
       </form>
     </section>
