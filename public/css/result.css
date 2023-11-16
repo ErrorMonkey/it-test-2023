@@ -17,44 +17,56 @@ header h1 {
   text-align: center;
 }
 
-body {
-  cursor: none;
-}
-
-.pen {
-  position: absolute;
-  transform: translateY(-100%);
-}
-
 .form-wrapper {
+  z-index: 2;
   display: none;
+}
+.form-bg {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: #333; */
 }
 
 .comment-form {
+  /* outline: none; */
+  z-index: 2;
   border-radius: 10px;
   background-color: var(--main-white-basic);
   backdrop-filter: blur(15px);
-  padding: 20px;
+  padding: 25px;
   display: flex;
+  gap: 0.5em;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 200px;
+  width: 330px;
+  /* height: 200px; */
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
+  border: 0;
+}
+.comment-form input {
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid #333;
 }
 .comment-form p {
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  margin-bottom: 15px;
 }
-.comment-form label {
-  /* position: absolute; */
+.comment-form button {
+  width: 200px;
 }
 
 .wrapper {
+  /* z-index: 1; */
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -121,6 +133,32 @@ body {
   background-color: #333;
 }
 
+.comment-section {
+  margin-top: 10px;
+  width: 330px;
+  background-color: var(--main-white-basic);
+  /* border-top: 1px solid var(--main-gray-light); */
+  padding: 10px 15px;
+}
+.comment-box {
+  border-top: 1px solid var(--main-gray-light);
+  padding: 10px 15px;
+}
+.honor {
+  font-size: 30px;
+  color: var(--main-black-basic);
+  /* padding: 0px 15px; */
+}
+.nickname {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 10px; */
+}
+
+.nickname .name {
+  color: var(--main-black-basic);
+}
+
 .share-btn {
   text-align: center;
   margin-top: 10px;
@@ -140,7 +178,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
-  display: block;
   box-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 10px;

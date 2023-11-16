@@ -4,13 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/css/main.css" />
-    <link rel="stylesheet" href="../public/css/test.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
+
+     <!-- axios -->
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -40,6 +36,7 @@
         <p class="question-number"><%= count+1%>번 문제</p>
         <p class="question-text"><%= questionText %></p>
         &nbsp;<span class="question-score">(N점)</span>
+
       </div>
       <!-- 대답 선택지 -->
       <form action="" id="answer-form" name="answerForm">
@@ -99,8 +96,6 @@
     </footer>
     <script>
       const qustionForm = document.forms["answerForm"];
-      const input = document.querySelectorAll("input");
-      const value = input.value;
       const nextBtn = document.getElementById("nextBtn");
       const endBtn = document.getElementById("endBtn");
       const capion = document.getElementById("capion");
@@ -163,8 +158,40 @@
           } catch (error) {
             console.error("에러 발생: ", error);
           }
-        }
+      let radio = document.getElementsByName("answer");
+      const userAnwser = [];
 
+      // 다음 버튼
+      function next(DOMContentLoaded) {
+        const checkedRadio = document.querySelector('input[name="answer"]:checked');
+        if (checkedRadio) {
+          const targetAnswer = checkedRadio.value
+          userAnwser.push(targetAnswer);
+
+          // 라디오 버튼 해제
+          for(i=0 ; i<radio.length; i++){
+            if(radio[i].checked)
+              radio[i].checked = false
+          }
+
+          //문제 인덱스 확인을 위해 arr 전달
+          const data = {
+              userAnwser
+            }
+            axios({
+              method: "POST",
+              url: "/test2023",
+              data: data,
+            })
+            
+          if (userAnwser.length === 3) {
+            endBtn.style.display = "inline";
+            nextBtn.style.display = "none";
+            capion.style.display = "none";
+          }
+        } else{
+          alert("문제를 풀어주세요.");
+        }
         // 결과 보기 버튼 클릭 시 답안 전송
         document
           .getElementById("endBtn")
@@ -181,6 +208,30 @@
             }
           });
       });
+      
+      function showResult() {
+        const checkedRadio = document.querySelector('input[name="answer"]:checked');
+        if (checkedRadio) {
+          const targetAnswer = checkedRadio.value
+          userAnwser.push(targetAnswer);
+          if (userAnwser.length === 4){
+            // axios userAnwwer Arr 전달
+            const data = {
+              userAnwser
+            }
+            axios({
+              method: "POST",
+              url: "/result",
+              data: data,
+            })
+
+            location.href = "/result";
+         }
+        } else{
+          alert("문제를 풀어주세요.");
+        }
+      }
+     
     </script>
   </body>
 </html>
