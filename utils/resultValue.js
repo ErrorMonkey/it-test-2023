@@ -4,35 +4,35 @@ function getResultInfo(score) {
       grade: "5등급",
       gradeTitle: "좀 치시네요",
       desc: "잘 치시네요",
-      img: "",
+      img: "../public/image/grade5.jpg",
     };
   } else if (score > 20 && score <= 40) {
     return {
       grade: "4등급",
       gradeTitle: "4444",
       desc: "잘 치시네요",
-      img: "../public/image/grade3.jpeg",
+      img: "../public/image/grade4.jpg",
     };
   } else if (score > 40 && score <= 60) {
     return {
       grade: "3등급",
       gradeTitle: "33333",
       desc: "잘 치시네요",
-      img: "../public/image/grade3.jpeg",
+      img: "../public/image/grade3.jpg",
     };
   } else if (score > 60 && score <= 80) {
     return {
       grade: "2등급",
       gradeTitle: "22222222",
       desc: "잘 치시네요",
-      img: "../public/image/grade2.jpeg",
+      img: "../public/image/grade2.jpg",
     };
   } else {
     return {
       grade: "1등급",
       gradeTitle: "좀 치시네요",
       desc: "잘 치시네요",
-      img: "../public/image/grade1.jpeg",
+      img: "../public/image/grade1.jpg",
     };
   }
 }

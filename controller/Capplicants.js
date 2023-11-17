@@ -86,14 +86,15 @@ const getQuestion = async (count) => {
 
 // 결과 보기 버튼 누른 후 사용자 답안과 정답 비교
 let score = 0;
-
 function checkAnswers(req, res) {
-  const userAnswers = req.body.userAnswers; // 사용자의 답안
+  // const userAnswers = req.body.userAnswers; // 사용자의 답안
+  const userAnswers = req.body.answerData.split(","); // 사용자의 답안
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
   // console.log("userAnswers[0]", userAnswers[0]);
   // console.log("correctAnswers", correctAnswers[0].answer);
-  for (let i = 0; i < userAnswers.length; i++) {
+  for (let i = 0; i < userAnswers.length - 1; i++) {
     if (userAnswers[i] === correctAnswers[i].answer) {
+      // console.log("correctAnswers: ", correctAnswers[i].answer);
       score += 10;
     }
   }
@@ -171,8 +172,6 @@ exports.getResult = async (req, res) => {
       perfect: score == 100 ? true : false,
     };
     const createScore = await db.applicants.create(data);
-    console.log("createScore", createScore);
-    console.log("data", data);
     res.render("result", { data });
     // res.send("result", { data });
     if (createScore) {
@@ -184,4 +183,29 @@ exports.getResult = async (req, res) => {
     console.error("에러 발생: ", error);
     res.status(500).send("에러 발생");
   }
+};
+
+// 결과 보기
+exports.formGetResult = async (req, res) => {
+  console.log("req.body: ", req.body.answerData);
+  let dbData = {
+    applicantsid: req.body.applicantsid,
+    score: checkAnswers(req, res), // checkAnswers에 req, res 전달
+  };
+  const perfect = dbData.score == 100 ? true : false;
+  const createScore = await db.applicants.create(dbData);
+  const totalComment = await getComments();
+  data = {
+    totalComment,
+    perfect,
+    result: getResultInfo(dbData.score),
+  };
+  res.render("result", { data });
+  // try {
+  //   console.log(req.body);
+  //   res.render("result", { data: req.body });
+  // } catch (error) {
+  //   console.error("에러 발생: ", error);
+  //   res.status(500).send("에러 발생");
+  // }
 };
