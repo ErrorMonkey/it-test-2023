@@ -33,7 +33,7 @@
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 18.18.2](https://nodejs.org/download/release/v18.18.2/)
+- [Node.js 16.14.2](https://nodejs.org/download/release/v16.14.2/)
 - [Npm 8.5.1](https://www.npmjs.com/package/npm/v/8.5.1)
 
 ### Installation
@@ -43,13 +43,15 @@ $ cd it-test-2023
 ```
 
 #### Enviroment
+#### Dev
 ```
-$ nvm use v.16.14.0
+$ nvm use v.16.14.2
 $ npm install 
 $ npm run dev
 ```
+#### Production
 ```
-$ nvm use v.16.14.0
+$ nvm use v.16.14.2
 $ npm install 
 $ npm run start
 ```
@@ -91,21 +93,6 @@ $ npm run start
     ├── result.ejs
     └── test2023.ejs
 ```
-
-## Update - (수정 필요)
-
-* 0.2.1
-    * 수정: 문서 업데이트 (모듈 코드 동일)
-* 0.2.0
-    * 수정: `setDefaultXYZ()` 메서드 제거
-    * 추가: `init()` 메서드 추가
-* 0.1.1
-    * 버그 수정: `baz()` 메서드 호출 시 부팅되지 않는 현상 (@컨트리뷰터 감사합니다!)
-* 0.1.0
-    * 첫 출시
-    * 수정: `foo()` 메서드 네이밍을 `bar()`로 수정
-* 0.0.1
-    * 작업 진행 중
 
 ## Infomation
 

@@ -89,6 +89,7 @@ function checkAnswers(req, res) {
   let score = 0;
   // const userAnswers = req.body.userAnswers; // 사용자의 답안
   const userAnswers = req.body.answerData.split(",");
+
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
   for (let i = 0; i < userAnswers.length; i++) {
     if (userAnswers[i] === correctAnswers[i].answer) {
