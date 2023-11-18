@@ -10,20 +10,12 @@
 ## Develop period
 > 23.11.09 ~ 23.11.23
 
-## Members
-* 이세윤(FE) : 결과 페이지 구현
-* 이산하(FE) : 메인 페이지 구현
-* 한기선(FE) : 테스트 페이지 구현
-* 권구호(BE) : 응시자 관련 기능 구현
-* 이다현(BE) : 댓글 달기 기능 구현
-
 <h2>Stack</h2>
 <div align="left">
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
 	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
 	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
 	<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white" />
-	<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white" />
 	<br>
 	<img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/>
 	<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
