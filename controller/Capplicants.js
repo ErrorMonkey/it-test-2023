@@ -90,6 +90,7 @@ function checkAnswers(req, res) {
   // const userAnswers = req.body.userAnswers; // 사용자의 답안
   const userAnswers = req.body.answerData.split(","); // 사용자의 답안
 
+
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
   // console.log("userAnswers[0]", userAnswers[0]);
   // console.log("correctAnswers", correctAnswers[0].answer);

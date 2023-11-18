@@ -43,15 +43,12 @@
     <section class="wrapper">
       <div class="score">
         <h1>당신의 IT 능력 등급은?</h1>
-        <p><%= %>3등급</p>
+        <p><%= data.result.grade %></p>
       </div>
       <div class="result-desc">
-        <h3><%= %>"너 개발자야? 견적 좀 짜주라"</h3>
-        <p>
-          <%= %> 개발자라고 하면 컴퓨터를 잘 고칠 거라고 생각하고, it라고 하면
-          유튜브 전자기기 리뷰를 먼저 떠올리는 당신.
-        </p>
-        <img src="" alt="" />
+        <h3>"<%= data.result.gradeTitle %>"</h3>
+        <p><%= data.result.desc %></p>
+        <img src="<%= data.result.img %>" alt="" />
         <div class="icon-group">
           <div>
             <i></i>
@@ -71,10 +68,10 @@
           <p class="manjeom">만점자만 댓글 달수있음</p>
         </div>
         <div class="comment-box">
-          <% for(let i = 0; i < data.length; i++) { %>
+          <%= data %> <% for(let i = 0; i < data.totalComment.length; i++) { %>
           <div class="nickname">
-            <p class="name"><%= data[i].username%></p>
-            <div class="comment"><%= data[i].comment%></div>
+            <p class="name"><%= data.totalComment[i].username%></p>
+            <div class="comment"><%= data.totalComment[i].comment%></div>
           </div>
           <%}%>
         </div>
