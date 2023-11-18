@@ -18,7 +18,11 @@ router.post("/postUserAnswers", controller.getResult);
 router.post("/result", controller.formGetResult);
 
 // 결과창 이동
-router.get("/result", controller2.comments);
+// router.get("/result", controller2.comments);
+router.get("/result", controller.getResult);
+// router.get("/result", (req, res) => {
+//   console.log(req.params);
+// });
 
 // 댓글조회
 router.post("/comments", controller2.comments);
