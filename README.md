@@ -33,7 +33,7 @@
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 18.18.2](https://nodejs.org/download/release/v18.18.2/)
+- [Node.js 16.14.2](https://nodejs.org/download/release/v16.14.2/)
 - [Npm 8.5.1](https://www.npmjs.com/package/npm/v/8.5.1)
 
 ### Installation
@@ -43,11 +43,13 @@ $ cd it-test-2023
 ```
 
 #### Enviroment
+#### Dev
 ```
 $ nvm use v.16.14.0
 $ npm install 
 $ npm run dev
 ```
+#### Production
 ```
 $ nvm use v.16.14.0
 $ npm install 
