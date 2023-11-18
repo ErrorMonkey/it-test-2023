@@ -80,6 +80,7 @@ $ npm run start
 │   ├── CSS
 │   ├── img
 │   └── JS
+│   	└── sharesns.js : SNS 공유하기 기능
 ├── routes :
 │   └── index.js
 ├── utils :
