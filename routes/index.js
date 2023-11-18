@@ -17,6 +17,23 @@ router.post("/postUserAnswers", controller.getResult);
 // 결과 폼 전송으로 요청
 router.post("/result", controller.formGetResult);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 결과창 이동
 // router.get("/result", controller2.comments);
 router.get("/result", controller.getResult);
