@@ -2,15 +2,11 @@
   "development": {
     "host": "localhost",
     "database": "itTest",
-    "username": "user",
-    "password": "sanha123*",
     "dialect": "mysql"
   },
   "production": {
     "host": "",
     "database": "",
-    "username": "",
-    "password": "",
     "dialect": "mysql"
   }
 }

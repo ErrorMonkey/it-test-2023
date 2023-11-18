@@ -17,7 +17,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node app.js",
-    "start": "pm2 start npm -- start",
+    "start": "cross-env NODE_ENV=production node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
