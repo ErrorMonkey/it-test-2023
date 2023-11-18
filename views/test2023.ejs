@@ -89,7 +89,6 @@
           결과 보기
         </button>
 
-
         <p class="question-capion" id="capion"></p>
       </form>
 
@@ -102,11 +101,9 @@
       >
         <input name="answerData" type="text" style="display: none" />
 
-
         <p class="question-capion" id="capion">
           <span>%= remainQuestion %</span>개의 문제가 남았습니다.
         </p>
-
       </form>
     </section>
 
@@ -142,7 +139,6 @@
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
 
-
               // 라디오 버튼 해제
               for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked) radio[i].checked = false;
@@ -150,7 +146,6 @@
 
               //결과보기 버튼 노출
               if (userAnswers.length === 9) {
-                // if (userAnswers.length === 9) {
                 endBtn.style.display = "inline";
                 nextBtn.style.display = "none";
                 capion.style.display = "none";
@@ -224,10 +219,6 @@
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
-                // const response = await axios.post("/postUserAnswers", {
-                //   userAnswers: userAnswers,
-                // });
-
               }
               // submit으로 폼 전송
               const form = document.forms["formGetResult"];
