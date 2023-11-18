@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/css/main.css" />
     <link rel="stylesheet" href="../public/css/test.css " />
-
+    <link rel="icon" href="../public/image/favicon.ico">
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Document</title>
+    <title>SEMICOLON</title>
   </head>
   <body>
     <header>
@@ -80,13 +80,26 @@
         <button class="main-btn question-next" id="nextBtn" type="button">
           다음으로
         </button>
+
         <button
           class="main-btn question-next question-last"
           id="endBtn"
           type="button"
         >
-          트렌드 지수 결과 보기
+          결과 보기
         </button>
+
+        <p class="question-capion" id="capion"></p>
+      </form>
+
+      <!-- 결과창 폼전송을 위한 장치 -->
+      <form
+        name="formGetResult"
+        action="result"
+        method="post"
+        style="display: none"
+      >
+        <input name="answerData" type="text" style="display: none" />
 
         <p class="question-capion" id="capion">
           <span>%= remainQuestion %</span>개의 문제가 남았습니다.
@@ -149,7 +162,7 @@
             }
           });
         async function loadQuestion(count) {
-          console.log(count);
+          console.log("count: ", count);
           try {
             // 서버로부터 정답 데이터를 가져옴
             const response = await axios.post("/postCorrectAnswers");
@@ -180,6 +193,8 @@
             document.querySelector(
               ".answer-text4"
             ).textContent = `${currentQuestion.select4}`;
+            //
+            console.log(currentQuestion.answer);
             // 답변 선택지 업데이트
             answerElements.forEach((answerElement, index) => {
               answerElement.textContent = currentQuestion.options[index];
@@ -199,17 +214,16 @@
               const selectedAnswer = document.querySelector(
                 'input[name="answer"]:checked'
               );
+
+              let userAnswersString = "";
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
-                console.log(userAnswers);
-                const response = await axios.get("/result", {
-                  params: {
-                    userAnswers: userAnswers,
-                  },
-                });
-                window.location.href = "/result";
               }
+              // submit으로 폼 전송
+              const form = document.forms["formGetResult"];
+              form.answerData.value = userAnswers;
+              formGetResult.submit();
             } catch (error) {
               console.error("에러 발생: ", error);
             }

@@ -2,11 +2,17 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const router = require("./routes");
+const ps = process.env;
+const dotenv = require("dotenv");
 const PORT = 8000;
 
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+dotenv.config({ path: path.join(__dirname, "./config/envs/.env") });
+dotenv.config({
+  path: path.join(__dirname, `./config/envs/${ps.NODE_ENV}.env`),
+});
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use("/", router);

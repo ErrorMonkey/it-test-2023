@@ -12,14 +12,14 @@ function copyUrl() {
 }
 
 function shareTwitter() {
-  var sendText = "개발새발"; // 전달할 텍스트
-  var sendUrl = "https://9walnut.tistory.com/"; // 전달할 URL
+  var sendText = "itTest"; // 전달할 텍스트
+  var sendUrl = "http://115.85.183.132:8000/"; // 전달할 URL
   window.open(
     "https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl
   );
 }
 function shareFacebook() {
-  var sendUrl = "https://9walnut.tistory.com/"; // 전달할 URL
+  var sendUrl = "http://115.85.183.132:8000"; // 전달할 URL
   window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
 }
 function shareKakao() {
@@ -30,12 +30,12 @@ function shareKakao() {
     container: "#btnKakao", // 카카오공유버튼ID
     objectType: "feed",
     content: {
-      title: "호두", // 보여질 제목
-      description: "호두네", // 보여질 설명
-      imageUrl: "https://9walnut.tistory.com/", // 콘텐츠 URL
+      title: "it-test", // 보여질 제목
+      description: "2023 it 능력고사", // 보여질 설명
+      imageUrl: "http://115.85.183.132:8000", // 콘텐츠 URL
       link: {
-        mobileWebUrl: "https://9walnut.tistory.com/",
-        webUrl: "https://9walnut.tistory.com/",
+        mobileWebUrl: "http://115.85.183.132:8000",
+        webUrl: "http://115.85.183.132:8000",
       },
     },
   });
