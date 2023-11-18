@@ -87,9 +87,9 @@ const getQuestion = async (count) => {
 // 결과 보기 버튼 누른 후 사용자 답안과 정답 비교
 let score = 0;
 function checkAnswers(req, res) {
-
   // const userAnswers = req.body.userAnswers; // 사용자의 답안
   const userAnswers = req.body.answerData.split(","); // 사용자의 답안
+
 
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
   // console.log("userAnswers[0]", userAnswers[0]);
