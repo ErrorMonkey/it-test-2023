@@ -86,7 +86,6 @@ header h1 {
   padding: 10px;
   border-radius: 10px;
 }
-
 .score p {
   font-size: 2em;
   margin-top: 10px;
@@ -97,21 +96,18 @@ header h1 {
   word-wrap: break-word;
   margin-top: 10px;
   width: 300px;
-  background-color: white;
+  background-color: var(--main-white-basic);
   padding: 10px;
   border-radius: 9px;
-  border: 2px solid #333;
+  border: 2px solid var(--main-blue-deep);
 }
-
 .result-desc h3 {
   color: var(--main-blue-deep);
   font-weight: 700;
 }
-
 .result-desc p {
   margin-top: 10px;
 }
-
 .result-desc img {
   margin-top: 20px;
   display: block;
@@ -124,7 +120,6 @@ header h1 {
   display: flex;
   margin-top: 10px;
 }
-
 .icon-group i {
   display: inline-block;
   width: 30px;
@@ -139,6 +134,7 @@ header h1 {
   background-color: var(--main-white-basic);
   /* border-top: 1px solid var(--main-gray-light); */
   padding: 10px 15px;
+  margin-bottom: 15px;
 }
 .comment-box {
   border-top: 1px solid var(--main-gray-light);
@@ -154,39 +150,21 @@ header h1 {
   align-items: center;
   /* margin-bottom: 10px; */
 }
-
 .nickname .name {
   color: var(--main-black-basic);
 }
 
-.share-btn {
-  text-align: center;
-  margin-top: 10px;
-  background-color: var(--main-white-basic);
-  color: var(--main-blue-main);
-  border-radius: 10px;
-  cursor: pointer;
-  width: 200px;
-  padding: 10px;
-  box-shadow: 1px 0 10px #333;
-}
-
-.share-alert {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: auto;
-  box-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 10px;
-  width: 200px;
-  height: 40px;
-  background-color: var(--main-white-basic);
-}
-
 footer {
+  font-size: 0.8em;
   height: 100px;
+  margin-bottom: 70px;
+  color: var(--main-gray-deep);
   background-color: var(--main-white-basic);
+  line-height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer > p {
+  text-align: center;
 }
