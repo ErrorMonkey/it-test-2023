@@ -15,6 +15,23 @@ router.post("/postCorrectAnswers", controller.postCorrectAnswers);
 // // 결과 보기
 router.post("/postUserAnswers", controller.getResult);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 결과창 이동
 router.get("/result", controller2.comments);
 
