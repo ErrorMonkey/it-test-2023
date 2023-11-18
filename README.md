@@ -45,13 +45,13 @@ $ cd it-test-2023
 #### Enviroment
 #### Dev
 ```
-$ nvm use v.16.14.0
+$ nvm use v.16.14.2
 $ npm install 
 $ npm run dev
 ```
 #### Production
 ```
-$ nvm use v.16.14.0
+$ nvm use v.16.14.2
 $ npm install 
 $ npm run start
 ```
