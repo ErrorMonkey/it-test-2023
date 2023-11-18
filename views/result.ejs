@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="../public/css/result.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-  <style></style>
   <body>
+    <% if(data.perfect){ %>
     <div class="form-wrapper">
       <form class="comment-form" name="userComment">
         <p>만점 소감을 남겨주세요!</p>
@@ -33,13 +33,29 @@
       </form>
     </div>
     <div class="form-bg"></div>
+    <% } %>
+
     <header>
-      <div>
-        <div class="logo">logo</div>
-        <!-- <img src="" alt="" /> -->
-      </div>
-      <h1>2023 IT TEST</h1>
+      <a href="/"
+        ><img class="logo" src="../public/image/logo.svg" alt="logo"
+      /></a>
     </header>
+    <section class="section01">
+      <div>
+        <img
+          class="main-title"
+          src="../public/image/maintitle.png"
+          alt="title"
+        />
+        <img class="sub-title" src="../public/image/subtitle.png" alt="title" />
+      </div>
+      <img
+        class="main-octocat"
+        src="../public/image/main-octocat-.png"
+        alt=""
+      />
+    </section>
+
     <section class="wrapper">
       <div class="score">
         <h1>당신의 IT 능력 등급은?</h1>
@@ -49,26 +65,14 @@
         <h3>"<%= data.result.gradeTitle %>"</h3>
         <p><%= data.result.desc %></p>
         <img src="<%= data.result.img %>" alt="" />
-        <div class="icon-group">
-          <div>
-            <i></i>
-            <p>어울리는 인물</p>
-            <p><%= %></p>
-          </div>
-          <div>
-            <i></i>
-            <p>어울리는 궁합</p>
-            <p><%= %></p>
-          </div>
-        </div>
       </div>
       <section class="comment-section">
         <div>
           <p class="honor">명예의 전당</p>
-          <p class="manjeom">만점자만 댓글 달수있음</p>
+          <p class="manjeom">만점자만 댓글 달수 있습니다</p>
         </div>
         <div class="comment-box">
-          <%= data %> <% for(let i = 0; i < data.totalComment.length; i++) { %>
+          <% for(let i = 0; i < data.totalComment.length; i++) { %>
           <div class="nickname">
             <p class="name"><%= data.totalComment[i].username%></p>
             <div class="comment"><%= data.totalComment[i].comment%></div>
@@ -77,16 +81,56 @@
         </div>
       </section>
       <!-- <img class="pen" src="../public/img/pen.webp" /> -->
-      <div class="share-alert">주소 복사 완료!</div>
-      <div onclick="copyUrl()" class="share-btn">공유하기</div>
+      <!-- <div class="share-alert">주소 복사 완료!</div>
+      <div onclick="copyUrl()" class="share-btn">공유하기</div> -->
     </section>
+
+    <!-- float-box -->
+    <div class="float-box" onclick="toggleSnsList()">
+      <ul class="sns-list">
+        <li>
+          <a
+            id="btnTwitter"
+            class="link-icon twitter"
+            href="javascript:shareTwitter();"
+            >트위터</a
+          >
+        </li>
+        <li>
+          <a
+            id="btnFacebook"
+            class="link-icon facebook"
+            href="javascript:shareFacebook();"
+            >페이스북</a
+          >
+        </li>
+        <li>
+          <a
+            id="btnKakao"
+            class="link-icon kakao"
+            href="javascript:shareKakao();"
+            >카카오톡</a
+          >
+        </li>
+        <li>
+          <button type="button" class="copy-btn" onclick="copyUrl()">
+            URL
+          </button>
+        </li>
+      </ul>
+      <p>IT-TEST 소문내기</p>
+    </div>
 
     <footer></footer>
 
     <script>
-      if (false) {
+      function toggleSnsList() {
+        const snsList = document.querySelector(".sns-list");
+        snsList.classList.toggle("show");
+      }
+
+      if ("<%= data.perfect %>" === "true") {
         window.onload = () => {
-          // 만점자일 때만 이 코드가 실행되도록
           $(".form-wrapper").css("display", "block");
           $(".form-bg").fadeIn(500);
         };

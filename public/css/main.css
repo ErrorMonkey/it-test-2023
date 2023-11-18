@@ -1,27 +1,166 @@
 @font-face {
-  font-family: 'NEXON Lv1 Gothic OTF';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+  font-family: "NEXON Lv1 Gothic OTF";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
-*{
-  font-family: 'NEXON Lv1 Gothic OTF', 'Noto Sans KR','Roboto', sans-serif;
+* {
+  font-family: "NEXON Lv1 Gothic OTF", "Noto Sans KR", "Roboto", sans-serif;
   box-sizing: border-box;
   margin: 0;
 }
 
 :root {
-  --main-gray-light: #EBEDE9;
-  --main-gray-deep: #9E9999;
-  --main-blue-main: #2487B9;
-  --main-blue-deep: #086BA2;
-  --main-blue-dark: #06598B;
+  --main-gray-light: #ebede9;
+  --main-gray-deep: #9e9999;
+  --main-blue-main: #2487b9;
+  --main-blue-deep: #086ba2;
+  --main-blue-dark: #06598b;
   --main-black-basic: #333;
   --main-white-basic: #ffffff;
 }
 
-.main-btn{
+.main-btn {
   background-color: var(--main-gray-light);
   color: var(--main-blue-deep);
+}
+
+/* section01 test, result 헤더 */
+header {
+  position: absolute;
+  width: 100%;
+  height: 72px;
+  padding: 18px;
+}
+header img {
+  height: 20px;
+}
+
+.section01 {
+  width: 100%;
+  padding: 72px 18px 24px 18px;
+  height: 156px;
+  background: var(--main-blue-deep);
+}
+.section01 img {
+  position: absolute;
+}
+.section01 img.main-title {
+  top: 60px;
+  left: 18px;
+  z-index: 999;
+}
+.section01 img.sub-title {
+  top: 114px;
+  left: 37px;
+  z-index: 999;
+}
+.section01 img.main-octocat {
+  top: 25px;
+  right: 18px;
+}
+
+/* section04 */
+.comment-section {
+  border-top: 1px solid var(--main-gray-light);
+  padding: 10px 15px;
+}
+
+.comment-box {
+  border-top: 1px solid var(--main-gray-light);
+  padding: 10px 15px;
+}
+
+.honor {
+  font-size: 30px;
+  color: var(--main-black-basic);
+  padding: 0px 15px;
+}
+
+.manjeom {
+  font-size: 15px;
+  color: var(--main-black-basic);
+  padding: 10px 15px;
+}
+
+.nickname {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 10px;
+}
+
+.nickname img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.nickname .name {
+  color: var(--main-black-basic);
+}
+
+/* float-box */
+ul {
+  padding: 0;
+}
+.float-box {
+  background-color: var(--main-black-basic);
+  color: var(--main-white-basic);
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  font-size: 15px;
+  left: 0;
+}
+
+.sns-list {
+  display: none;
+  list-style: none;
+  bottom: 80px;
+}
+
+.sns-list.show {
+  position: absolute;
+  display: flex;
+  gap: 1em;
+}
+
+.link-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 40px; /* 아이콘의 너비 설정 */
+  height: 40px; /* 아이콘의 높이 설정 */
+  text-indent: -9999px;
+}
+
+.link-icon.twitter {
+  background-image: url(../image/icon-twitter.png);
+}
+.link-icon.facebook {
+  background-image: url(../image/icon-facebook.png);
+}
+.link-icon.kakao {
+  background-image: url(../image/icon-kakao.png);
+}
+
+.copy-btn {
+  width: 40px;
+  height: 40px;
+  color: var(--main-white-basic);
+  border-radius: 24px;
+  border: 0px;
+  font-weight: 800;
+  font-size: 11px;
+  cursor: pointer;
+  background-color: var(--main-black-basic);
 }

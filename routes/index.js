@@ -13,33 +13,10 @@ router.get("/test2023", controller.testStart);
 router.post("/postCorrectAnswers", controller.postCorrectAnswers);
 
 // // 결과 보기
-router.post("/postUserAnswers", controller.getResult);
-// 결과 폼 전송으로 요청
+// router.post("/postUserAnswers", controller.getResult);
+
+// 결과 페이지로 이동, 폼 전송으로 요청
 router.post("/result", controller.formGetResult);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 결과창 이동
-// router.get("/result", controller2.comments);
-router.get("/result", controller.getResult);
-// router.get("/result", (req, res) => {
-//   console.log(req.params);
-// });
 
 // 댓글조회
 router.post("/comments", controller2.comments);
