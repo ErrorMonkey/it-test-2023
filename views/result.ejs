@@ -86,7 +86,7 @@
     </section>
 
     <!-- float-box -->
-    <div class="float-box" onclick="toggleSnsList()">
+    <div class="float-box">
       <ul class="sns-list">
         <li>
           <a
@@ -118,7 +118,9 @@
           </button>
         </li>
       </ul>
-      <p>IT-TEST 소문내기</p>
+      <p onclick="toggleSnsList()">IT-TEST 소문내기</p>
+      <i></i>
+      <p onclick="home()">테스트 재도전!</p>
     </div>
 
     <footer>
@@ -194,6 +196,10 @@
         setTimeout(() => {
           $(alert).fadeOut(500, "swing");
         }, 400);
+      };
+
+      const home = () => {
+        location.href = "/";
       };
     </script>
   </body>

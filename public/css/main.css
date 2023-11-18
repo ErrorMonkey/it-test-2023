@@ -109,18 +109,17 @@ ul {
 .float-box {
   background-color: var(--main-black-basic);
   color: var(--main-white-basic);
+  display: flex;
   align-items: center;
   text-align: center;
   cursor: pointer;
   height: 70px;
-  display: flex;
   justify-content: center;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 100;
   font-size: 15px;
-  left: 0;
 }
 
 .sns-list {
