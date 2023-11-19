@@ -1,11 +1,7 @@
 # IT 능력고사
 
-
-> it 얼마나 알고있니? 
-
-
 ## Introduce
-> 트렌드 능력고사를 참고하여 만든 it 능력고사 사이트입니다.
+> 제 1회 IT 능력고사
 
 ## Develop period
 > 23.11.09 ~ 23.11.23
@@ -20,6 +16,7 @@
 	<img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/>
 	<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
 	<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
+	<img src="https://img.shields.io/badge/Sequelize-52B0E7?style=flat&logo=Sequelize&logoColor=white" />
 </div>
 <br>
 	<h2>Tools</h2>
