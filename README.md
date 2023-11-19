@@ -69,8 +69,8 @@ $ npm run start
 ├── package-lock.json
 ├── package.json
 ├── controller : 
-│   ├── Capplicants.js : 응시자ID, 점수 계산
-│   ├── Ccomments.js : 만점자 댓글 달기 기능
+│   ├── Capplicants.js : 응시자ID, 응시자 score 계산, 응시자/평균점수/만점자 계산
+│   ├── Ccomments.js : 만점자 댓글 달기 기능, 댓글 조회
 ├── model : 
 │   ├── index.js
 │   ├── applicants.js :응시자ID, 점수 데이터베이스 모델
