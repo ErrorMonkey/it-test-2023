@@ -11,6 +11,19 @@ function copyUrl() {
   });
 }
 
+function clip() {
+  var url = "";
+  var textarea = document.createElement("textarea");
+  document.body.appendChild(textarea);
+  // 여기 수정하면 될거 같습니다?
+  url = "window.location.href";
+  textarea.value = url;
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+  alert("링크가 복사되었습니다!");
+}
+
 function shareTwitter() {
   var sendText = "itTest"; // 전달할 텍스트
   var sendUrl = "http://115.85.183.132:8000/"; // 전달할 URL
