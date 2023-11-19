@@ -50,12 +50,12 @@ header img {
 .section01 img.main-title {
   top: 60px;
   left: 18px;
-  z-index: 999;
+  z-index: 2;
 }
 .section01 img.sub-title {
   top: 114px;
   left: 37px;
-  z-index: 999;
+  z-index: 2;
 }
 .section01 img.main-octocat {
   top: 25px;
@@ -100,66 +100,4 @@ header img {
 
 .nickname .name {
   color: var(--main-black-basic);
-}
-
-/* float-box */
-ul {
-  padding: 0;
-}
-.float-box {
-  background-color: var(--main-black-basic);
-  color: var(--main-white-basic);
-  display: flex;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  height: 70px;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-  font-size: 15px;
-}
-
-.sns-list {
-  display: none;
-  list-style: none;
-  bottom: 80px;
-}
-
-.sns-list.show {
-  position: absolute;
-  display: flex;
-  gap: 1em;
-}
-
-.link-icon {
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 40px; /* 아이콘의 너비 설정 */
-  height: 40px; /* 아이콘의 높이 설정 */
-  text-indent: -9999px;
-}
-
-.link-icon.twitter {
-  background-image: url(../image/icon-twitter.png);
-}
-.link-icon.facebook {
-  background-image: url(../image/icon-facebook.png);
-}
-.link-icon.kakao {
-  background-image: url(../image/icon-kakao.png);
-}
-
-.copy-btn {
-  width: 40px;
-  height: 40px;
-  color: var(--main-white-basic);
-  border-radius: 24px;
-  border: 0px;
-  font-weight: 800;
-  font-size: 11px;
-  cursor: pointer;
-  background-color: var(--main-black-basic);
 }
