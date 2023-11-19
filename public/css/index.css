@@ -1,5 +1,6 @@
 /* header (semicolon logo) */
 header {
+  position: relative;
   background-color: var(--main-blue-deep);
   height: 72px;
 }
@@ -133,7 +134,7 @@ ul {
 .honor {
   font-size: 30px;
   color: var(--main-black-basic);
-  padding: 0 15px 15px 15px;
+  padding: 5px 15px 15px 15px;
   color: var(--main-blue-deep);
 }
 .profile {
@@ -256,5 +257,8 @@ footer {
     flex-direction: column;
     top: 130%;
     gap: 1.5em;
+  }
+  footer {
+    margin-bottom: 0px;
   }  
 }

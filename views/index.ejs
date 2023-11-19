@@ -3,28 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/main.css" />
-    <link rel="stylesheet" href="../public/css/index.css" />
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="/public/css/index.css" />
+    <link rel="icon" href="/public/image/favicon.ico" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../public/JS/sharesns.js"></script>
-
+    <script src="/public/JS/sharesns.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <title>SEMICOLON</title>
   </head>
 
   <body>
     <header>
       <a href="/">
-        <img class="logo" src="../public/image/logo.png" alt="헤더로고"/></a>
+        <img class="logo" src="/public/image/logo.png" alt="헤더로고"/></a>
     </header>
 
     <!-- section1 -->
     <section class="wrapper">
       <div class="main-title">
-        <img src="../public/image/title.png" alt="타이틀" />
+        <img src="/public/image/title.png" alt="타이틀" />
       </div>
       <div>
         <img
-          src="../public/image/octocat.png"
+          src="/public/image/octocat.png"
           alt="메인캐릭터"
           class="octocat"
         />
@@ -55,7 +56,7 @@
     <!-- section3 -->
     <section class="sesac">
       <div class="sesac-container">
-        <img src="../public/image/sesac-logo.png" alt="새싹 로고" />
+        <img src="/public/image/sesac-logo.png" alt="새싹 로고" />
         <p>꿈꾸는 개발자 데뷔코스, 새싹</p>
         <a
           href="https://sesac.seoul.kr/common/greeting.do"
@@ -69,7 +70,7 @@
       <p class="honor">명예의 전당</p>
       <% for (let i = 0; i < totalComment.length; i++) { %>
         <div class="comment-box">
-          <img src="../public/image/profile.png" alt="프로필사진" class="profile"/>
+          <img src="/public/image/grade1.png" alt="프로필사진" class="profile"/>
           <p class="name"><%= totalComment[i].username %></p>
           <div class="comment"><%= totalComment[i].comment %></div>
         </div>
