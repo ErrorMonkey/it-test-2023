@@ -93,11 +93,11 @@ $ npm run start
 
 ## Infomation
 
-* 이세윤 - dominobomb@gmail.com
-* 이산하 - sanppi@naver.com
-* 한기선 - mssk2490@gmail.com
-* 권구호 - kguho9202@gmail.com
-* 이다현 - da0956@gmail.com
+* 이세윤(FE) - dominobomb@gmail.com
+* 이산하(FE) - sanppi@naver.com
+* 한기선(FE) - mssk2490@gmail.com
+* 권구호(BE) - kguho9202@gmail.com
+* 이다현(BE) - da0956@gmail.com
 
 ## Contribute
 
