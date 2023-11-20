@@ -3,31 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/css/main.css" />
-    <link rel="stylesheet" href="../public/css/test.css " />
-
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="/public/css/test.css " />
+    <link rel="icon" href="/public/image/favicon.ico" />
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Document</title>
+    <title>SEMICOLON</title>
   </head>
   <body>
     <header>
       <a href="/"
-        ><img class="logo" src="../public/image/logo.svg" alt="logo"
+        ><img class="logo" src="/public/image/logo.svg" alt="logo"
       /></a>
     </header>
     <section class="section01">
       <div>
         <img
           class="main-title"
-          src="../public/image/maintitle.png"
+          src="/public/image/maintitle.png"
           alt="title"
         />
-        <img class="sub-title" src="../public/image/subtitle.png" alt="title" />
+        <img class="sub-title" src="/public/image/subtitle.png" alt="title" />
       </div>
       <img
         class="main-octocat"
-        src="../public/image/main-octocat-.png"
+        src="/public/image/main-octocat-.png"
         alt=""
       />
     </section>
@@ -35,46 +35,46 @@
       <!-- 문제 카드 -->
       <div class="question-box">
         <p class="question-number"><%= count+1%>번 문제</p>
-        <p class="question-text"><%= questionText %></p>
+        <p class="question-text"></p>
         &nbsp;<span class="question-score">(10점)</span>
       </div>
       <!-- 대답 선택지 -->
       <form action="" id="answer-form" name="answerForm">
         <div id="answer-list">
-          <label class="answer">
+          <label class="answer banselect">
             <input type="radio" value="A" name="answer" />
             <object
-              data="../public/image/icon-park-solid_check-one.svg"
+              data="/public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text1"><%= questionSelect1 %></span>
+            <span class="answer-text1"></span>
           </label>
 
-          <label class="answer">
+          <label class="answer banselect">
             <input type="radio" value="B" name="answer" />
             <object
-              data="../public/image/icon-park-solid_check-one.svg"
+              data="/public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text2"><%= questionSelect2 %></span>
+            <span class="answer-text2"></span>
           </label>
 
-          <label class="answer">
+          <label class="answer banselect">
             <input type="radio" value="C" name="answer" />
             <object
-              data="../public/image/icon-park-solid_check-one.svg"
+              data="/public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text3"><%= questionSelect3 %></span>
+            <span class="answer-text3"></span>
           </label>
 
-          <label class="answer">
+          <label class="answer banselect">
             <input type="radio" value="D" name="answer" />
             <object
-              data="../public/image/icon-park-solid_check-one.svg"
+              data="/public/image/icon-park-solid_check-one.svg"
               alt=""
             ></object>
-            <span class="answer-text4"><%= questionSelect4 %></span>
+            <span class="answer-text4"></span>
           </label>
         </div>
         <button class="main-btn question-next" id="nextBtn" type="button">
@@ -119,14 +119,18 @@
       let radio = document.getElementsByName("answer");
       const userAnswers = [];
 
+
+      
+
       // 다음 버튼
       document.addEventListener("DOMContentLoaded", function () {
         let count = 0; // 변수명을 currentQuestionIndex에서 count로 수정
         let remainQuestion = 10;
-
+   
         // 초기 질문 로딩
-        loadQuestion(count);
+          loadQuestion(count);
 
+        
         // 다음 버튼 클릭 시 다음 질문 로딩
         document
           .getElementById("nextBtn")
@@ -134,14 +138,18 @@
             const selectedAnswer = document.querySelector(
               'input[name="answer"]:checked'
             );
-
+            
             if (selectedAnswer) {
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
+              
 
               // 라디오 버튼 해제
               for (i = 0; i < radio.length; i++) {
-                if (radio[i].checked) radio[i].checked = false;
+                if (radio[i].checked) {
+                  radio[i].checked = false;
+                  document.querySelector('label').classList.remove('answerChecked')
+                }
               }
 
               //결과보기 버튼 노출
@@ -162,7 +170,6 @@
             }
           });
         async function loadQuestion(count) {
-          console.log("count: ", count);
           try {
             // 서버로부터 정답 데이터를 가져옴
             const response = await axios.post("/postCorrectAnswers");
@@ -193,8 +200,8 @@
             document.querySelector(
               ".answer-text4"
             ).textContent = `${currentQuestion.select4}`;
-            //
-            console.log(currentQuestion.answer);
+            
+
             // 답변 선택지 업데이트
             answerElements.forEach((answerElement, index) => {
               answerElement.textContent = currentQuestion.options[index];
@@ -219,6 +226,7 @@
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
+
               }
               // submit으로 폼 전송
               const form = document.forms["formGetResult"];

@@ -89,6 +89,7 @@ function checkAnswers(req, res) {
   let score = 0;
   // 배열이었던 답안은 암묵적 형변환으로 문자열이 돼있어서 잘라주기
   const userAnswers = req.body.answerData.split(",");
+
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
   for (let i = 0; i < userAnswers.length; i++) {
     if (userAnswers[i] === correctAnswers[i].answer) {

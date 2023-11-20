@@ -1,9 +1,9 @@
 /* header (semicolon logo) */
 header {
+  position: relative;
   background-color: var(--main-blue-deep);
   height: 72px;
 }
-
 header img {
   position: absolute;
   left: 16px;
@@ -20,17 +20,14 @@ header img {
   align-items: center;
   background-color: var(--main-blue-deep);
 }
-
 .main-title img {
   max-width: 353px;
   width: 100%;
 }
-
 .octocat {
   bottom: 12px;
   width: 100%;
 }
-
 .main-btn {
   font-size: 30px;
   height: 90px;
@@ -43,12 +40,10 @@ header img {
   box-shadow: 0 10px 0 var(--main-blue-dark);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .main-btn:active {
   transform: translateY(3px);
   box-shadow: 0 5px 0 var(--main-blue-dark);
 }
-
 
 /* section2: 응시자, 평균점수, 만점자*/
 .cont-area {
@@ -56,11 +51,9 @@ header img {
   flex-direction: column;
   justify-content: center;
   background-color: var(--main-blue-main);
-  padding: 36px 18px;
+  padding: 36px 36px;
   text-align: center;
-  
 }
-
 .box {
   width: 100%;
   padding: 11px 18px 10px;
@@ -70,22 +63,19 @@ header img {
   align-items: center;
   height: 58px;
   color: var(--main-white-basic);
+  border-radius: 10px;
 }
-
 .box:not(:last-child) {
   margin-bottom: 12px;
 }
-
 .box .label {
   font-weight: 400;
   font-size: 24px;
 }
-
 .box .value {
   font-weight: 900;
   font-size: 32px;
 }
-
 ul {
   list-style: none;
   padding: 0;
@@ -93,7 +83,6 @@ ul {
 }
 
 /* section3: 새싹 링크 */
-
 .sesac {
   display: flex;
   flex-direction: column;
@@ -102,26 +91,22 @@ ul {
   text-align: center;
   padding: 36px 36px;
 }
-
 .sesac-container {
   background-color: var(--main-gray-light);
   border-radius: 20px;
   height: 210px;
   width: 100%;
 }
-
 .sesac-container img {
   width: 100%;
   max-width: 300px;
   cursor: pointer;
 }
-
 .sesac-container p {
   font-size: 18px;
   color: var(--main-blue-dark);
   margin-top: -25px;
 }
-
 .sesac-link-button {
   display: inline-block;
   margin-top: 10px;
@@ -135,40 +120,36 @@ ul {
 
 /* section4: 댓글 */
 .comment-section {
-  border-top: 1px solid var(--main-gray-light);
-  padding: 10px 15px;
+  padding: 10px 36px;
 }
-
 .comment-box {
   border-top: 1px solid var(--main-gray-light);
   padding: 10px 15px;
+  display: flex;
+  align-items: center;
 }
-
+.comment-box:first-child {
+  border-top: none;
+}
 .honor {
   font-size: 30px;
   color: var(--main-black-basic);
-  padding: 0px 15px;
+  padding: 5px 15px 15px 15px;
+  color: var(--main-blue-deep);
 }
-
-.manjeom {
-  font-size: 15px;
-  color: var(--main-black-basic);
-  padding: 10px 15px;
+.profile {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
 }
-
-.nickname {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.nickname img {
-  width: 30px;
-  height: 30px;
+.name {
+  color: var(--main-gray-deep);
   margin-right: 5px;
+  font-size: 14px;
+  width: 40px;
 }
-
-.nickname .name {
+.comment {
+  margin-left: 40px;
   color: var(--main-black-basic);
 }
 
@@ -189,121 +170,95 @@ ul {
   font-size: 15px;  
   left: 0;
 }
-
 .sns-list {
   display: none;
   list-style: none;
   bottom: 45px;
+  border: none;
 }
-
 .sns-list.show {
   position: absolute;
   display: flex;
   gap: 1em;
 }
-
 .link-icon {
   background-repeat: no-repeat;
   display: inline-block;
-  width: 40px; /* 아이콘의 너비 설정 */
-  height: 40px; /* 아이콘의 높이 설정 */
+  width: 50px; /* 아이콘의 너비 설정 */
+  height: 50px; /* 아이콘의 높이 설정 */
   text-indent: -9999px;
 }
-
 .link-icon.twitter {
-  background-image: url(../image/icon-twitter.png);
+  background-image: url(../image/X.png);
 }
 .link-icon.facebook {
-  background-image: url(../image/icon-facebook.png);
+  background-image: url(../image/facebook.png);
 }
 .link-icon.kakao {
-  background-image: url(../image/icon-kakao.png);
+  background-image: url(../image/kakao.png);
 }
-
 .copy-btn {
-  width: 40px;
-  height: 40px;
-  color: var(--main-white-basic);
+  width: 50px;
+  height: 50px;
   border-radius: 24px;
-  border: 0px;
-  font-weight: 800;
-  font-size: 11px;
-  cursor: pointer;
-  background-color: var(--main-black-basic);
+  border: none;
+  background-image: url(../image/sharebutton.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  padding: 0;
+}
+footer {
+  text-align: center;
+  color: var(--main-black-basic);
+  padding : 16px;
+  margin-bottom: 15px;
 }
 
-/* 미디어쿼리 breakpoint: 576, 1440 px*/
-/* 적용되어야 할 요소들: section1-wrapper, float-box 이렇게 두 개! */
-
-
-  /* .float-box {
-    color: var(--main-white-basic);
-    position: fixed;
-    overflow: visible;
-    display: flex;
-    flex-direction: column;
+@media screen and (min-width: 576px) {
+  .wrapper {
+    display: grid;
+    width: 100%;
+    padding:  0 30px 53px 30px;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    justify-content: center;
   }
-  .sns-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+  .main-title img {
+    max-width: 800px;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    /* grid-column: 1 / span 2;  */
+  }
+  .octocat {
+    margin-top: 20px;
+    margin-left: -30px;
+    /* grid-column: 2 / span 2; */
+  }
+  .main-btn {
+    width: 100%;
+    /* grid-column: 1 / span 2; */
+    margin-left: 40px;
+    margin-top: -230px;
+    padding: 0px;
+    height: 80px;
+  }
+  .float-box {
+    color: var(--main-white-basic);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    top: 35%;
+    right: 2%;
+    box-shadow: 0 0 10px var(--main-black-basic);
+    left: auto;
+    word-break: keep-all;
+  }
+  .sns-list.show {
     flex-direction: column;
-    align-items: center;
-    position: absolute; }/* 상대 위치 대신 절대 위치로 변경 */
-  
-
-  /* .sns-list li {
-    margin-bottom: 10px; */
-  /* } */ 
-
-  @media screen and (min-width: 576px) {
-    .wrapper {
-      width: 100%;
-    
-    }
-
-    .main-title img {
-      max-width: 700px;
-      left: 0;
-    }
-  
-    .octocat { 
-      max-width: 500px;
-
-    }
-  
-    .main-btn {
-      font-size: 40px;
-      height: 90px;
-      padding: 10px;
-      width: 75%;
-      border-radius: 60px;
-      border: 0;
-
-    }
-
-    
-    .float-box {
-      color: var(--main-white-basic);
-      height: 80px;
-      width: 80px;
-      border-radius: 50%;
-      top: 35%;
-      right: 2%;
-      border: 2px solid var(--main-gray-light);
-      /* box-shadow: 0 0 10px var(--main-black-basic); */
-      left: auto;
-    }
-
-    .sns-list.show {
-      flex-direction: column; 
-      top: 130%;
-      gap: 1.5em;
-    }
-
-
-
-  } 
+    top: 130%;
+    gap: 1.5em;
+  }
+  footer {
+    margin-bottom: 0px;
+  }  
+}
