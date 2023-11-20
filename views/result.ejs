@@ -121,7 +121,12 @@
       <p>IT-TEST 소문내기</p>
     </div>
 
-    <footer></footer>
+    <footer>
+      <p>
+        제작: 세미콜론 팀,<br />
+        사용된 옥토캣 이미지 저작권은 모두 깃허브에게 있습니다.
+      </p>
+    </footer>
 
     <script>
       function toggleSnsList() {
@@ -144,14 +149,34 @@
         };
         await $(".form-wrapper").fadeOut(500, "swing");
         await $(".form-bg").fadeOut(500);
-        await setTimeout(() => {
+        setTimeout(() => {
           forms.style.visibility = "hidden";
-        }, 3000);
+        }, 1000);
         axios({
-          method: "post",
+          method: "POST",
           url: "/comment",
           data: userComment,
-        }).then();
+        }).then((res) => {
+          let newComments = res.data.data.totalComment;
+          const commentsBox = document.querySelector(".comment-box");
+          commentsBox.innerHTML = "";
+          for (let i = 0; i < newComments.length; i++) {
+            let nickname = document.createElement("div");
+            nickname.setAttribute("class", "nickname");
+
+            let name = document.createElement("p");
+            name.setAttribute("class", "name");
+            name.innerHTML = newComments[i].username;
+
+            let comment = document.createElement("div");
+            comment.setAttribute("class", "comment");
+            comment.innerHTML = newComments[i].comment;
+
+            nickname.appendChild(name);
+            nickname.appendChild(comment);
+            commentsBox.appendChild(nickname);
+          }
+        });
       };
 
       // const pen = document.querySelector(".pen");

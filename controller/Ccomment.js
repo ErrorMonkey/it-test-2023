@@ -10,17 +10,28 @@ exports.comments = (req, res) => {
 
 // 댓글작성
 exports.createComments = async (req, res) => {
-  const data = {
-    // maxid: req.body.maxid,
+  const dbData = {
     username: req.body.userName,
     comment: req.body.comment,
   };
 
-  const createComment = await db.comment.create(data);
-  res.send(createComment);
+  await db.comment.create(dbData);
+
+  await db.comment
+    .findAll({
+      order: [["maxID", "DESC"]],
+      limit: 5,
+    })
+    .then((result) => {
+      console.log("댓글 length: ", result.length);
+      let data = {
+        totalComment: result,
+      };
+      res.send({ data });
+    });
 };
 
 //댓글 작성폼 표시
-exports.showCreateForm = (req,res) => {
-  res.render("create-comment-form")
-}
+exports.showCreateForm = (req, res) => {
+  res.render("create-comment-form");
+};
