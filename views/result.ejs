@@ -3,7 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="정보기술 능력고사" />
+    <meta
+      property="og:title"
+      content="나의 IT 능력은? <%= data.result.grade %>!"
+    />
+    <meta
+      property="og:description"
+      content="IT 세상에 사는 당신, IT 능력고사에 도전하세요!"
+    />
+    <meta property="og:image" content="<%= data.result.img %>" />
+    <meta property="og:url" content="http://115.85.183.132:8000" />
+
+    <title>SEMICOLON</title>
 
     <link rel="stylesheet" href="/public/css/main.css" />
     <link rel="stylesheet" href="/public/css/result.css" />
