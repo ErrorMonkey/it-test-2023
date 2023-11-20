@@ -3,20 +3,11 @@ function toggleSnsList() {
   snsList.classList.toggle("show");
 }
 
-let nowUrl = window.location.href;
-function copyUrl() {
-  //nowUrl 변수에 담긴 주소를
-  navigator.clipboard.writeText(nowUrl).then((res) => {
-    alert("주소가 복사되었습니다!");
-  });
-}
-
 function clip() {
   var url = "";
   var textarea = document.createElement("textarea");
   document.body.appendChild(textarea);
-  // 여기 수정하면 될거 같습니다?
-  url = "window.location.href";
+  url = "http://115.85.183.132:8000";
   textarea.value = url;
   textarea.select();
   document.execCommand("copy");
