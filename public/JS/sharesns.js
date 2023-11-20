@@ -44,3 +44,25 @@ function shareKakao() {
     },
   });
 }
+
+function snsListAni() {
+  const snsList = document.querySelector(".sns-list");
+  const iconArr = document.querySelectorAll(".sns-list li");
+  const iconGroup = document.querySelector(".sns-list li");
+  if (snsList.style.opacity == 1) {
+    snsList.style.opacity = 0;
+    iconArr.forEach((el) => {
+      el.style.transform = "translateY(50%)";
+      el.style.scale = 0 + "%";
+    });
+  } else {
+    snsList.style.opacity = 1;
+    iconArr.forEach((el, i) => {
+      const iconAni = () => {
+        el.style.transform = "translateY(0)";
+        el.style.scale = 100 + "%";
+      };
+      setTimeout(iconAni, 80 * i);
+    });
+  }
+}

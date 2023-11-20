@@ -5,7 +5,7 @@ function comment(Sequelize, DataTypes) {
       maxID: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        autoIncrement: true, 
+        autoIncrement: true,
         primaryKey: true,
       },
       username: {
@@ -21,6 +21,8 @@ function comment(Sequelize, DataTypes) {
       tableName: "comment",
       freezeTableName: true,
       timestamps: false,
+      charset: "utf8",
+      collate: "utf8_general_ci",
     }
   );
 }
