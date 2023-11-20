@@ -224,29 +224,29 @@ ul {
 .link-icon {
   background-repeat: no-repeat;
   display: inline-block;
-  width: 40px; /* 아이콘의 너비 설정 */
-  height: 40px; /* 아이콘의 높이 설정 */
+  width: 50px; /* 아이콘의 너비 설정 */
+  height: 50px; /* 아이콘의 높이 설정 */
   text-indent: -9999px;
 }
 
 .link-icon.twitter {
-  background-image: url(../image/icon-twitter.png);
+  background-image: url(../image/X.png);
 }
 .link-icon.facebook {
-  background-image: url(../image/icon-facebook.png);
+  background-image: url(../image/facebook.png);
 }
 .link-icon.kakao {
-  background-image: url(../image/icon-kakao.png);
+  background-image: url(../image/kakao.png);
 }
 
 .copy-btn {
-  width: 40px;
-  height: 40px;
-  color: var(--main-white-basic);
+  width: 50px;
+  height: 50px;
   border-radius: 24px;
-  border: 0px;
-  font-weight: 800;
-  font-size: 11px;
-  cursor: pointer;
-  background-color: var(--main-black-basic);
+  border: none;
+  background-image: url(../image/sharebutton.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  padding: 0;
 }
