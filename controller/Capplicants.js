@@ -157,30 +157,6 @@ exports.postCorrectAnswers = (req, res) => {
   }
 };
 
-// // 결과 보기
-// exports.getResult = async (req, res) => {
-//   try {
-//     let data = {
-//       score: checkAnswers(req, res), // checkAnswers에 req, res 전달
-//       result: getResultInfo(score),
-//       perfect: this.score === 100 ? true : false,
-//     };
-//     console.log("perfect", perfect);
-
-//     const createScore = await db.applicants.create(data);
-//     res.render("result", { data });
-
-//     if (createScore) {
-//       res.send({ return: true });
-//     } else {
-//       res.status(500).send({ return: false });
-//     }
-//   } catch (error) {
-//     console.error("에러 발생: ", error);
-//     res.status(500).send("에러 발생");
-//   }
-// };
-
 // 결과 보기
 exports.formGetResult = async (req, res) => {
   try {

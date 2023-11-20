@@ -18,12 +18,12 @@ header h1 {
 }
 
 .form-wrapper {
-  z-index: 2;
+  z-index: 4;
   display: none;
 }
 .form-bg {
   display: none;
-  z-index: 1;
+  z-index: 3;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -34,7 +34,7 @@ header h1 {
 
 .comment-form {
   /* outline: none; */
-  z-index: 2;
+  z-index: 4;
   border-radius: 10px;
   background-color: var(--main-white-basic);
   backdrop-filter: blur(15px);
@@ -66,11 +66,8 @@ header h1 {
 }
 
 .wrapper {
-  /* z-index: 1; */
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* background-color: #333; */
   align-items: center;
   background-color: var(--main-blue-main);
   padding: 10px;
@@ -167,4 +164,89 @@ footer {
 }
 footer > p {
   text-align: center;
+}
+
+/* float-box */
+ul {
+  padding: 0;
+}
+.float-box {
+  justify-content: space-around;
+  background-color: var(--main-black-basic);
+  color: var(--main-white-basic);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  height: 70px;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  font-size: 15px;
+}
+.float-box p {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.float-box i {
+  height: 40px;
+  border: 1px solid var(--main-gray-deep);
+}
+.float-box:last-child {
+  border-left: 5px solid var(--main-gray-light);
+}
+
+.sns-list {
+  display: flex;
+  list-style: none;
+  position: absolute;
+  bottom: 80px;
+  opacity: 0;
+  gap: 1em;
+  transition: all 0.3s ease-out;
+}
+.sns-list li {
+  scale: 0;
+  transform: translateY(50%);
+  transition: all 0.3s ease-out;
+}
+@media (min-width: 576px) {
+  .sns-list {
+    left: 25%;
+    transform: translateX(-50%);
+  }
+}
+.link-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 40px; /* 아이콘의 너비 설정 */
+  height: 40px; /* 아이콘의 높이 설정 */
+  text-indent: -9999px;
+}
+
+.link-icon.twitter {
+  background-image: url(../image/icon-twitter.png);
+}
+.link-icon.facebook {
+  background-image: url(../image/icon-facebook.png);
+}
+.link-icon.kakao {
+  background-image: url(../image/icon-kakao.png);
+}
+
+.copy-btn {
+  width: 40px;
+  height: 40px;
+  color: var(--main-white-basic);
+  border-radius: 24px;
+  border: 0px;
+  font-weight: 800;
+  font-size: 11px;
+  cursor: pointer;
+  background-color: var(--main-black-basic);
 }

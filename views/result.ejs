@@ -86,7 +86,7 @@
     </section>
 
     <!-- float-box -->
-    <div class="float-box" onclick="toggleSnsList()">
+    <div class="float-box">
       <ul class="sns-list">
         <li>
           <a
@@ -118,7 +118,9 @@
           </button>
         </li>
       </ul>
-      <p>IT-TEST 소문내기</p>
+      <p onclick="toggleSnsList()">IT-TEST 소문내기</p>
+      <i></i>
+      <p onclick="home()">테스트 재도전!</p>
     </div>
 
     <footer>
@@ -131,8 +133,27 @@
     <script>
       function toggleSnsList() {
         const snsList = document.querySelector(".sns-list");
-        snsList.classList.toggle("show");
+        const iconArr = document.querySelectorAll(".sns-list li");
+        const iconGroup = document.querySelector(".sns-list li");
+        if (snsList.style.opacity == 1) {
+          snsList.style.opacity = 0;
+          iconArr.forEach((el) => {
+            el.style.transform = "translateY(50%)";
+            el.style.scale = 0 + "%";
+          });
+        } else {
+          snsList.style.opacity = 1;
+          iconArr.forEach((el, i) => {
+            const iconAni = () => {
+              el.style.transform = "translateY(0)";
+              el.style.scale = 100 + "%";
+            };
+            setTimeout(iconAni, 80 * i);
+          });
+        }
       }
+
+      window.onload = () => {};
 
       if ("<%= data.perfect %>" === "true") {
         window.onload = () => {
@@ -194,6 +215,10 @@
         setTimeout(() => {
           $(alert).fadeOut(500, "swing");
         }, 400);
+      };
+
+      const home = () => {
+        location.href = "/";
       };
     </script>
   </body>
