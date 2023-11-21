@@ -32,9 +32,17 @@
         </div>
         <div>
           <label for="comment">소감</label
-          ><input type="text" name="comment" id="comment" />
+          ><input
+            type="text"
+            name="comment"
+            id="comment"
+            placeholder="20자 이내로 작성해 주세요."
+          />
         </div>
-        <button type="button" onclick="commentSubmit()">작성 완료</button>
+        <div type="button" class="button-wrap" onclick="commentSubmit()">
+          <div class="inner"></div>
+          <input class="button" value="작성 완료" />
+        </div>
       </form>
     </div>
     <div class="form-bg"></div>
