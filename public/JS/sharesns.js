@@ -36,7 +36,8 @@ function shareKakao() {
     content: {
       title: "it-test", // 보여질 제목
       description: "2023 it 능력고사", // 보여질 설명
-      imageUrl: "/public/image/thumnail.jpg", // 콘텐츠 URL
+      imageUrl:
+        "https://github.com/ErrorMonkey/it-test-2023/assets/100561986/70ed8baa-5f5f-43cf-9e6e-0808789e0d84", // 콘텐츠 URL
       link: {
         mobileWebUrl: "http://115.85.183.132:8000",
         webUrl: "http://115.85.183.132:8000",
@@ -45,24 +46,24 @@ function shareKakao() {
   });
 }
 
-function snsListAni() {
-  const snsList = document.querySelector(".sns-list");
-  const iconArr = document.querySelectorAll(".sns-list li");
-  const iconGroup = document.querySelector(".sns-list li");
-  if (snsList.style.opacity == 1) {
-    snsList.style.opacity = 0;
-    iconArr.forEach((el) => {
-      el.style.transform = "translateY(50%)";
-      el.style.scale = 0 + "%";
-    });
-  } else {
-    snsList.style.opacity = 1;
-    iconArr.forEach((el, i) => {
-      const iconAni = () => {
-        el.style.transform = "translateY(0)";
-        el.style.scale = 100 + "%";
-      };
-      setTimeout(iconAni, 80 * i);
-    });
-  }
-}
+// function snsListAni() {
+//   const snsList = document.querySelector(".sns-list");
+//   const iconArr = document.querySelectorAll(".sns-list li");
+//   const iconGroup = document.querySelector(".sns-list li");
+//   if (snsList.style.opacity == 1) {
+//     snsList.style.opacity = 0;
+//     iconArr.forEach((el) => {
+//       el.style.transform = "translateY(50%)";
+//       el.style.scale = 0 + "%";
+//     });
+//   } else {
+//     snsList.style.opacity = 1;
+//     iconArr.forEach((el, i) => {
+//       const iconAni = () => {
+//         el.style.transform = "translateY(0)";
+//         el.style.scale = 100 + "%";
+//       };
+//       setTimeout(iconAni, 80 * i);
+//     });
+//   }
+// }
