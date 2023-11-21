@@ -84,17 +84,17 @@ const correctAnswers = [
     select4: "간단하게 코드를 작성한다",
   },
   {
-    question: "문제 미정",
-    answer: "A",
-    select1: "코드의 중복을 최소화 한다",
-    select2: "코드가 다른 모듈에 미치는 영향을 최대화하도록 작성한다",
-    select3: "누구든지 코드를 쉽게 읽을 수 있도록 작성한다",
-    select4: "간단하게 코드를 작성한다",
+    question:
+      "인공지능계의 깃허브라고도 불리며, 이모지의 이름을 딴 세계 최대 인공지능 플랫폼으로 올바른 것은?",
+    answer: "D",
+    select1: "Melting Face",
+    select2: "Winking Face",
+    select3: "Mind Blown",
+    select4: "Hugging Face",
   },
 ];
 
 function getCorrectAnswers() {
-  // console.log("correctAnswers:", correctAnswers);
   return correctAnswers;
 }
 

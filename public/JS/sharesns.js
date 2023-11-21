@@ -36,7 +36,7 @@ function shareKakao() {
     content: {
       title: "it-test", // 보여질 제목
       description: "2023 it 능력고사", // 보여질 설명
-      imageUrl: "http://115.85.183.132:8000", // 콘텐츠 URL
+      imageUrl: "/public/image/thumnail.jpg", // 콘텐츠 URL
       link: {
         mobileWebUrl: "http://115.85.183.132:8000",
         webUrl: "http://115.85.183.132:8000",
