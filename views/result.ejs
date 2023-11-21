@@ -64,46 +64,41 @@
       <div>
         <img
           class="main-title"
-          src="../public/image/maintitle.png"
+          src="/public/image/maintitle.png"
           alt="title"
         />
-        <img class="sub-title" src="../public/image/subtitle.png" alt="title" />
+        <img class="sub-title" src="/public/image/subtitle.png" alt="title" />
       </div>
       <img
         class="main-octocat"
-        src="../public/image/main-octocat-.png"
+        src="/public/image/main-octocat-.png"
         alt=""
       />
     </section>
 
     <section class="wrapper">
-      <div class="score">
-        <h1>당신의 IT 능력 등급은?</h1>
-        <p><%= data.result.grade %></p>
-      </div>
-      <div class="result-desc">
-        <h3>"<%= data.result.gradeTitle %>"</h3>
-        <p><%= data.result.desc %></p>
-        <img src="<%= data.result.img %>" alt="" />
-      </div>
-      <section class="comment-section">
-        <div>
+      <div class="wrapper-content">
+        <div class="score">
+          <h1>당신의 IT 능력 등급은?</h1>
+          <p><span><%= data.result.grade %></span>&nbsp;등급 </p>
+        </div>
+        <div class="result-desc">
+          <img src="<%= data.result.img %>" alt="" />
+        </div>
+  
+        <section class="comment-section banselect">
           <p class="honor">명예의 전당</p>
-          <p class="manjeom">만점자만 댓글 달수 있습니다</p>
-        </div>
-        <div class="comment-box">
-          <% for(let i = 0; i < data.totalComment.length; i++) { %>
-          <div class="nickname">
-            <p class="name"><%= data.totalComment[i].username%></p>
-            <div class="comment"><%= data.totalComment[i].comment%></div>
-          </div>
-          <%}%>
-        </div>
-      </section>
-      <!-- <img class="pen" src="../public/img/pen.webp" /> -->
-      <!-- <div class="share-alert">주소 복사 완료!</div>
-      <div onclick="copyUrl()" class="share-btn">공유하기</div> -->
+          <p class="sub-title">만점자만 댓글 달수 있습니다</p>
+          <% for (let i = 0; i < data.totalComment.length; i++) { %>
+            <div class="comment-box">
+              <img src="/public/image/grade1.png" alt="프로필사진" class="profile"/>
+              <p class="name"><%= data.totalComment[i].username %></p>
+              <div class="comment"><%= data.totalComment[i].comment %></div>
+            </div>
+          <% } %>
+      </div>
     </section>
+
 
     <!-- float-box -->
     <div class="float-box">
@@ -222,22 +217,6 @@
         location.href = "/";
       };
 
-      // const pen = document.querySelector(".pen");
-      // window.addEventListener("mousemove", (event) => {
-      //   pen.style.top = event.pageY + "px";
-      //   pen.style.left = event.pageX + "px";
-      // });
-
-      // const url = window.location.href; // 현재 링크를 가져오는 코드
-      // const url = `http://www.localhost:8000`;
-      // const copyUrl = async () => {
-      //   await navigator.clipboard.writeText(url);
-      //   const alert = document.querySelector(".share-alert");
-      //   $(alert).fadeIn(300, "swing");
-      //   setTimeout(() => {
-      //     $(alert).fadeOut(500, "swing");
-      //   }, 400);
-      // };
     </script>
   </body>
 </html>
