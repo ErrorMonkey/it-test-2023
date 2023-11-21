@@ -1,6 +1,16 @@
 function toggleSnsList() {
   const snsList = document.querySelector(".sns-list");
   snsList.classList.toggle("show");
+
+  const icons = document.querySelectorAll('.link-icon, .copy-btn');
+  let delay = 0;
+
+  icons.forEach((icon, index) => {
+    setTimeout(() => {
+      icon.classList.toggle('show');
+    }, delay);
+    delay += 100; 
+  });
 }
 
 function clip() {
