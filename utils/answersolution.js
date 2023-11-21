@@ -54,7 +54,7 @@ const correctAnswers = [
     answer: "A",
     select1: "라자루스 ",
     select2: "메이지카트",
-    select3: "Zigbee",
+    select3: "랩서스",
     select4: "아리드 바이퍼",
   },
   {
