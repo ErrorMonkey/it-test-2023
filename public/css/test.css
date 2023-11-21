@@ -155,10 +155,17 @@ label {
   box-shadow: 0 5px 0 var(--main-blue-dark);
 }
 
-footer {
+
+footer{
+  width: 100%;
+  font-size: 0.8em;
+  height: 100px;
+  padding: 36px;
+  color: var(--main-gray-deep);
+  background-color: var(--main-white-basic);
+  line-height: 1.5em;
   text-align: center;
-  color: var(--main-black-basic);
-  padding: 16px;
+
 }
 @media (min-width: 576px) {
   #answer-list {
