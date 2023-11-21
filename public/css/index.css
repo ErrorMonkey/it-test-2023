@@ -183,17 +183,13 @@ ul {
   display: flex;
   gap: 1em;
 }
-
 .link-icon, .copy-btn {
   opacity: 0;
   transition: opacity 0.1s ease-out;
 }
-
 .link-icon.show, .copy-btn.show {
   opacity: 1;
 }
-
-
 .link-icon {
   background-repeat: no-repeat;
   display: inline-block;

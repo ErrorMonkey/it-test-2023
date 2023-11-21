@@ -40,24 +40,24 @@
 
     <!-- section2 -->
     <section class="cont-area">
-        <ul>
+      <ul>
           <li>
-            <div class="box">
-              <span class="label">응시자</span>
-              <span class="value"><%=totalApplicants %>명</span>
-            </div>
-            <div class="box">
-              <span class="label">응시자 평균 점수</span>
-              <span class="value"><%=averageScore%>점</span>
-            </div>
-            <div class="box">
-              <span class="label">만점자</span>
-              <span class="value"><%=perfectScoreApplicants %>명</span>
-            </div>
+              <div class="box">
+                  <span class="label">응시자</span>
+                  <span class="value" id="totalApplicantsCount">0명</span>
+              </div>
+              <div class="box">
+                  <span class="label">응시자 평균 점수</span>
+                  <span class="value" id="averageScoreCount">0점</span>
+              </div>
+              <div class="box">
+                  <span class="label">만점자</span>
+                  <span class="value" id="perfectScoreApplicantsCount">0명</span>
+              </div>
           </li>
-        </ul>
+      </ul>
     </section>
-
+    
     <!-- section3 -->
     <section class="sesac">
       <div class="sesac-container">
@@ -123,6 +123,8 @@
         사용된 옥토캣 이미지 저작권은 모두 깃허브에게 있습니다.
       </p>
     </footer>
+  </body>
+  </html>
 
     <script>
       function startTest() {
@@ -130,8 +132,48 @@
         location.href = "/test2023";
       }
 
+      let isCounting = false;
+      function countUp(elementId, start, end, duration, suffix) {
+        const element = document.getElementById(elementId);
+        const range = end - start;
+        const increment = range / duration;
+        let current = start;
+        const startTime = performance.now();
 
-    
+        const updateElement = (timestamp) => {
+          const progress = timestamp - startTime;
+
+          if (progress < duration) {
+            current = start + increment * progress;
+            element.textContent = Math.ceil(current) + suffix;
+            requestAnimationFrame(updateElement);
+          } else {
+            element.textContent = end + suffix;
+            isCounting = false;
+          }
+        };
+        requestAnimationFrame(updateElement);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const totalApplicantsEnd = parseInt("<%=totalApplicants %>"); 
+        const averageScoreEnd = parseInt("<%=averageScore %>");
+        const perfectScoreApplicantsEnd = parseInt("<%=perfectScoreApplicants %>");
+        let isCounting = false; 
+
+        window.addEventListener('scroll', () => {
+          const scrollPosition = window.scrollY;
+          const sectionTop = document.querySelector('.cont-area').offsetTop;
+          const windowHeight = window.innerHeight;
+
+          if (!isCounting && scrollPosition >= sectionTop - windowHeight) {
+            isCounting = true;
+
+            countUp('totalApplicantsCount', 0, totalApplicantsEnd, 1000, '명');
+            countUp('averageScoreCount', 0, averageScoreEnd, 1000, '점');
+            countUp('perfectScoreApplicantsCount', 0, perfectScoreApplicantsEnd, 1000, '명');
+          }
+        });
+        });
     </script>
-  </body>
-</html>
+  
