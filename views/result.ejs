@@ -57,23 +57,15 @@
 
     <header>
       <a href="/"
-        ><img class="logo" src="../public/image/logo.svg" alt="logo"
+        ><img class="logo" src="/public/image/logo.svg" alt="logo"
       /></a>
     </header>
     <section class="section01">
       <div>
-        <img
-          class="main-title"
-          src="../public/image/maintitle.png"
-          alt="title"
-        />
-        <img class="sub-title" src="../public/image/subtitle.png" alt="title" />
+        <img class="main-title" src="/public/image/maintitle.png" alt="title" />
+        <img class="sub-title" src="/public/image/subtitle.png" alt="title" />
       </div>
-      <img
-        class="main-octocat"
-        src="../public/image/main-octocat-.png"
-        alt=""
-      />
+      <img class="main-octocat" src="/public/image/main-octocat-.png" alt="" />
     </section>
 
     <section class="wrapper">
@@ -82,8 +74,8 @@
         <p><%= data.result.grade %></p>
       </div>
       <div class="result-desc">
-        <h3>"<%= data.result.gradeTitle %>"</h3>
-        <p><%= data.result.desc %></p>
+        <!-- <h3>"data.result.gradeTitle"</h3> -->
+        <!-- <p>data.result.desc</p> -->
         <img src="<%= data.result.img %>" alt="" />
       </div>
       <section class="comment-section">
@@ -221,23 +213,6 @@
       const home = () => {
         location.href = "/";
       };
-
-      // const pen = document.querySelector(".pen");
-      // window.addEventListener("mousemove", (event) => {
-      //   pen.style.top = event.pageY + "px";
-      //   pen.style.left = event.pageX + "px";
-      // });
-
-      // const url = window.location.href; // 현재 링크를 가져오는 코드
-      // const url = `http://www.localhost:8000`;
-      // const copyUrl = async () => {
-      //   await navigator.clipboard.writeText(url);
-      //   const alert = document.querySelector(".share-alert");
-      //   $(alert).fadeIn(300, "swing");
-      //   setTimeout(() => {
-      //     $(alert).fadeOut(500, "swing");
-      //   }, 400);
-      // };
     </script>
   </body>
 </html>
