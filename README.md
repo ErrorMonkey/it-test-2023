@@ -52,11 +52,13 @@ $ nvm use v.16.14.2
 $ npm install 
 $ npm run start
 ```
+![m-main]()
+
 ---
 ## Screen Layout 📺
 | Main page  |  Quiz page   |  Result page   |  
 | :------------: | :------------: | :------------: |
-|  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036155-a57900f7-c68a-470d-923c-ff3c296ea635.png"/> |  <img width="329" src=""/>|  <img width="329" src=""/>|  
+|  <img width="329" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/99935116-8c67-478b-983c-a588e8b41c9a.jpg"/> |  <img width="329" src=""/>|  <img width="329" src=""/>|  
 
 ---
 
