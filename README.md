@@ -57,7 +57,7 @@ $ npm run start
 ## Screen Layout 📺
 | Main page  |  Quiz page   |  Result page   |  
 | :------------: | :------------: | :------------: |
-|  <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/99935116-8c67-478b-983c-a588e8b41c9a.jpg"/> |  <img width="329"  height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/ea0eef16-c91f-4d56-ac2e-a4cdaa8b4219.jpg"/>|  <img width="329" src=""/>|  
+|  <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/99935116-8c67-478b-983c-a588e8b41c9a.jpg"/> |  <img width="329"  height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/ea0eef16-c91f-4d56-ac2e-a4cdaa8b4219.jpg"/>|  <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/cf1510a7-3b51-4584-a51f-d0e54a5afdf8.jpg"/>|  
 
 ---
 
