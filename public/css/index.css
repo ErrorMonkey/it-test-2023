@@ -149,6 +149,7 @@ ul {
   margin-right: 5px;
   font-size: 14px;
   width: 40px;
+  flex-shrink: 0;
 }
 .comment {
   margin-left: 40px;
@@ -193,8 +194,8 @@ ul {
 .link-icon {
   background-repeat: no-repeat;
   display: inline-block;
-  width: 50px; /* 아이콘의 너비 설정 */
-  height: 50px; /* 아이콘의 높이 설정 */
+  width: 50px; 
+  height: 50px; 
   text-indent: -9999px;
 }
 .link-icon.twitter {
@@ -244,16 +245,13 @@ footer > p {
     max-width: 800px;
     margin-bottom: 100px;
     margin-left: 50px;
-    /* grid-column: 1 / span 2;  */
   }
   .octocat {
     margin-top: 20px;
     margin-left: -30px;
-    /* grid-column: 2 / span 2; */
   }
   .main-btn {
     width: 100%;
-    /* grid-column: 1 / span 2; */
     margin-left: 40px;
     margin-top: -230px;
     padding: 0px;

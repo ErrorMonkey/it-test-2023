@@ -212,6 +212,7 @@ header h1 {
   margin-right: 5px;
   font-size: 14px;
   width: 40px;
+  flex-shrink: 0;
 }
 .comment {
   margin-left: 40px;
