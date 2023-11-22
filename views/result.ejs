@@ -25,6 +25,7 @@
     <% if(data.perfect){ %>
     <div class="form-wrapper">
       <form class="comment-form" name="userComment">
+        <img src="/public/image/clapping-hands.png" alt="박수" />
         <p>만점 소감을 남겨주세요!</p>
         <div>
           <label for="userName">이름</label
@@ -32,16 +33,10 @@
         </div>
         <div>
           <label for="comment">소감</label
-          ><input
-            type="text"
-            name="comment"
-            id="comment"
-            placeholder="20자 이내로 작성해 주세요."
-          />
+          ><input type="text" name="comment" id="comment" />
         </div>
         <div type="button" class="button-wrap" onclick="commentSubmit()">
-          <div class="inner"></div>
-          <input class="button" value="작성 완료" />
+          <span class="button">작성완료</span>
         </div>
       </form>
     </div>
@@ -215,22 +210,44 @@
         location.href = "/";
       };
 
-      // const pen = document.querySelector(".pen");
-      // window.addEventListener("mousemove", (event) => {
-      //   pen.style.top = event.pageY + "px";
-      //   pen.style.left = event.pageX + "px";
-      // });
-
-      // const url = window.location.href; // 현재 링크를 가져오는 코드
-      // const url = `http://www.localhost:8000`;
-      // const copyUrl = async () => {
-      //   await navigator.clipboard.writeText(url);
-      //   const alert = document.querySelector(".share-alert");
-      //   $(alert).fadeIn(300, "swing");
-      //   setTimeout(() => {
-      //     $(alert).fadeOut(500, "swing");
-      //   }, 400);
-      // };
+      $("form").validate({
+        submitHandler: function () {
+          console.log("submit!!!!");
+        },
+        rules: {
+          // 체크할 항목들의 룰 설정: html상에서 name이랑 매핑된다.
+          userName: {
+            required: true,
+            minlength: 2,
+            maxlength: 20,
+          },
+          comment: {
+            required: true,
+            minlength: 3,
+            minlength: 50,
+          },
+        },
+        messages: {
+          //규칙체크 실패시 출력될 메시지
+          userName: {
+            required: "필수로입력하세요",
+            minlength: "최소 {2}글자 이상이어야 합니다",
+            maxlength: "최대 {20}글자 이하이어야 합니다",
+          },
+          comment: {
+            required: "필수로입력하세요",
+            minlength: "최소 {3}글자이상이어야 합니다",
+            maxlength: "최대 {50}글자 이하이어야 합니다",
+          },
+        },
+        error: function (request, status, error) {
+          console.log("code:" + request.status + "\n" + "error:" + error);
+        },
+        success: function (result) {
+          // submit 성공 후
+          alert("submit 성공.");
+        },
+      });
     </script>
   </body>
 </html>
