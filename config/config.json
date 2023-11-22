@@ -2,6 +2,8 @@
   "development": {
     "host": "localhost",
     "database": "itTest",
+    "username": "user",
+    "password": "qwer1234!",
     "dialect": "mysql"
   },
   "production": {
