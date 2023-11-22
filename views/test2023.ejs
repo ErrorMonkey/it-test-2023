@@ -69,12 +69,12 @@
             <span class="answer-text4"></span>
           </label>
         </div>
-        <button class="main-btn question-next" id="nextBtn" type="button">
+        <button class="main-btn question-next banselect" id="nextBtn" type="button">
           다음으로
         </button>
 
         <button
-          class="main-btn question-next question-last"
+          class="main-btn question-next question-last banselect"
           id="endBtn"
           type="button"
         >
@@ -145,12 +145,14 @@
         });
       });
 
+
       // 다음 버튼
       document.addEventListener("DOMContentLoaded", function () {
         let count = 0; // 변수명을 currentQuestionIndex에서 count로 수정
         let remainQuestion = 10;
 
         // 초기 질문 로딩
+
         loadQuestion(count);
 
         // 다음 버튼 클릭 시 다음 질문 로딩
