@@ -18,18 +18,10 @@
     </header>
     <section class="section01">
       <div>
-        <img
-          class="main-title"
-          src="/public/image/maintitle.png"
-          alt="title"
-        />
+        <img class="main-title" src="/public/image/maintitle.png" alt="title" />
         <img class="sub-title" src="/public/image/subtitle.png" alt="title" />
       </div>
-      <img
-        class="main-octocat"
-        src="/public/image/main-octocat-.png"
-        alt=""
-      />
+      <img class="main-octocat" src="/public/image/main-octocat-.png" alt="" />
     </section>
     <section class="section02">
       <!-- 문제 카드 -->
@@ -77,12 +69,12 @@
             <span class="answer-text4"></span>
           </label>
         </div>
-        <button class="main-btn question-next" id="nextBtn" type="button">
+        <button class="main-btn question-next banselect" id="nextBtn" type="button">
           다음으로
         </button>
 
         <button
-          class="main-btn question-next question-last"
+          class="main-btn question-next question-last banselect"
           id="endBtn"
           type="button"
         >
@@ -108,7 +100,10 @@
     </section>
 
     <footer>
-      <span>COPYRIGHT(C) UNIVTOMORROWA.ALL RIGHTS RESERVED.</span>
+      <span
+        >제작: 세미콜론 팀,<br />
+        사용된 옥토캣 이미지 저작권은 모두 깃허브에게 있습니다.</span
+      >
     </footer>
     <script>
       const qustionForm = document.forms["answerForm"];
@@ -119,18 +114,47 @@
       let radio = document.getElementsByName("answer");
       const userAnswers = [];
 
+      document.addEventListener("DOMContentLoaded", function () {
+        var radioButtons = document.querySelectorAll(
+          '.answer input[type="radio"]'
+        );
+        var nextButton = document.getElementById("nextBtn");
 
-      
+        radioButtons.forEach(function (radioButton) {
+          // 각 라디오 버튼에 이벤트 리스너 추가
+          radioButton.addEventListener("change", function () {
+            // 모든 라디오 버튼에서 'checked' 클래스 제거
+            radioButtons.forEach(function (rb) {
+              rb.closest(".answer").classList.remove("checked");
+            });
+
+            // 체크된 라디오 버튼의 부모에 'checked' 클래스 추가
+            if (this.checked) {
+              this.closest(".answer").classList.add("checked");
+            }
+          });
+        });
+
+        // "다음 버튼" 클릭 시 선택된 라디오 버튼의 부모 클래스 제거
+        nextButton.addEventListener("click", function () {
+          radioButtons.forEach(function (radioButton) {
+            if (radioButton.checked) {
+              radioButton.closest(".answer").classList.remove("checked");
+            }
+          });
+        });
+      });
+
 
       // 다음 버튼
       document.addEventListener("DOMContentLoaded", function () {
         let count = 0; // 변수명을 currentQuestionIndex에서 count로 수정
         let remainQuestion = 10;
-   
-        // 초기 질문 로딩
-          loadQuestion(count);
 
-        
+        // 초기 질문 로딩
+
+        loadQuestion(count);
+
         // 다음 버튼 클릭 시 다음 질문 로딩
         document
           .getElementById("nextBtn")
@@ -138,17 +162,18 @@
             const selectedAnswer = document.querySelector(
               'input[name="answer"]:checked'
             );
-            
+
             if (selectedAnswer) {
               // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
-              
 
               // 라디오 버튼 해제
               for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked) {
                   radio[i].checked = false;
-                  document.querySelector('label').classList.remove('answerChecked')
+                  document
+                    .querySelector("label")
+                    .classList.remove("answerChecked");
                 }
               }
 
@@ -200,7 +225,6 @@
             document.querySelector(
               ".answer-text4"
             ).textContent = `${currentQuestion.select4}`;
-            
 
             // 답변 선택지 업데이트
             answerElements.forEach((answerElement, index) => {
@@ -226,7 +250,6 @@
               if (selectedAnswer) {
                 // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
-
               }
               // submit으로 폼 전송
               const form = document.forms["formGetResult"];

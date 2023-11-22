@@ -9,6 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/public/JS/sharesns.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <meta property="og:url" content="http://115.85.183.132:8000">
+    <meta property="og:title" content="2023 IT-TEST">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/70ed8baa-5f5f-43cf-9e6e-0808789e0d84">
+    <meta property="og:description" content="2023년 제 1회 IT-TEST">
     <title>SEMICOLON</title>
   </head>
 
@@ -35,24 +40,24 @@
 
     <!-- section2 -->
     <section class="cont-area">
-        <ul>
+      <ul>
           <li>
-            <div class="box">
-              <span class="label">응시자</span>
-              <span class="value"><%=totalApplicants %>명</span>
-            </div>
-            <div class="box">
-              <span class="label">응시자 평균 점수</span>
-              <span class="value"><%=averageScore%>점</span>
-            </div>
-            <div class="box">
-              <span class="label">만점자</span>
-              <span class="value"><%=perfectScoreApplicants %>명</span>
-            </div>
+              <div class="box">
+                  <span class="label">응시자</span>
+                  <span class="value" id="totalApplicantsCount">0명</span>
+              </div>
+              <div class="box">
+                  <span class="label">응시자 평균 점수</span>
+                  <span class="value" id="averageScoreCount">0점</span>
+              </div>
+              <div class="box">
+                  <span class="label">만점자</span>
+                  <span class="value" id="perfectScoreApplicantsCount">0명</span>
+              </div>
           </li>
-        </ul>
+      </ul>
     </section>
-
+    
     <!-- section3 -->
     <section class="sesac">
       <div class="sesac-container">
@@ -67,10 +72,10 @@
 
     <!-- section4 -->
     <section class="comment-section">
-      <p class="honor">명예의 전당</p>
+      <p class="honor">🌿 명예의 전당 🌿</p>
       <% for (let i = 0; i < totalComment.length; i++) { %>
         <div class="comment-box">
-          <img src="/public/image/grade1.png" alt="프로필사진" class="profile"/>
+          <img src="/public/image/profile1.png" alt="프로필사진" class="profile"/>
           <p class="name"><%= totalComment[i].username %></p>
           <div class="comment"><%= totalComment[i].comment %></div>
         </div>
@@ -109,18 +114,66 @@
           </button>
         </li>
       </ul>
-      <p onclick="snsListAni()">IT-TEST 소문내기</p>
+      <p>IT-TEST 소문내기</p>
     </div>
 
     <footer>
-      <span>COPYRIGHT(C) UNIVTOMORROWA.ALL RIGHTS RESERVED.</span>
+      <p>
+        제작: 세미콜론 팀,<br />
+        사용된 옥토캣 이미지 저작권은 모두 깃허브에게 있습니다.
+      </p>
     </footer>
+  </body>
+  </html>
 
     <script>
       function startTest() {
         console.log("click");
         location.href = "/test2023";
       }
+
+      let isCounting = false;
+      function countUp(elementId, start, end, duration, suffix) {
+        const element = document.getElementById(elementId);
+        const range = end - start;
+        const increment = range / duration;
+        let current = start;
+        const startTime = performance.now();
+
+        const updateElement = (timestamp) => {
+          const progress = timestamp - startTime;
+
+          if (progress < duration) {
+            current = start + increment * progress;
+            element.textContent = Math.ceil(current) + suffix;
+            requestAnimationFrame(updateElement);
+          } else {
+            element.textContent = end + suffix;
+            isCounting = false;
+          }
+        };
+        requestAnimationFrame(updateElement);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const totalApplicantsEnd = parseInt("<%=totalApplicants %>"); 
+        const averageScoreEnd = parseInt("<%=averageScore %>");
+        const perfectScoreApplicantsEnd = parseInt("<%=perfectScoreApplicants %>");
+        let isCounting = false; 
+
+        window.addEventListener('scroll', () => {
+          const scrollPosition = window.scrollY;
+          const sectionTop = document.querySelector('.cont-area').offsetTop;
+          const windowHeight = window.innerHeight;
+
+          if (!isCounting && scrollPosition >= sectionTop - windowHeight) {
+            isCounting = true;
+
+            countUp('totalApplicantsCount', 0, totalApplicantsEnd, 1000, '명');
+            countUp('averageScoreCount', 0, averageScoreEnd, 1000, '점');
+            countUp('perfectScoreApplicantsCount', 0, perfectScoreApplicantsEnd, 1000, '명');
+          }
+        });
+        });
     </script>
-  </body>
-</html>
+  
