@@ -2,14 +2,14 @@ function toggleSnsList() {
   const snsList = document.querySelector(".sns-list");
   snsList.classList.toggle("show");
 
-  const icons = document.querySelectorAll('.link-icon, .copy-btn');
+  const icons = document.querySelectorAll(".link-icon, .copy-btn");
   let delay = 0;
 
   icons.forEach((icon, index) => {
     setTimeout(() => {
-      icon.classList.toggle('show');
+      icon.classList.toggle("show");
     }, delay);
-    delay += 100; 
+    delay += 100;
   });
 }
 
@@ -29,12 +29,18 @@ function shareTwitter() {
   var sendText = "itTest"; // 전달할 텍스트
   var sendUrl = "http://115.85.183.132:8000/"; // 전달할 URL
   window.open(
-    "https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl
+    `https://twitter.com/intent/tweet?url=${sendUrl}&text=${sendText}`,
+    "2023_IT_TEST",
+    "width=400, height=400"
   );
 }
 function shareFacebook() {
   var sendUrl = "http://115.85.183.132:8000"; // 전달할 URL
-  window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+  window.open(
+    "http://www.facebook.com/sharer/sharer.php?u=" + sendUrl,
+    "facebook",
+    "toolbak=0, status=0.width=655,height=520"
+  );
 }
 function shareKakao() {
   // 사용할 앱의 JavaScript 키 설정
@@ -47,7 +53,7 @@ function shareKakao() {
       title: "it-test", // 보여질 제목
       description: "2023 it 능력고사", // 보여질 설명
       imageUrl:
-        "https://github.com/ErrorMonkey/it-test-2023/assets/100561986/70ed8baa-5f5f-43cf-9e6e-0808789e0d84", // 콘텐츠 URL
+        "http://github.com/ErrorMonkey/it-test-2023/assets/100561986/70ed8baa-5f5f-43cf-9e6e-0808789e0d84", // 콘텐츠 URL
       link: {
         mobileWebUrl: "http://115.85.183.132:8000",
         webUrl: "http://115.85.183.132:8000",
