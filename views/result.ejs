@@ -40,6 +40,7 @@
     <% if(data.perfect){ %>
     <div class="form-wrapper">
       <form class="comment-form" name="userComment">
+        <img src="/public/image/clapping-hands.png" alt="박수" />
         <p>만점 소감을 남겨주세요!</p>
         <div>
           <label for="userName">이름</label
@@ -49,7 +50,9 @@
           <label for="comment">소감</label
           ><input type="text" name="comment" id="comment" />
         </div>
-        <button type="button" onclick="commentSubmit()">작성 완료</button>
+        <div type="button" class="button-wrap" onclick="commentSubmit()">
+          <span class="button">작성완료</span>
+        </div>
       </form>
     </div>
     <div class="form-bg"></div>
@@ -218,7 +221,6 @@
       const home = () => {
         location.href = "/";
       };
-
     </script>
   </body>
 </html>
