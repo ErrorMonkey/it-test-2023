@@ -44,11 +44,25 @@
         <p>만점 소감을 남겨주세요!</p>
         <div>
           <label for="userName">이름</label
-          ><input type="text" name="userName" id="userName" />
+          ><input
+            type="text"
+            name="userName"
+            id="userName"
+            pattern="^[a-zA-Z가-힣0-9 !?@#*]{2,20}$"
+            title="2글자 이상 20자 이내로 작성해주세요."
+            required
+          />
         </div>
         <div>
           <label for="comment">소감</label
-          ><input type="text" name="comment" id="comment" />
+          ><input
+            type="text"
+            name="comment"
+            id="comment"
+            pattern="^[a-zA-Z가-힣0-9 !?@#*]{4,50}$"
+            title="4글자 이상 50자 이내로 작성해주세요."
+            required
+          />
         </div>
         <div type="button" class="button-wrap" onclick="commentSubmit()">
           <span class="button">작성완료</span>
@@ -84,17 +98,19 @@
         <section class="comment-section banselect">
           <p class="honor">명예의 전당</p>
           <p class="sub-title">만점자만 댓글 달수 있습니다</p>
-          <% for (let i = 0; i < data.totalComment.length; i++) { %>
-          <div class="comment-box">
-            <img
-              src="/public/image/profile1.png"
-              alt="프로필사진"
-              class="profile"
-            />
-            <p class="name"><%= data.totalComment[i].username %></p>
-            <div class="comment"><%= data.totalComment[i].comment %></div>
+          <div class="comment-wrapper">
+            <% for (let i = 0; i < data.totalComment.length; i++) { %>
+            <div class="comment-box">
+              <img
+                src="/public/image/profile1.png"
+                alt="프로필사진"
+                class="profile"
+              />
+              <p class="name"><%= data.totalComment[i].username %></p>
+              <div class="comment"><%= data.totalComment[i].comment %></div>
+            </div>
+            <% } %>
           </div>
-          <% } %>
         </section>
       </div>
     </section>
@@ -167,17 +183,26 @@
       }
 
       if ("<%= data.perfect %>" === "true") {
-        window.onload = () => {
-          $(".form-wrapper").css("display", "block");
-          $(".form-bg").fadeIn(500);
+        const commentPop = async () => {
+          await window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+          // window.onload = () => {
+          await $(".form-wrapper").css("display", "block");
+          await $(".form-bg").fadeIn(500);
           const body = document.querySelector("body");
           body.style.cssText = "overflow: hidden; touch-action: none";
+          // };
         };
+        commentPop();
       }
 
       // 만점자 코멘트 등록 및 코멘트 다시 불러오기
       const commentSubmit = async () => {
         const forms = document.forms["userComment"];
+        if (!forms.checkValidity()) {
+          // checkValidity 폼의 유효성 검사를 해서 boolean 값 반환
+          forms.reportValidity(); // reportValidity: 유효성 검사를 통과하지 못 한 input에 대해 report
+          return false;
+        }
         const body = document.querySelector("body");
         body.style.cssText = "overflow: scroll";
         const userComment = {
@@ -195,11 +220,15 @@
           data: userComment,
         }).then((res) => {
           let newComments = res.data.data.totalComment;
-          const commentsBox = document.querySelector(".comment-box");
-          commentsBox.innerHTML = "";
+          const comments = document.querySelector(".comment-wrapper");
+          const userImg = document.querySelectorAll(".profile");
+          comments.innerHTML = "";
           for (let i = 0; i < newComments.length; i++) {
-            let nickname = document.createElement("div");
-            nickname.setAttribute("class", "nickname");
+            let commentBox = document.createElement("div");
+            commentBox.setAttribute("class", "comment-box");
+
+            console.log("userImg", userImg);
+            // userImg.setAttribute("class", "profile");
 
             let name = document.createElement("p");
             name.setAttribute("class", "name");
@@ -209,9 +238,10 @@
             comment.setAttribute("class", "comment");
             comment.innerHTML = newComments[i].comment;
 
-            nickname.appendChild(name);
-            nickname.appendChild(comment);
-            commentsBox.appendChild(nickname);
+            commentBox.appendChild(userImg[i]);
+            commentBox.appendChild(name);
+            commentBox.appendChild(comment);
+            comments.appendChild(commentBox);
           }
         });
       };
