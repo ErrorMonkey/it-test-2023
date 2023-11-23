@@ -37,9 +37,4 @@ function getResultInfo(score) {
   }
 }
 
-// export default getResultInfo;
-
 module.exports = getResultInfo;
-
-// 백엔드 commonJS
-// 프론트엔드 ES6

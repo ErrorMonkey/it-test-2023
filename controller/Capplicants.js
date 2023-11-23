@@ -68,7 +68,6 @@ const getComments = async () => {
 const getQuestion = async (count) => {
   try {
     const questionList = quizModel.getCorrectAnswers();
-    // console.log(("questionList:", questionList));
     const currentQuestion = questionList[count];
 
     return [
@@ -89,8 +88,8 @@ function checkAnswers(req, res) {
   let score = 0;
   // 배열이었던 답안은 암묵적 형변환으로 문자열이 돼있어서 잘라주기
   const userAnswers = req.body.answerData.split(",");
-
   const correctAnswers = quizModel.getCorrectAnswers(); // 모델에서 정답 가져오기
+
   for (let i = 0; i < userAnswers.length; i++) {
     if (userAnswers[i] === correctAnswers[i].answer) {
       score += 10;
@@ -114,11 +113,9 @@ exports.home = async (req, res) => {
       totalComment,
     });
   } catch (error) {
-    res.status(500).send("에러 발생");
+    res.status(500).send("메인화면 에러 발생");
   }
 };
-
-// 메인 화면 정보 가져오기
 
 // 테스트 시작 화면
 exports.testStart = async (req, res) => {
@@ -141,8 +138,8 @@ exports.testStart = async (req, res) => {
       questionSelect4,
     });
   } catch (error) {
-    console.error("에러 발생: ", error);
-    res.status(500).send("에러 발생");
+    console.error("테스트 시작 화면 에러 발생: ", error);
+    res.status(500).send("테스트 시작 화면 에러 발생");
   }
 };
 
@@ -152,8 +149,8 @@ exports.postCorrectAnswers = (req, res) => {
     const correctAnswers = quizModel.getCorrectAnswers();
     res.send(correctAnswers);
   } catch (error) {
-    console.error("에러 발생: ", error);
-    res.status(500).send("에러 발생");
+    console.error("다음 버튼 에러 발생: ", error);
+    res.status(500).send("다음 버튼 에러 발생");
   }
 };
 
