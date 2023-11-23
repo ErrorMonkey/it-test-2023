@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/public/css/main.css" />
     <link rel="stylesheet" href="/public/css/test.css " />
     <link rel="icon" href="/public/image/favicon.ico" />
-    <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>SEMICOLON</title>
   </head>
@@ -21,50 +20,45 @@
         <img class="main-title" src="/public/image/maintitle.png" alt="title" />
         <img class="sub-title" src="/public/image/subtitle.png" alt="title" />
       </div>
-      <img class="main-octocat" src="/public/image/main-octocat-.png" alt="" />
+      <img class="main-octocat" src="/public/image/main-octocat-.png" alt="옥토캣" />
     </section>
     <section class="section02">
-      <!-- 문제 카드 -->
       <div class="question-box">
         <p class="question-number"><%= count+1%>번 문제</p>
         <p class="question-text"></p>
         &nbsp;<span class="question-score">(10점)</span>
       </div>
-      <!-- 대답 선택지 -->
       <form action="" id="answer-form" name="answerForm">
         <div id="answer-list">
           <label class="answer banselect">
             <input type="radio" value="A" name="answer" />
             <object
               data="/public/image/icon-park-solid_check-one.svg"
-              alt=""
+              alt="체크"
             ></object>
             <span class="answer-text1"></span>
           </label>
-
           <label class="answer banselect">
             <input type="radio" value="B" name="answer" />
             <object
               data="/public/image/icon-park-solid_check-one.svg"
-              alt=""
+              alt="체크"
             ></object>
             <span class="answer-text2"></span>
           </label>
-
           <label class="answer banselect">
             <input type="radio" value="C" name="answer" />
             <object
               data="/public/image/icon-park-solid_check-one.svg"
-              alt=""
+              alt="체크"
             ></object>
             <span class="answer-text3"></span>
           </label>
-
           <label class="answer banselect">
             <input type="radio" value="D" name="answer" />
             <object
               data="/public/image/icon-park-solid_check-one.svg"
-              alt=""
+              alt="체크"
             ></object>
             <span class="answer-text4"></span>
           </label>
@@ -72,7 +66,6 @@
         <button class="main-btn question-next banselect" id="nextBtn" type="button">
           다음으로
         </button>
-
         <button
           class="main-btn question-next question-last banselect"
           id="endBtn"
@@ -83,8 +76,6 @@
 
         <p class="question-capion" id="capion"></p>
       </form>
-
-      <!-- 결과창 폼전송을 위한 장치 -->
       <form
         name="formGetResult"
         action="result"
@@ -92,13 +83,11 @@
         style="display: none"
       >
         <input name="answerData" type="text" style="display: none" />
-
         <p class="question-capion" id="capion">
           <span>%= remainQuestion %</span>개의 문제가 남았습니다.
         </p>
       </form>
     </section>
-
     <footer>
       <span
         >제작: 세미콜론 팀,<br />
@@ -106,7 +95,6 @@
       >
     </footer>
     <script>
-      const qustionForm = document.forms["answerForm"];
       const nextBtn = document.getElementById("nextBtn");
       const endBtn = document.getElementById("endBtn");
       const capion = document.getElementById("capion");
@@ -121,21 +109,16 @@
         var nextButton = document.getElementById("nextBtn");
 
         radioButtons.forEach(function (radioButton) {
-          // 각 라디오 버튼에 이벤트 리스너 추가
           radioButton.addEventListener("change", function () {
-            // 모든 라디오 버튼에서 'checked' 클래스 제거
             radioButtons.forEach(function (rb) {
               rb.closest(".answer").classList.remove("checked");
             });
-
-            // 체크된 라디오 버튼의 부모에 'checked' 클래스 추가
             if (this.checked) {
               this.closest(".answer").classList.add("checked");
             }
           });
         });
 
-        // "다음 버튼" 클릭 시 선택된 라디오 버튼의 부모 클래스 제거
         nextButton.addEventListener("click", function () {
           radioButtons.forEach(function (radioButton) {
             if (radioButton.checked) {
@@ -146,16 +129,11 @@
       });
 
 
-      // 다음 버튼
       document.addEventListener("DOMContentLoaded", function () {
-        let count = 0; // 변수명을 currentQuestionIndex에서 count로 수정
+        let count = 0;
         let remainQuestion = 10;
-
-        // 초기 질문 로딩
-
         loadQuestion(count);
 
-        // 다음 버튼 클릭 시 다음 질문 로딩
         document
           .getElementById("nextBtn")
           .addEventListener("click", async function () {
@@ -164,10 +142,7 @@
             );
 
             if (selectedAnswer) {
-              // 선택된 답안을 배열에 추가
               userAnswers.push(selectedAnswer.value);
-
-              // 라디오 버튼 해제
               for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked) {
                   radio[i].checked = false;
@@ -176,16 +151,13 @@
                     .classList.remove("answerChecked");
                 }
               }
-
-              //결과보기 버튼 노출
               if (userAnswers.length === 9) {
                 endBtn.style.display = "inline";
                 nextBtn.style.display = "none";
                 capion.style.display = "none";
               }
 
-              // 다음 질문 로딩
-              count++; // count를 증가시켜 다음 질문으로 이동
+              count++;
               await loadQuestion(count);
 
               const remainingQuestions = 10 - count;
@@ -196,14 +168,10 @@
           });
         async function loadQuestion(count) {
           try {
-            // 서버로부터 정답 데이터를 가져옴
             const response = await axios.post("/postCorrectAnswers");
             const correctAnswers = response.data;
-
-            // 현재 진행 중인 문제 가져오기
             const currentQuestion = correctAnswers[count];
             const answerElements = document.querySelectorAll(".answer-text");
-            // 문제 번호와 텍스트 업데이트
             document.querySelector(".question-number").textContent = `${
               count + 1
             }번 문제`;
@@ -226,18 +194,14 @@
               ".answer-text4"
             ).textContent = `${currentQuestion.select4}`;
 
-            // 답변 선택지 업데이트
             answerElements.forEach((answerElement, index) => {
               answerElement.textContent = currentQuestion.options[index];
-              console.log("currentQuestion:", currentQuestion);
             });
           } catch (error) {
             console.error("에러 발생: ", error);
           }
         }
 
-        // 결과보기------------------------------------------------------------------
-        // 결과 보기 버튼 클릭 시 답안 전송
         document
           .getElementById("endBtn")
           .addEventListener("click", async function () {
@@ -248,10 +212,8 @@
 
               let userAnswersString = "";
               if (selectedAnswer) {
-                // 선택된 답안을 배열에 추가
                 userAnswers.push(selectedAnswer.value);
               }
-              // submit으로 폼 전송
               const form = document.forms["formGetResult"];
               form.answerData.value = userAnswers;
               formGetResult.submit();
