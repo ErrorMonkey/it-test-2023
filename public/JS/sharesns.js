@@ -1,3 +1,4 @@
+// SNS 공유하기 목록 보기
 function toggleSnsList() {
   const snsList = document.querySelector(".sns-list");
   snsList.classList.toggle("show");
@@ -13,6 +14,7 @@ function toggleSnsList() {
   });
 }
 
+// 링크 복사하기
 function clip() {
   var url = "";
   var textarea = document.createElement("textarea");
@@ -25,35 +27,38 @@ function clip() {
   alert("링크가 복사되었습니다!");
 }
 
+// 트위터(X) 공유하기
 function shareTwitter() {
-  var sendText = "itTest"; // 전달할 텍스트
-  var sendUrl = "http://115.85.183.132:8000/"; // 전달할 URL
+  var sendText = "itTest";
+  var sendUrl = "http://115.85.183.132:8000/";
   window.open(
     `https://twitter.com/intent/tweet?url=${sendUrl}&text=${sendText}`,
     "2023_IT_TEST",
     "width=400, height=400"
   );
 }
+
+// 페이스북 공유하기
 function shareFacebook() {
-  var sendUrl = "http://115.85.183.132:8000"; // 전달할 URL
+  var sendUrl = "http://115.85.183.132:8000";
   window.open(
     "http://www.facebook.com/sharer/sharer.php?u=" + sendUrl,
     "facebook",
     "toolbak=0, status=0.width=655,height=520"
   );
 }
+
+// 카카오톡 공유하기
 function shareKakao() {
-  // 사용할 앱의 JavaScript 키 설정
   Kakao.init("ca85f3701e06028b7519f363fadaaf14");
-  // 카카오링크 버튼 생성
   Kakao.Link.createDefaultButton({
-    container: "#btnKakao", // 카카오공유버튼ID
+    container: "#btnKakao",
     objectType: "feed",
     content: {
-      title: "it-test", // 보여질 제목
-      description: "2023 it 능력고사", // 보여질 설명
+      title: "it-test",
+      description: "2023 it 능력고사",
       imageUrl:
-        "http://github.com/ErrorMonkey/it-test-2023/assets/100561986/70ed8baa-5f5f-43cf-9e6e-0808789e0d84", // 콘텐츠 URL
+        "http://github.com/ErrorMonkey/it-test-2023/assets/100561986/70ed8baa-5f5f-43cf-9e6e-0808789e0d84",
       link: {
         mobileWebUrl: "http://115.85.183.132:8000",
         webUrl: "http://115.85.183.132:8000",
@@ -61,25 +66,3 @@ function shareKakao() {
     },
   });
 }
-
-// function snsListAni() {
-//   const snsList = document.querySelector(".sns-list");
-//   const iconArr = document.querySelectorAll(".sns-list li");
-//   const iconGroup = document.querySelector(".sns-list li");
-//   if (snsList.style.opacity == 1) {
-//     snsList.style.opacity = 0;
-//     iconArr.forEach((el) => {
-//       el.style.transform = "translateY(50%)";
-//       el.style.scale = 0 + "%";
-//     });
-//   } else {
-//     snsList.style.opacity = 1;
-//     iconArr.forEach((el, i) => {
-//       const iconAni = () => {
-//         el.style.transform = "translateY(0)";
-//         el.style.scale = 100 + "%";
-//       };
-//       setTimeout(iconAni, 80 * i);
-//     });
-//   }
-// }
