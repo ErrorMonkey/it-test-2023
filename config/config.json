@@ -2,8 +2,9 @@
   "development": {
     "host": "localhost",
     "database": "itTest",
-    "username":"user2",
-    "password":"qwer1234!",
+    // 테스트에 사용할 MySQL DB 정보를 입력해주세요.
+    // "username":"",
+    // "password":"",
     "dialect": "mysql"
 
   },
