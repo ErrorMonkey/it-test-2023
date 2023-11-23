@@ -31,7 +31,3 @@ exports.createComments = async (req, res) => {
     });
 };
 
-//댓글 작성폼 표시
-exports.showCreateForm = (req, res) => {
-  res.render("create-comment-form");
-};
