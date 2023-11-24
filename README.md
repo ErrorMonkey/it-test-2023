@@ -7,6 +7,7 @@
 MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스로 참고했습니다.  
 기존 테스트들이 html에 답이 노출되는데, 답을 감추고 서버에서 채점하고 결과를 보여주도록 기획했습니다.
 
+### Directory
 ```bash
 ├── README.md
 ├── app.js
@@ -86,10 +87,6 @@ MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스�
 | <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/99935116-8c67-478b-983c-a588e8b41c9a.jpg"/> | <img width="329"  height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/ea0eef16-c91f-4d56-ac2e-a4cdaa8b4219.jpg"/> | <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/cf1510a7-3b51-4584-a51f-d0e54a5afdf8.jpg"/> |
 
 ---
-
-## Architecture
-
-### Directory
 
 ## Infomation
 
