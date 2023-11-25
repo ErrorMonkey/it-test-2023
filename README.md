@@ -1,18 +1,19 @@
-#### 팀 명: SEMICOLON
+## 팀 명: SEMICOLON
 
-#### 1차 프로젝트: 제1회 IT 능력고사
+## 1차 프로젝트: 제1회 IT 능력고사
 
-## 기획
+### 기획
 
 MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스로 참고했습니다.  
 기존 테스트들이 html에 답이 노출되는데, 답을 감추고 서버에서 채점하고 결과를 보여주고자 MVC 패턴으로 기획했습니다.  
-부트캠프의 첫 프로젝트인 만큼 지금까지 배운 내용과 기술들을 실습을 통해
+부트캠프의 첫 프로젝트인 만큼 지금까지 배운 내용과 기술들을 실습을 통해 복습하며 완전히 이해하는데 의의를 뒀습니다.
 
-## 프로젝트 진행 기간
+### 프로젝트 진행 기간
 
 > 23.11.09 ~ 23.11.23
 
-<h2>Stack</h2>
+### Stack
+
 <div align="left">
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
 	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
@@ -24,13 +25,24 @@ MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스�
 	<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
 	<img src="https://img.shields.io/badge/Sequelize-52B0E7?style=flat&logo=Sequelize&logoColor=white" />
 </div>
-<br>
-	<h2>Tools</h2>
+
+### Tools
+
 <div align=left>
 	<img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=VisualStudioCode&logoColor=white" />
 	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
 	<img src="https://img.shields.io/badge/figma-F24E1E?style=flat&logo=figma&logoColor=white" />
 </div>
+
+---
+
+## 📺 레이아웃
+
+|                                                                  Main page                                                                  |                                                                  Quiz page                                                                   |                                                                 Result page                                                                 |
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
+| <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/99935116-8c67-478b-983c-a588e8b41c9a.jpg"/> | <img width="329"  height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/ea0eef16-c91f-4d56-ac2e-a4cdaa8b4219.jpg"/> | <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/cf1510a7-3b51-4584-a51f-d0e54a5afdf8.jpg"/> |
+
+---
 
 ### 폴더 구조
 
@@ -67,36 +79,32 @@ MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스�
 <img src="./_temp/db-image.png" />
 응시자 정보와 만점자만 남길 수 있는 코멘트 정보를 저장할 수 있도록 2개의 테이블을 만들었습니다.
 
----
-
-## 📺 레이아웃
-
-|                                                                  Main page                                                                  |                                                                  Quiz page                                                                   |                                                                 Result page                                                                 |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/99935116-8c67-478b-983c-a588e8b41c9a.jpg"/> | <img width="329"  height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/ea0eef16-c91f-4d56-ac2e-a4cdaa8b4219.jpg"/> | <img width="329" height="250" src="https://github.com/ErrorMonkey/it-test-2023/assets/100561986/cf1510a7-3b51-4584-a51f-d0e54a5afdf8.jpg"/> |
-
----
-
 ## 프로젝트 디테일
 
-<details>
-<summary>메인 페이지</summary>
+### 시작 화면
 
- <img width="200" height="353" src="./_temp/01-main.gif" />
- <em>메인 화면이 시작되면</em>
-</details>
+|                                                             시연 영상                                                             |             코드             |
+| :-------------------------------------------------------------------------------------------------------------------------------: | :--------------------------: |
+|                                    <img width="200" height="353" src="./_temp/01-main.gif" />                                     | <img src="./_temp/seq1.png"> |
+| 메인 화면에 들어오면 DB에서 응시자와 점수 데이터를 조회해 시퀄라이즈로 총 유저 수, 평균 점수, 만점자 수를 메인 화면에 보여줍니다. |
 
-<details>
-<summary>테스트 페이지</summary>
+---
 
- <img width="200" height="353" src="./_temp/02-test-keep.gif" />
-</details>
+### 테스트 화면
 
-<details>
-<summary>결과 페이지</summary>
+|                                                             시연 영상                                                             |             코드             |
+| :-------------------------------------------------------------------------------------------------------------------------------: | :--------------------------: |
+|                                   <img width="200" height="353" src="./_temp/02-test-keep.gif">                                   | <img src="./_temp/seq1.png"> |
+| 메인 화면에 들어오면 DB에서 응시자와 점수 데이터를 조회해 시퀄라이즈로 총 유저 수, 평균 점수, 만점자 수를 메인 화면에 보여줍니다. |
 
- <img width="200" height="353" src="./_temp/03-result-comment.gif" />
-</details>
+### 결과 화면
+
+|                                                             시연 영상                                                             |             코드             |
+| :-------------------------------------------------------------------------------------------------------------------------------: | :--------------------------: |
+|                                <img width="200" height="353" src="./_temp/03-result-comment.gif">                                 | <img src="./_temp/seq1.png"> |
+| 메인 화면에 들어오면 DB에서 응시자와 점수 데이터를 조회해 시퀄라이즈로 총 유저 수, 평균 점수, 만점자 수를 메인 화면에 보여줍니다. |
+
+---
 
 ## Infomation
 
