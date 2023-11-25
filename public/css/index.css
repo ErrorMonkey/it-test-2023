@@ -1,4 +1,3 @@
-/* header (semicolon logo) */
 header {
   position: relative;
   background-color: var(--main-blue-deep);
@@ -11,8 +10,6 @@ header img {
   width: 206px;
   height: 30px;
 }
-
-/* section1: 퀴즈 타이틀, 캐릭터, 시작하기 버튼 */
 .wrapper {
   padding: 53px 15px;
   display: flex;
@@ -44,8 +41,6 @@ header img {
   transform: translateY(3px);
   box-shadow: 0 5px 0 var(--main-blue-dark);
 }
-
-/* section2: 응시자, 평균점수, 만점자*/
 .cont-area {
   display: flex;
   flex-direction: column;
@@ -81,8 +76,6 @@ ul {
   padding: 0;
   margin: 0;
 }
-
-/* section3: 새싹 링크 */
 .sesac {
   display: flex;
   flex-direction: column;
@@ -118,8 +111,6 @@ ul {
   color: inherit;
   border: 1.5px solid var(--main-gray-deep);
 }
-
-/* section4: 댓글 */
 .comment-section {
   padding: 10px 36px;
 }
@@ -155,8 +146,6 @@ ul {
   margin-left: 40px;
   color: var(--main-black-basic);
 }
-
-/* float-box */
 .float-box {
   background-color: var(--main-black-basic);
   color: var(--main-white-basic);
