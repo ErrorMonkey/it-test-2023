@@ -17,6 +17,12 @@ exports.createComments = async (req, res) => {
 
   await db.comment.create(dbData);
 
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("세션 파괴 에러: ", err);
+    }
+  });
+
   await db.comment
     .findAll({
       order: [["maxID", "DESC"]],

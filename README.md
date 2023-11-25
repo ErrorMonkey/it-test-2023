@@ -34,6 +34,7 @@ MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스�
 
 ### 폴더 구조
 
+### Directory
 ```bash
 ├── README.md
 ├── app.js
@@ -97,6 +98,31 @@ MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스�
 
  <img width="200" height="353" src="./_temp/03-result-comment.gif" />
 </details>
+
+## Develop period
+
+> 23.11.09 ~ 23.11.23
+
+<h2>Stack</h2>
+<div align="left">
+	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
+	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
+	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
+	<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white" />
+	<br>
+	<img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
+	<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
+	<img src="https://img.shields.io/badge/Sequelize-52B0E7?style=flat&logo=Sequelize&logoColor=white" />
+</div>
+<br>
+	<h2>Tools</h2>
+<div align=left>
+	<img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=VisualStudioCode&logoColor=white" />
+	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
+	<img src="https://img.shields.io/badge/figma-F24E1E?style=flat&logo=figma&logoColor=white" />
+</div>
+
 
 ## Infomation
 

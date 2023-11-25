@@ -164,6 +164,8 @@ exports.formGetResult = async (req, res) => {
     // 응시자와 점수 등록
     await db.applicants.create(dbData);
 
+    req.session.score = dbData.score;
+
     data = {
       // 만점자 코멘트 불러오기
       totalComment: await getComments(),
