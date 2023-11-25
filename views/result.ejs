@@ -159,6 +159,9 @@
     </footer>
 
     <script>
+      window.onload = () => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      };
       // 공유 아이콘 애니메이션
       function snsListAni() {
         const snsList = document.querySelector(".sns-list");
@@ -184,13 +187,10 @@
 
       if ("<%= data.perfect %>" === "true") {
         const commentPop = async () => {
-          await window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-          // window.onload = () => {
           await $(".form-wrapper").css("display", "block");
           await $(".form-bg").fadeIn(500);
           const body = document.querySelector("body");
           body.style.cssText = "overflow: hidden; touch-action: none";
-          // };
         };
         commentPop();
       }
@@ -199,8 +199,7 @@
       const commentSubmit = async () => {
         const forms = document.forms["userComment"];
         if (!forms.checkValidity()) {
-          // checkValidity 폼의 유효성 검사를 해서 boolean 값 반환
-          forms.reportValidity(); // reportValidity: 유효성 검사를 통과하지 못 한 input에 대해 report
+          forms.reportValidity();
           return false;
         }
         const body = document.querySelector("body");
@@ -226,9 +225,6 @@
           for (let i = 0; i < newComments.length; i++) {
             let commentBox = document.createElement("div");
             commentBox.setAttribute("class", "comment-box");
-
-            console.log("userImg", userImg);
-            // userImg.setAttribute("class", "profile");
 
             let name = document.createElement("p");
             name.setAttribute("class", "name");

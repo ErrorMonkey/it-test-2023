@@ -1,11 +1,38 @@
-# IT 능력고사
+#### 팀 명: SEMICOLON
 
-## Introduce
+#### 1차 프로젝트: 제1회 IT 능력고사
 
-> 제1회 IT 능력고사
+## 기획
 
 MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스로 참고했습니다.  
-기존 테스트들이 html에 답이 노출되는데, 답을 감추고 서버에서 채점하고 결과를 보여주도록 기획했습니다.
+기존 테스트들이 html에 답이 노출되는데, 답을 감추고 서버에서 채점하고 결과를 보여주고자 MVC 패턴으로 기획했습니다.  
+부트캠프의 첫 프로젝트인 만큼 지금까지 배운 내용과 기술들을 실습을 통해
+
+## 프로젝트 진행 기간
+
+> 23.11.09 ~ 23.11.23
+
+<h2>Stack</h2>
+<div align="left">
+	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
+	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
+	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
+	<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white" />
+	<br>
+	<img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
+	<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
+	<img src="https://img.shields.io/badge/Sequelize-52B0E7?style=flat&logo=Sequelize&logoColor=white" />
+</div>
+<br>
+	<h2>Tools</h2>
+<div align=left>
+	<img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=VisualStudioCode&logoColor=white" />
+	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
+	<img src="https://img.shields.io/badge/figma-F24E1E?style=flat&logo=figma&logoColor=white" />
+</div>
+
+### 폴더 구조
 
 ```bash
 ├── README.md
@@ -35,51 +62,14 @@ MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스�
     └── test2023.ejs
 ```
 
-<details>
-<summary>메인 페이지</summary>
+### Data Base
 
- <img width="374" height="660" src="./_temp/01-main.gif" />
-</details>
-
-<details>
-<summary>테스트 페이지</summary>
-
- <img width="374" height="660" src="./_temp/02-test-keep.gif" />
-</details>
-
-<details>
-<summary>결과 페이지</summary>
-
- <img width="374" height="660" src="./_temp/03-result-comment.gif" />
-</details>
-
-## Develop period
-
-> 23.11.09 ~ 23.11.23
-
-<h2>Stack</h2>
-<div align="left">
-	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
-	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
-	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
-	<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white" />
-	<br>
-	<img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/>
-	<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
-	<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
-	<img src="https://img.shields.io/badge/Sequelize-52B0E7?style=flat&logo=Sequelize&logoColor=white" />
-</div>
-<br>
-	<h2>Tools</h2>
-<div align=left>
-	<img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=VisualStudioCode&logoColor=white" />
-	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
-	<img src="https://img.shields.io/badge/figma-F24E1E?style=flat&logo=figma&logoColor=white" />
-</div>
+<img src="./_temp/db-image.png" />
+응시자 정보와 만점자만 남길 수 있는 코멘트 정보를 저장할 수 있도록 2개의 테이블을 만들었습니다.
 
 ---
 
-## Screen Layout 📺
+## 📺 레이아웃
 
 |                                                                  Main page                                                                  |                                                                  Quiz page                                                                   |                                                                 Result page                                                                 |
 | :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
@@ -87,9 +77,26 @@ MBTI, 성향 테스트, 트렌드 능력고사 같은 사이트를 레퍼런스�
 
 ---
 
-## Architecture
+## 프로젝트 디테일
 
-### Directory
+<details>
+<summary>메인 페이지</summary>
+
+ <img width="200" height="353" src="./_temp/01-main.gif" />
+ <em>메인 화면이 시작되면</em>
+</details>
+
+<details>
+<summary>테스트 페이지</summary>
+
+ <img width="200" height="353" src="./_temp/02-test-keep.gif" />
+</details>
+
+<details>
+<summary>결과 페이지</summary>
+
+ <img width="200" height="353" src="./_temp/03-result-comment.gif" />
+</details>
 
 ## Infomation
 
